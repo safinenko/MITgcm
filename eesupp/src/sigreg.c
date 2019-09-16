@@ -10,6 +10,7 @@
 //EOP
 
 */
+
 #ifdef HAVE_SIGREG
 /*  Here, we get the definition of the FC_NAMEMANGLE() macro. */
 #include "FC_NAMEMANGLE.h"
@@ -21,9 +22,9 @@
 #include <stdio.h>
 #include <signal.h>
 #include <errno.h>
-#include <ucontext.h>
 
 int * sigreg_ip;
+struct ucontext;
 
 static void killhandler(
     unsigned int sn, siginfo_t  si, struct ucontext *sc )

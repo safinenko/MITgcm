@@ -175,28 +175,6 @@ C     Create and/or set the MNC output directory
         ENDIF
       ENDIF
 
-C--   print out some kee parameters :
-
-C--   Check the parameters :
-      IF ( pickup_write_mnc .OR. pickup_read_mnc ) THEN
-        WRITE(msgBuf,'(2A)') '** WARNING ** MNC_READPARMS: ',
-     &   'incomplete MNC pickup files implementation'
-        CALL PRINT_MESSAGE( msgBuf, errorMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-      ENDIF
-      IF ( pickup_write_mnc ) THEN
-        WRITE(msgBuf,'(2A)') '** WARNING ** MNC_READPARMS: ',
-     &   '=> pickup_write_mnc=T not recommanded'
-        CALL PRINT_MESSAGE( msgBuf, errorMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-      ENDIF
-      IF ( pickup_read_mnc ) THEN
-        WRITE(msgBuf,'(2A)') '** WARNING ** MNC_READPARMS: ',
-     &   '=> pickup_read_mnc=T not working for some set-up'
-        CALL PRINT_MESSAGE( msgBuf, errorMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-      ENDIF
-
       RETURN
       END
 
