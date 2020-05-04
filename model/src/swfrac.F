@@ -26,6 +26,7 @@ C     | otherwise the limit for the exponent (+/- 5678) needs to
 C     | be taken care of.
 C     | Written by   : Jan Morzel
 C     | Date         : July 12, 1995
+C     | Included modification to adadpt it to lakes in Sept 2018 (Cintia)
 C     *==========================================================*
 C     \ev
 
@@ -54,54 +55,46 @@ C     swdk    :: on output: short wave (radiation) fractional decay
 C     !LOCAL VARIABLES:
 C     === Local variables ===
 C     max number of different water types
-      INTEGER   nwtype  , jwtype
+      INTEGER nwtype, secchi
       PARAMETER(nwtype=5)
       _RL facz
-      _RL rfac(nwtype),a1(nwtype),a2(nwtype)
+      _RL eta,zA,BetaSol
       INTEGER i
-#ifdef ALLOW_CAL
-c     _RL     fac
-c     LOGICAL first, changed
-c     INTEGER count0, count1
-c     INTEGER jerl(12)
-c     DATA jerl / 2 , 2 , 2 , 3 , 3 , 3 , 4 , 4 , 4 , 4 , 3 , 2 /
-#endif /* ALLOW_CAL */
-CEOP
+      _RL     fac, attenCoeff
+      LOGICAL first, changed
+      INTEGER count0, count1
+      _RL secchiDepths(12)
+      DATA secchiDepths / 13.8 _d 0,
+     &                    15.5 _d 0,
+     &                    9.3  _d 0,
+     &                    7.0  _d 0,
+     &                    5.15 _d 0,
+     &                    8.8  _d 0,
+     &                    8.15 _d 0,
+     &                    3.7  _d 0,
+     &                    6.6  _d 0,
+     &                    8.55 _d 0,
+     &                    8.1  _d 0,
+     &                    10.5 _d 0 /
 
-C     Jerlov water type :
-C                  I          IA         IB         II         III
-C     jwtype :     1          2          3          4          5
-      DATA rfac / 0.58 _d 0, 0.62 _d 0, 0.67 _d 0, 0.77 _d 0, 0.78 _d 0/
-      DATA a1   / 0.35 _d 0, 0.6  _d 0, 1.0  _d 0, 1.5  _d 0, 1.4  _d 0/
-      DATA a2   / 23.0 _d 0, 20.0 _d 0, 17.0 _d 0, 14.0 _d 0, 7.9  _d 0/
+      attenCoeff = 1.3 _d 0
 
 #ifdef ALLOW_CAL
-ceh3 this should have an IF ( useCALENDAR ) THEN
-CML(
-C     myIter = 0 makes cal_getMonthsRec always return  count0=12
-C     so that jerl(count0) = 2.
-C     The following lines are meant to be an example of how to
-C     include time dependent water types. However, it would probably
-C     make more sense to first think about a regionally varying
-C     water type before implementing a time dependence.
-CML      CALL  cal_GetMonthsRec(
-CML     O     fac, first, changed, count0, count1,
-CML     I     myTime, myIter, myThid )
-CML      jwtype=jerl(count0)
-CML)
-      jwtype=2
+      CALL  cal_GetMonthsRec(
+     O     fac, first, changed, count0, count1,
+     I     myTime, myIter, myThid )
+           secchi=secchiDepths(count1)
 #else /* ALLOW_CAL undef */
-      jwtype=2
+      secchi=10.0 _d 0
 #endif /* ALLOW_CAL */
 
       DO i = 1,imax
-        facz = fact*swdk(i)
-        IF ( facz .LT. -200. _d 0 ) THEN
-          swdk(i) = 0. _d 0
-        ELSE
-          swdk(i) =       rfac(jwtype)  * exp( facz/a1(jwtype) )
-     &       + (1. _d 0 - rfac(jwtype)) * exp( facz/a2(jwtype) )
-        ENDIF
+         facz = fact*swdk(i)
+         IF ( facz .LT. -150. _d 0 ) THEN
+            swdk(i) = 0. _d 0
+         ELSE
+            swdk(i) = exp( attenCoeff * facz / secchi)
+         ENDIF
       ENDDO
 
       RETURN
