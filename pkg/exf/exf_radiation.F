@@ -37,6 +37,10 @@ C     == routine arguments ==
       _RL     myTime
       INTEGER myIter
       INTEGER myThid
+      _RL     fac
+      LOGICAL first, changed
+      INTEGER count0, count1, albval
+      _RL albedovect(12)
 
 #ifdef ALLOW_DOWNWARD_RADIATION
 C     == local variables ==
@@ -167,8 +171,30 @@ c     ENDIF
 #endif /* ALLOW_ZENITHANGLE */
           DO j = 1,sNy
            DO i = 1,sNx
+C            swflux(i,j,bi,bj) = - swdown(i,j,bi,bj)
+C     &                        * (1.0-exf_albedo)
+C ----------Monthly albedo for Rotsee (Cogley (1979)-Grishchenko (Table 5)):
+      DATA albedovect / 0.19 _d 0,
+     &                  0.14 _d 0,
+     &                  0.10 _d 0,
+     &                  0.08 _d 0,
+     &                  0.07 _d 0,
+     &                  0.07 _d 0,
+     &                  0.07 _d 0,
+     &                  0.08 _d 0,
+     &                  0.10 _d 0,
+     &                  0.13 _d 0,
+     &                  0.19 _d 0,
+     &                  0.21 _d 0 /
+
+      CALL  cal_GetMonthsRec(
+     O     fac, first, changed, count0, count1,
+     I     myTime, myIter, myThid )
+           albval=albedovect(count1)
+
             swflux(i,j,bi,bj) = - swdown(i,j,bi,bj)
-     &                        * (1.0-exf_albedo)
+     &                        * (1.0-albval)
+
            ENDDO
           ENDDO
 #ifdef ALLOW_ZENITHANGLE
