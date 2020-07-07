@@ -101,7 +101,7 @@ C         - creates relatively few files but these files can become huge
           CALL WRITE_REC_XYZ_RL( 'U',  uVel,iRec,myIter,myThid)
           CALL WRITE_REC_XYZ_RL( 'V',  vVel,iRec,myIter,myThid)
           CALL WRITE_REC_XYZ_RL( 'T', theta,iRec,myIter,myThid)
-          CALL WRITE_REC_XYZ_RL( 'S',  salt,iRec,myIter,myThid)
+C          CALL WRITE_REC_XYZ_RL( 'S',  salt,iRec,myIter,myThid)
           CALL WRITE_REC_XY_RL('Eta',etaN,iRec,myIter,myThid)
           CALL WRITE_REC_XYZ_RL( 'W',wVel,iRec,myIter,myThid)
 #ifdef ALLOW_NONHYDROSTATIC
@@ -189,25 +189,25 @@ C         CALL MNC_CW_RL_W_S('D','state',0,0,'model_time',myTime,myThid)
           CALL MNC_CW_RL_W(pf,'state',0,0,'U', uVel, myThid)
           CALL MNC_CW_RL_W(pf,'state',0,0,'V', vVel, myThid)
           CALL MNC_CW_RL_W(pf,'state',0,0,'Temp', theta, myThid)
-          CALL MNC_CW_RL_W(pf,'state',0,0,'S', salt, myThid)
+C          CALL MNC_CW_RL_W(pf,'state',0,0,'S', salt, myThid)
           CALL MNC_CW_RL_W(pf,'state',0,0,'Eta', etaN, myThid)
           CALL MNC_CW_RL_W(pf,'state',0,0,'W', wVel, myThid)
-          IF ( storePhiHyd4Phys .OR. myIter.NE.nIter0 ) THEN
-            CALL MNC_CW_SET_UDIM('phiHyd', -1, myThid)
-            CALL MNC_CW_RL_W_S('D','phiHyd',0,0,'T',myTime,myThid)
-            CALL MNC_CW_SET_UDIM('phiHyd', 0, myThid)
-            CALL MNC_CW_I_W_S('I','phiHyd',0,0,'iter',myIter,myThid)
-            CALL MNC_CW_RL_W(pf,'phiHyd',0,0,'phiHyd',
-     &           totPhiHyd, myThid)
-          ENDIF
-          IF ( fluidIsWater .AND. (myIter .NE. nIter0) ) THEN
-            CALL MNC_CW_SET_UDIM('phiHydLow', -1, myThid)
-            CALL MNC_CW_RL_W_S('D','phiHydLow',0,0,'T', myTime, myThid)
-            CALL MNC_CW_SET_UDIM('phiHydLow', 0, myThid)
-            CALL MNC_CW_I_W_S('I','phiHydLow',0,0,'iter',myIter,myThid)
-            CALL MNC_CW_RL_W(pf,'phiHydLow',0,0,'phiHydLow',
-     &           phiHydLow, myThid)
-          ENDIF
+C          IF ( storePhiHyd4Phys .OR. myIter.NE.nIter0 ) THEN
+C            CALL MNC_CW_SET_UDIM('phiHyd', -1, myThid)
+C            CALL MNC_CW_RL_W_S('D','phiHyd',0,0,'T',myTime,myThid)
+C            CALL MNC_CW_SET_UDIM('phiHyd', 0, myThid)
+C            CALL MNC_CW_I_W_S('I','phiHyd',0,0,'iter',myIter,myThid)
+C            CALL MNC_CW_RL_W(pf,'phiHyd',0,0,'phiHyd',
+C     &           totPhiHyd, myThid)
+C          ENDIF
+C          IF ( fluidIsWater .AND. (myIter .NE. nIter0) ) THEN
+C            CALL MNC_CW_SET_UDIM('phiHydLow', -1, myThid)
+C            CALL MNC_CW_RL_W_S('D','phiHydLow',0,0,'T', myTime, myThid)
+C            CALL MNC_CW_SET_UDIM('phiHydLow', 0, myThid)
+C            CALL MNC_CW_I_W_S('I','phiHydLow',0,0,'iter',myIter,myThid)
+C            CALL MNC_CW_RL_W(pf,'phiHydLow',0,0,'phiHydLow',
+C     &           phiHydLow, myThid)
+C          ENDIF
 #ifdef ALLOW_NONHYDROSTATIC
           IF (nonHydroStatic) THEN
             CALL MNC_CW_RL_W(pf,'state',0,0,'phi_nh',phi_nh,myThid)
