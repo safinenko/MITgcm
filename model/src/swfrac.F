@@ -77,7 +77,7 @@ C     max number of different water types
      &                    8.1  _d 0,
      &                    10.5 _d 0 /
 
-      attenCoeff = 1.3 _d 0
+      attenCoeff = 1.7 _d 0
 
 #ifdef ALLOW_CAL
       CALL  cal_GetMonthsRec(

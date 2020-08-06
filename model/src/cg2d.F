@@ -391,6 +391,10 @@ C--   Return parameters to caller
       lastResidual = SQRT(err_sq)
       numIters = actualIts
 
+      IF ( ISNAN(sumRHS)) THEN
+        ERROR STOP 'NaN generated! Stopping here.'
+      END IF
+
 CcnhDebugStarts
 c     _EXCH_XY_RL(cg2d_x, myThid )
 c     CALL PLOT_FIELD_XYRL( cg2d_x, 'CALC_MOM_RHS CG2D_X' , 1, myThid )
