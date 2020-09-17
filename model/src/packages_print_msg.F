@@ -36,8 +36,8 @@ c     CHARACTER*(MAX_LEN_MBUF) msgBuf
       CHARACTER*(MAX_LEN_MBUF) pkgLwc
       CHARACTER*(MAX_LEN_MBUF) pkgUse
       CHARACTER*(20) prtFmt
-      INTEGER iLen, pLen
-      PARAMETER( pLen = 24 )
+      INTEGER iLen
+      INTEGER, PARAMETER :: pLen = 24
 CEOP
 
       WRITE(pkgLwc,'(A)') ' '

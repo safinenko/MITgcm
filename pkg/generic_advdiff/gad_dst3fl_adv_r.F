@@ -53,8 +53,7 @@ C  wCFL              :: Courant-Friedrich-Levy number
       _RL Rjm,Rj,Rjp,wCFL,d0,d1
       _RL psiP,psiM,thetaP,thetaM
       _RL wLoc
-      _RL thetaMax
-      PARAMETER( thetaMax = 1.D+20 )
+      _RL, PARAMETER :: thetaMax = 1.D+20
 
       km2=MAX(1,k-2)
       km1=MAX(1,k-1)

@@ -104,13 +104,12 @@ C     arrVin      :: 2nd  component input field array (loaded from file)
       INTEGER  nLoop
       _RL      tmpVar
       _RS      xG(1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
-      _RS      threeSixtyRS
-      _RL      yPole, symSign, poleU, poleV
+      _RS, PARAMETER :: threeSixtyRS = 360.
+      _RL, PARAMETER :: yPole = 90.
+      _RL      symSign, poleU, poleV
       _RL      csdLon, sndLon, pSign
       _RL      edgeFac, poleFac
       LOGICAL  calcLonCS
-      PARAMETER ( threeSixtyRS = 360. )
-      PARAMETER ( yPole = 90. )
       INTEGER  nxd2
       LOGICAL  xIsPeriodic, poleSymmetry
 #ifdef ALLOW_DEBUG

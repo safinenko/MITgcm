@@ -443,8 +443,7 @@ C     kSurface  :: index of surface level
       _RL tmpFac, delPI
       _RL recip_Cp
 #ifdef SHORTWAVE_HEATING
-      _RL minusone
-      PARAMETER (minusOne=-1.)
+      _RL, PARAMETER :: minusone = -1.
       _RL swfracb(2)
       INTEGER kp1
 #endif

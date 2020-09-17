@@ -59,8 +59,7 @@ C     == local variables ==
       _RL     usSq, recip_sqrtRhoA, ustar
       _RL     tmp1, tmp2, tmp3, tmp4
 #endif /* ALLOW_BULKFORMULAE */
-      _RL     oneThirdRL
-      PARAMETER ( oneThirdRL = 1.d0 / 3.d0 )
+      _RL, PARAMETER :: oneThirdRL = 1.d0 / 3.d0
 #if !(defined ALLOW_BULKFORMULAE) || !(defined ALLOW_ATM_TEMP)
       _RL wsm, tmpbulk
 #endif

@@ -55,8 +55,7 @@ C     swdk    :: on output: short wave (radiation) fractional decay
 C     !LOCAL VARIABLES:
 C     === Local variables ===
 C     max number of different water types
-      INTEGER nwtype, secchi
-      PARAMETER(nwtype=5)
+      INTEGER secchi
       _RL facz
       _RL eta,zA,BetaSol
       INTEGER i

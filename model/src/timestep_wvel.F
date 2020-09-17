@@ -40,12 +40,10 @@ C     iMin,iMax :: 1rst loop counter range
 C     jMin,jMax :: 2nd  loop counter range
 C     i,j,k     :: Loop counters
 C     gWtmp     :: temporary array for vertical momentum tendency
-      INTEGER iMin,iMax,jMin,jMax
+      INTEGER, PARAMETER :: iMin = 1, iMax = sNx, jMin = 1, jMax = sNy
       INTEGER i, j, k, km1
       _RL     gWtmp(1-OLx:sNx+OLx,1-OLy:sNy+OLy)
       _RL     tmpFac, nh_Fac, igwFac
-      PARAMETER( iMin = 1 , iMax = sNx )
-      PARAMETER( jMin = 1 , jMax = sNy )
 CEOP
 
       igwFac = 0. _d 0

@@ -23,8 +23,7 @@ C     ====================================================== arguments
 
 C     ====================================================== variables
           _RL fell,ferr,scal
-          _RL epsil
-          PARAMETER( epsil = 1. _d -16 )
+          _RL, PARAMETER :: epsil = 1. _d -16
 
           dfds(-1) = ff00 - ffll
           dfds(+1) = ffrr - ff00
@@ -83,8 +82,7 @@ C     ====================================================== arguments
 
 C     ====================================================== variables
           _RL fell,ferr,scal
-          _RL epsil
-          PARAMETER( epsil = 1. _d -16 )
+          _RL, PARAMETER :: epsil = 1. _d -16
 
           dfds(-1) = ff00 - ffll
           dfds(+1) = ffrr - ff00

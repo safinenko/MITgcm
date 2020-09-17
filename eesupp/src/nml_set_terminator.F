@@ -31,11 +31,10 @@ C     == Routine arguments ==
 C     !LOCAL VARIABLES:
 C     == Local variables ==
       INTEGER iL
-      CHARACTER*(2) nmlEnd
 #ifdef NML_TERMINATOR
-      PARAMETER( nmlEnd = ' /' )
+      CHARACTER*(2), PARAMETER :: nmlEnd = ' /'
 #else
-      PARAMETER( nmlEnd = ' &' )
+      CHARACTER*(2), PARAMETER :: nmlEnd = ' &'
 #endif
 CEOP
 

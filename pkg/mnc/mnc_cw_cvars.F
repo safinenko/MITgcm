@@ -46,8 +46,8 @@ C     !LOCAL VARIABLES:
       integer cv_start(1), cv_count(1)
       _RS rtmp(sNx + 2*OLx + sNy + 2*OLy + Nr)
 C     variables for text attributes
-      integer MAX_LEN_NAME, ia
-      PARAMETER ( MAX_LEN_NAME = 128 )
+      integer ia
+      INTEGER, PARAMETER :: MAX_LEN_NAME = 128
       character*(MAX_LEN_NAME) units, long_name, positive
 
       DO i=1,MAX_LEN_NAME

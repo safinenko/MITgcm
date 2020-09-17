@@ -46,9 +46,7 @@ C cDrag     :: bottom drag coefficient
 C KE2d      :: horizontal Kinetic Energy
 C diagonalNumber :: number of non-zero diagonals in the matrix
 C errCode   :: > 0 if singular matrix
-      INTEGER iMin,iMax,jMin,jMax
-      PARAMETER( iMin = 1, iMax = sNx )
-      PARAMETER( jMin = 1, jMax = sNy+1 )
+      INTEGER, PARAMETER :: iMin = 1, iMax = sNx, jMin = 1, jMax = sNy+1
       INTEGER i,j,k
       INTEGER diagonalNumber, errCode
 c     _RL a5d(1-OLx:sNx+OLx,1-OLy:sNy+OLy,Nr)

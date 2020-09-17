@@ -182,10 +182,8 @@ C     addDissV    :: merid momentum tendency from 3-D Smag. viscosity
       INTEGER bi, bj
       INTEGER i, j
       INTEGER k, km1, kp1, kUp, kDown
-      INTEGER iMin, iMax
-      INTEGER jMin, jMax
-      PARAMETER( iMin = 0 , iMax = sNx+1 )
-      PARAMETER( jMin = 0 , jMax = sNy+1 )
+      INTEGER, PARAMETER :: iMin = 0, iMax = sNx+1
+      INTEGER, PARAMETER :: jMin = 0, jMax = sNy+1
 
 #ifdef ALLOW_DIAGNOSTICS
 c     LOGICAL dPhiHydDiagIsOn

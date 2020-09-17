@@ -78,9 +78,7 @@ C Local variables
 cph-usesingle(
       integer ii,jj
 c     integer iG_IO,jG_IO,npe
-      integer x_size,y_size
-      PARAMETER ( x_size = Nx )
-      PARAMETER ( y_size = Ny )
+      INTEGER, PARAMETER :: x_size = Nx, y_size = Ny
       Real*4 xy_buffer_r4(x_size,y_size)
       Real*8 xy_buffer_r8(x_size,y_size)
       Real*8 global(Nx,Ny)
@@ -500,9 +498,7 @@ cph-usesingle(
 #ifdef ALLOW_USE_MPI
       integer ii,jj
 c     integer iG_IO,jG_IO,npe
-      integer x_size,y_size
-      PARAMETER ( x_size = Nx )
-      PARAMETER ( y_size = Ny )
+      INTEGER, PARAMETER :: x_size = Nx, y_size = Ny
       Real*4 xy_buffer_r4(x_size,y_size)
       Real*8 xy_buffer_r8(x_size,y_size)
       Real*8 global(Nx,Ny)
@@ -841,8 +837,8 @@ C Routine arguments
       character*(*) fName
       integer filePrec
       character*(2) arrType
-      integer nNz, nLocz
-      parameter (nLocz = 1)
+      integer nNz
+      INTEGER, PARAMETER :: nLocz = 1
       _RL arr_gl(sNx,nSx,nPx,sNy,nSy,nPy,nLocz)
       integer irecord
       integer myThid
@@ -865,9 +861,7 @@ C Local variables
 cph-usesingle(
       integer ii,jj
 c     integer iG_IO,jG_IO,npe
-      integer x_size,y_size
-      PARAMETER ( x_size = Nx )
-      PARAMETER ( y_size = Ny )
+      INTEGER, PARAMETER :: x_size = Nx, y_size = Ny
       Real*4 xy_buffer_r4(x_size,y_size)
       Real*8 xy_buffer_r8(x_size,y_size)
       Real*8 global(Nx,Ny)
@@ -1257,8 +1251,8 @@ C Routine arguments
       character*(*) fName
       integer filePrec
       character*(2) arrType
-      integer nNz, nLocz
-      parameter (nLocz = 1)
+      integer nNz
+      INTEGER, PARAMETER :: nLocz = 1
 cph(
 cph      Real arr(*)
       _RL arr_gl(sNx,nSx,nPx,sNy,nSy,nPy,nLocz)
@@ -1288,9 +1282,7 @@ cph-usesingle(
 #ifdef ALLOW_USE_MPI
       integer ii,jj
 c     integer iG_IO,jG_IO,npe
-      integer x_size,y_size
-      PARAMETER ( x_size = Nx )
-      PARAMETER ( y_size = Ny )
+      INTEGER, PARAMETER :: x_size = Nx, y_size = Ny
       Real*4 xy_buffer_r4(x_size,y_size)
       Real*8 xy_buffer_r8(x_size,y_size)
       Real*8 global(Nx,Ny)

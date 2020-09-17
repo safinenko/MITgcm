@@ -77,10 +77,8 @@ C     myThid  :: my Thread Id number
 C     !LOCAL VARIABLES:
       INTEGER bi,bj
       INTEGER i,j,ks
-      INTEGER imin, imax
-      INTEGER jmin, jmax
-      PARAMETER ( imin = 1-OLx , imax = sNx+OLx )
-      PARAMETER ( jmin = 1-OLy , jmax = sNy+OLy )
+      INTEGER, PARAMETER :: imin = 1-OLx , imax = sNx+OLx
+      INTEGER, PARAMETER :: jmin = 1-OLy , jmax = sNy+OLy
 CEOP
 
 C--   set surface level index:

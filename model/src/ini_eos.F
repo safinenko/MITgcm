@@ -370,8 +370,8 @@ C     i,j,k
       _RL rhoLoc (1-OLx:sNx+OLx,1-OLy:sNy+OLy)
       _RL bulkMod(1-OLx:sNx+OLx,1-OLy:sNy+OLy)
 
-      INTEGER ncheck, kcheck, k1c, k2c, iLen
-      PARAMETER ( ncheck = 20 )
+      INTEGER kcheck, k1c, k2c, iLen
+      INTEGER, PARAMETER :: ncheck = 20
       _RL tLoc(ncheck), ptLoc(ncheck), sLoc(ncheck), pLoc(ncheck)
       _RL rLoc(ncheck), bLoc(ncheck)
       _RL surf_pRef_save, rhoDif

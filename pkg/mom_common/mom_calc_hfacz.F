@@ -65,14 +65,13 @@ C                    without topography)
 # endif /* USE_SMOOTH_MIN */
 #else /* ALLOW_DEPTH_CONTROL */
       _RS     hFacZOpen
-      INTEGER hZoption
+      INTEGER, PARAMETER :: hZoption = 0
       LOGICAL northWestCorner, northEastCorner,
      &        southWestCorner, southEastCorner
       INTEGER myFace
 # ifdef ALLOW_EXCH2
       INTEGER myTile
 # endif /* ALLOW_EXCH2 */
-      PARAMETER ( hZoption = 0 )
 #endif /* ALLOW_DEPTH_CONTROL */
 CEOP
 

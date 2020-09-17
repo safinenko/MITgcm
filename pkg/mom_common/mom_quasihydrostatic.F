@@ -44,9 +44,7 @@ C  effectiveBuoy :: Density (z-coord) / specific volume (p-coord) anomaly
 C !LOCAL VARIABLES: ====================================================
 C  i,j           :: loop indices
 C  scalingFactor :: scaling factor (from acceleration to density)
-      INTEGER iMin,iMax,jMin,jMax
-      PARAMETER( iMin = 0 , iMax = sNx+1 )
-      PARAMETER( jMin = 0 , jMax = sNy+1 )
+      INTEGER, PARAMETER :: iMin = 0, iMax = sNx+1, jMin = 0, jMax = sNy+1
       INTEGER i,j
       _RL scalingFactor
 CEOP

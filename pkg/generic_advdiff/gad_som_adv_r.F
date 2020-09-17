@@ -103,8 +103,7 @@ C  wT           :: vertical advective flux
 C !LOCAL VARIABLES: ====================================================
 C  i,j          :: loop indices
 C  wLoc         :: volume transported (per time step)
-      _RL three
-      PARAMETER( three = 3. _d 0 )
+      _RL, PARAMETER :: three = 3. _d 0
       INTEGER i,j
       INTEGER km1
       LOGICAL noFlowAcrossSurf

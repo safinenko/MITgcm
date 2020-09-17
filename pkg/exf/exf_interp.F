@@ -92,11 +92,10 @@ C     arrayin     :: input field array (loaded from file)
       INTEGER  nLoop
       _RL      tmpVar
       _RS      xG(1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
-      _RS      threeSixtyRS
-      _RL      yPole, symSign, poleValue
+      _RS, PARAMETER :: threeSixtyRS = 360.
+      _RL, PARAMETER :: yPole = 90.
+      _RL      symSign, poleValue
       _RL      edgeFac, poleFac
-      PARAMETER ( threeSixtyRS = 360. )
-      PARAMETER ( yPole = 90. )
       INTEGER  nxd2
       LOGICAL  xIsPeriodic, poleSymmetry
 #ifdef ALLOW_DEBUG

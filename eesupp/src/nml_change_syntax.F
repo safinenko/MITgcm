@@ -43,11 +43,10 @@ C     myThid    :: my Thread Id number
 C     !LOCAL VARIABLES:
 C     == Local variables ==
       INTEGER il
-      CHARACTER*(2) nmlEnd
 #ifdef NML_TERMINATOR
-      PARAMETER( nmlEnd = ' /' )
+      CHARACTER*(2), PARAMETER :: nmlEnd = ' /'
 #else
-      PARAMETER( nmlEnd = ' &' )
+      CHARACTER*(2), PARAMETER :: nmlEnd = ' &'
 #endif
 
 #ifdef NML_EXTENDED_F77

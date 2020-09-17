@@ -32,8 +32,7 @@ C     == Routine arguments ==
 C     == Local variables ==
       INTEGER i,j
       _RL Rjm,Rj,Rjp,vCFL,d0,d1,psiP,psiM,thetaP,thetaM
-      _RL thetaMax
-      PARAMETER( thetaMax = 1.D+20 )
+      _RL, PARAMETER :: thetaMax = 1.D+20
 
       DO i=1-OLx,sNx+OLx
        vT(i,1-OLy)=0. _d 0

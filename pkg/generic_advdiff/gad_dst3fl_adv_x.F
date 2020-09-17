@@ -32,8 +32,7 @@ C     == Routine arguments ==
 C     == Local variables ==
       INTEGER i,j
       _RL Rjm,Rj,Rjp,uCFL,d0,d1,psiP,psiM,thetaP,thetaM
-      _RL thetaMax
-      PARAMETER( thetaMax = 1.D+20 )
+      _RL, PARAMETER :: thetaMax = 1.D+20
 
 C- jmc: an alternative would be to compute directly psiM*Rj & psiP*Rj
 C       (if Rj*Rjm < 0 => psiP*Rj = 0 , elsef Rj > 0 ... , else  ... )

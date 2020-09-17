@@ -45,8 +45,7 @@ C     !FUNCTIONS:
 
 C     !LOCAL VARIABLES
       _RL del_P ,del_th, th, q
-      _RL onehalf, two, three
-      PARAMETER ( onehalf = 0.5 _d 0, two = 2. _d 0, three = 3. _d 0 )
+      _RL, PARAMETER :: onehalf = 0.5 _d 0, two = 2. _d 0, three = 3. _d 0
 CEOP
 
 C theta1

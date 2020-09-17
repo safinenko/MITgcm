@@ -693,8 +693,8 @@ C     !LOCAL VARIABLES:
 C     == Local variables ==
       INTEGER i,j
       _RL t1, t2, s1, sp5, p1, p1t1
-      _RL den, epsln
-      parameter ( epsln = 0. _d 0 )
+      _RL den
+      _RL, PARAMETER :: epsln = 0. _d 0
 CEOP
       DO j=jMin,jMax
          DO i=iMin,iMax
@@ -777,8 +777,8 @@ C     !LOCAL VARIABLES:
 C     == Local variables ==
       INTEGER i,j
       _RL ct, sa, sqrtsa, p
-      _RL den, epsln
-      parameter ( epsln = 0. _d 0 )
+      _RL den
+      _RL, PARAMETER :: epsln = 0. _d 0
 CEOP
       DO j=jMin,jMax
        DO i=iMin,iMax
@@ -864,9 +864,9 @@ C     == Local variables ==
       _RL dp0, ct, sa, sqrtsa, p
       _RL rfresh, rsalt, rhoP0
       _RL bMfresh, bMsalt, bMpres, BulkMod
-      _RL rhoNum, rhoDen, den, epsln
+      _RL rhoNum, rhoDen, den
       _RL oneMinusKap, facPres, theta_v
-      PARAMETER ( epsln = 0. _d 0 )
+      _RL, PARAMETER :: epsln = 0. _d 0
       CHARACTER*(MAX_LEN_MBUF) msgBuf
 #ifdef USE_FACTORIZED_EOS
       _RL eosF1, eosF2, eosF3, eosF4, eosF5, eosF6

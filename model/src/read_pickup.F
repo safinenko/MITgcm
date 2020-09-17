@@ -61,8 +61,8 @@ C     msgBuf      :: Informational/error message buffer
       CHARACTER*(MAX_LEN_FNAM) fn
       CHARACTER*(10) suff
       INTEGER filePrec, nbFields
-      INTEGER missFldDim, nMissing
-      PARAMETER( missFldDim = 20 )
+      INTEGER nMissing
+      INTEGER, PARAMETER :: missFldDim = 20
       CHARACTER*(8) missFldList(missFldDim)
 #ifdef ALLOW_ADAMSBASHFORTH_3
       INTEGER j, m1, m2
@@ -70,14 +70,10 @@ C     msgBuf      :: Informational/error message buffer
       INTEGER nj, ioUnit
       CHARACTER*(MAX_LEN_MBUF) msgBuf
 #ifndef ALLOW_GENERIC_ADVDIFF
-      LOGICAL AdamsBashforthGt
-      LOGICAL AdamsBashforthGs
-      LOGICAL AdamsBashforth_T
-      LOGICAL AdamsBashforth_S
-      PARAMETER ( AdamsBashforthGt = .FALSE. ,
-     &            AdamsBashforthGs = .FALSE. ,
-     &            AdamsBashforth_T = .FALSE. ,
-     &            AdamsBashforth_S = .FALSE. )
+      LOGICAL, PARAMETER :: AdamsBashforthGt = .FALSE.
+      LOGICAL, PARAMETER :: AdamsBashforthGs = .FALSE.
+      LOGICAL, PARAMETER :: AdamsBashforth_T = .FALSE.
+      LOGICAL, PARAMETER :: AdamsBashforth_S = .FALSE.
 #endif
 
 C     Suffix for pickup files
