@@ -16,16 +16,15 @@ CEOP
 
 C    grid_maxNx :: Maximum length of delX vector
 C    grid_maxNy :: Maximum length of delY vector
-      INTEGER grid_maxNx, grid_maxNy
 #ifdef ALLOW_EXCH2
-      PARAMETER( grid_maxNx = W2_maxXStackNx )
-      PARAMETER( grid_maxNy = W2_maxYStackNy )
+      INTEGER, PARAMETER :: grid_maxNx = W2_maxXStackNx
+      INTEGER, PARAMETER :: grid_maxNy = W2_maxYStackNy
 #else  /* ALLOW_EXCH2 */
-      PARAMETER( grid_maxNx = Nx )
-      PARAMETER( grid_maxNy = Ny )
+      INTEGER, PARAMETER :: grid_maxNx = Nx
+      INTEGER, PARAMETER :: grid_maxNy = Ny
 #endif /* ALLOW_EXCH2 */
 
-C--   COMMON /SET_GRID_R/ "Real" valued parameters used to set-up the model grid.
+C--   COMMON /SET_GRID_R/ "Real" valued parameter used to set-up the model gri
 C     delX      :: Separation between cell faces (m) or (deg), depending on type
 C     delY         type of horizontal grid choice (cartesian/spherical-polar ...)
       COMMON /SET_GRID_R/

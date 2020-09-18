@@ -20,8 +20,7 @@ C     \ev
 CEOP
 
 C     Alternating pickup
-      INTEGER maxNoChkptLev
-      PARAMETER ( maxNoChkptLev = 2 )
+      INTEGER, PARAMETER :: maxNoChkptLev = 2
 
 C--   COMMON / RESTART_I / Integer   valued parameters used for restart
 C     nCheckLev     :: Holds current checkpoint level (alternating pickup)

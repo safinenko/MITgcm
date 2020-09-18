@@ -20,26 +20,16 @@ C     routines to ensure that changes are made in a thread-safe fashion.
 CEOP
 
 C--   Monitor head and tail strings
-      CHARACTER*(*) mon_head
-      PARAMETER (   mon_head         = '%MON'     )
-      CHARACTER*(*) mon_foot_min
-      PARAMETER (   mon_foot_min     = '_min'     )
-      CHARACTER*(*) mon_foot_max
-      PARAMETER (   mon_foot_max     = '_max'     )
-      CHARACTER*(*) mon_foot_sd
-      PARAMETER (   mon_foot_sd      = '_sd'      )
-      CHARACTER*(*) mon_foot_mean
-      PARAMETER (   mon_foot_mean    = '_mean'    )
-      CHARACTER*(*) mon_foot_volint
-      PARAMETER (   mon_foot_volint  = '_volint'  )
-      CHARACTER*(*) mon_foot_volmean
-      PARAMETER (   mon_foot_volmean = '_volmean' )
-      CHARACTER*(*) mon_foot_del2
-      PARAMETER (   mon_foot_del2    = '_del2'    )
-      CHARACTER*(*) mon_foot_vol
-      PARAMETER (   mon_foot_vol     = '_vol'     )
-      CHARACTER*(*) mon_string_none
-      PARAMETER (   mon_string_none  = 'NONE'     )
+      CHARACTER*(*), PARAMETER :: mon_head         = '%MON'
+      CHARACTER*(*), PARAMETER :: mon_foot_min     = '_min'
+      CHARACTER*(*), PARAMETER :: mon_foot_max     = '_max'
+      CHARACTER*(*), PARAMETER :: mon_foot_sd      = '_sd'
+      CHARACTER*(*), PARAMETER :: mon_foot_mean    = '_mean'
+      CHARACTER*(*), PARAMETER :: mon_foot_volint  = '_volint'
+      CHARACTER*(*), PARAMETER :: mon_foot_volmean = '_volmean'
+      CHARACTER*(*), PARAMETER :: mon_foot_del2    = '_del2'
+      CHARACTER*(*), PARAMETER :: mon_foot_vol     = '_vol'
+      CHARACTER*(*), PARAMETER :: mon_string_none  = 'NONE'
 
 C--   COMMON /MON_I/ Monitor integer variables
 C     mon_ioUnit :: Used to specify the output unit for monitor IO.

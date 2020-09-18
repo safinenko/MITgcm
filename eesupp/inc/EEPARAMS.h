@@ -19,22 +19,14 @@ C     MAX_LEN_MBUF  :: Default message buffer max. size
 C     MAX_LEN_FNAM  :: Default file name max. size
 C     MAX_LEN_PREC  :: Default rec len for reading "parameter" files
 
-      INTEGER MAX_LEN_MBUF
-      PARAMETER ( MAX_LEN_MBUF = 512 )
-      INTEGER MAX_LEN_FNAM
-      PARAMETER ( MAX_LEN_FNAM = 512 )
-      INTEGER MAX_LEN_PREC
-      PARAMETER ( MAX_LEN_PREC = 200 )
+      INTEGER, PARAMETER :: MAX_LEN_MBUF = 512
+      INTEGER, PARAMETER :: MAX_LEN_FNAM = 512
+      INTEGER, PARAMETER :: MAX_LEN_PREC = 200
 
 C     MAX_NO_THREADS  :: Maximum number of threads allowed.
 CC    MAX_NO_PROCS    :: Maximum number of processes allowed.
 CC    MAX_NO_BARRIERS :: Maximum number of distinct thread "barriers"
-      INTEGER MAX_NO_THREADS
-      PARAMETER ( MAX_NO_THREADS =  4 )
-c     INTEGER MAX_NO_PROCS
-c     PARAMETER ( MAX_NO_PROCS   =  70000 )
-c     INTEGER MAX_NO_BARRIERS
-c     PARAMETER ( MAX_NO_BARRIERS = 1 )
+      INTEGER, PARAMETER :: MAX_NO_THREADS = 4
 
 C     Particularly weird and obscure voodoo numbers
 C     lShare :: This wants to be the length in
@@ -49,57 +41,44 @@ C               The buffer arrays are usually short arrays
 C               and are declared REAL ARRA(lShare[148],LBUFF).
 C               Setting lShare[148] to 1 is like making these arrays
 C               one dimensional.
-      INTEGER cacheLineSize
-      INTEGER lShare1
-      INTEGER lShare4
-      INTEGER lShare8
-      PARAMETER ( cacheLineSize = 256 )
-      PARAMETER ( lShare1 =  cacheLineSize )
-      PARAMETER ( lShare4 =  cacheLineSize/4 )
-      PARAMETER ( lShare8 =  cacheLineSize/8 )
+      INTEGER, PARAMETER :: cacheLineSize = 256
+      INTEGER, PARAMETER :: lShare1 = cacheLineSize
+      INTEGER, PARAMETER :: lShare4 = cacheLineSize/4 
+      INTEGER, PARAMETER :: lShare8 =  cacheLineSize/8
 
 CC    MAX_VGS  :: Maximum buffer size for Global Vector Sum
-c     INTEGER MAX_VGS
-c     PARAMETER ( MAX_VGS = 8192 )
 
 C     ========  EESIZE.h  ========================================
 
 C     Symbolic values
 C     precXXXX :: precision used for I/O
-      INTEGER precFloat32
-      PARAMETER ( precFloat32 = 32 )
-      INTEGER precFloat64
-      PARAMETER ( precFloat64 = 64 )
+      INTEGER, PARAMETER :: precFloat32 = 32
+      INTEGER, PARAMETER :: precFloat64 = 64
 
 C     Real-type constant for some frequently used simple number (0,1,2,1/2):
-      _RS     zeroRS, oneRS, twoRS, halfRS
-      PARAMETER ( zeroRS = 0.0 _d 0 , oneRS  = 1.0 _d 0 )
-      PARAMETER ( twoRS  = 2.0 _d 0 , halfRS = 0.5 _d 0 )
-      _RL     zeroRL, oneRL, twoRL, halfRL
-      PARAMETER ( zeroRL = 0.0 _d 0 , oneRL  = 1.0 _d 0 )
-      PARAMETER ( twoRL  = 2.0 _d 0 , halfRL = 0.5 _d 0 )
+      _RS, PARAMETER :: zeroRS = 0.0 _d 0
+      _RS, PARAMETER :: oneRS  = 1.0 _d 0
+      _RS, PARAMETER :: twoRS  = 2.0 _d 0
+      _RS, PARAMETER :: halfRS = 0.5 _d 0
+      _RL, PARAMETER :: zeroRL = 0.0 _d 0
+      _RL, PARAMETER :: oneRL  = 1.0 _d 0
+      _RL, PARAMETER :: twoRL  = 2.0 _d 0
+      _RL, PARAMETER :: halfRL = 0.5 _d 0
 
 C     UNSET_xxx :: Used to indicate variables that have not been given a value
-      Real*8  UNSET_FLOAT8
-      PARAMETER ( UNSET_FLOAT8 = 1.234567D5 )
-      Real*4  UNSET_FLOAT4
-      PARAMETER ( UNSET_FLOAT4 = 1.234567E5 )
-      _RL     UNSET_RL
-      PARAMETER ( UNSET_RL     = 1.234567D5 )
-      _RS     UNSET_RS
-      PARAMETER ( UNSET_RS     = 1.234567D5 )
-      INTEGER UNSET_I
-      PARAMETER ( UNSET_I      = 123456789  )
+      Real*8, PARAMETER :: UNSET_FLOAT8 = 1.234567D5
+      Real*4, PARAMETER :: UNSET_FLOAT4 = 1.234567E5
+      _RL, PARAMETER :: UNSET_RL = 1.234567D5
+      _RS, PARAMETER :: UNSET_RS = 1.234567D5
+      INTEGER, PARAMETER :: UNSET_I = 123456789
 
 C     debLevX  :: used to decide when to print debug messages
-      INTEGER debLevZero
-      INTEGER debLevA, debLevB,  debLevC, debLevD, debLevE
-      PARAMETER ( debLevZero=0 )
-      PARAMETER ( debLevA=1 )
-      PARAMETER ( debLevB=2 )
-      PARAMETER ( debLevC=3 )
-      PARAMETER ( debLevD=4 )
-      PARAMETER ( debLevE=5 )
+      INTEGER, PARAMETER :: debLevZero = 0
+      INTEGER, PARAMETER :: debLevA = 1
+      INTEGER, PARAMETER :: debLevB = 2
+      INTEGER, PARAMETER :: debLevC = 3
+      INTEGER, PARAMETER :: debLevD = 4
+      INTEGER, PARAMETER :: debLevE = 5
 
 C     SQUEEZE_RIGHT      :: Flag indicating right blank space removal
 C                           from text field.
@@ -116,45 +95,29 @@ C     INDEX_I            :: Variable used to select an index label
 C     INDEX_J               for formatted input parameters.
 C     INDEX_K
 C     INDEX_NONE
-      CHARACTER*(*) SQUEEZE_RIGHT
-      PARAMETER ( SQUEEZE_RIGHT = 'R' )
-      CHARACTER*(*) SQUEEZE_LEFT
-      PARAMETER ( SQUEEZE_LEFT = 'L' )
-      CHARACTER*(*) SQUEEZE_BOTH
-      PARAMETER ( SQUEEZE_BOTH = 'B' )
-      CHARACTER*(*) PRINT_MAP_XY
-      PARAMETER ( PRINT_MAP_XY = 'XY' )
-      CHARACTER*(*) PRINT_MAP_XZ
-      PARAMETER ( PRINT_MAP_XZ = 'XZ' )
-      CHARACTER*(*) PRINT_MAP_YZ
-      PARAMETER ( PRINT_MAP_YZ = 'YZ' )
-      CHARACTER*(*) commentCharacter
-      PARAMETER ( commentCharacter = '#' )
-      INTEGER INDEX_I
-      INTEGER INDEX_J
-      INTEGER INDEX_K
-      INTEGER INDEX_NONE
-      PARAMETER ( INDEX_I    = 1,
-     &            INDEX_J    = 2,
-     &            INDEX_K    = 3,
-     &            INDEX_NONE = 4 )
+      CHARACTER*(*), PARAMETER :: SQUEEZE_RIGHT = 'R'
+      CHARACTER*(*), PARAMETER :: SQUEEZE_LEFT = 'L'
+      CHARACTER*(*), PARAMETER :: SQUEEZE_BOTH = 'B'
+      CHARACTER*(*), PARAMETER :: PRINT_MAP_XY = 'XY'
+      CHARACTER*(*), PARAMETER :: PRINT_MAP_XZ = 'XZ'
+      CHARACTER*(*), PARAMETER :: PRINT_MAP_YZ = 'YZ'
+      CHARACTER*(*), PARAMETER :: commentCharacter = '#'
+      INTEGER, PARAMETER :: INDEX_I = 1
+      INTEGER, PARAMETER :: INDEX_J = 2
+      INTEGER, PARAMETER :: INDEX_K = 3
+      INTEGER, PARAMETER :: INDEX_NONE = 4
 
 C     EXCH_IGNORE_CORNERS :: Flag to select ignoring or
 C     EXCH_UPDATE_CORNERS    updating of corners during an edge exchange.
-      INTEGER EXCH_IGNORE_CORNERS
-      INTEGER EXCH_UPDATE_CORNERS
-      PARAMETER ( EXCH_IGNORE_CORNERS = 0,
-     &            EXCH_UPDATE_CORNERS = 1 )
+      INTEGER, PARAMETER :: EXCH_IGNORE_CORNERS = 0
+      INTEGER, PARAMETER :: EXCH_UPDATE_CORNERS = 1
 
 C     FORWARD_SIMULATION
 C     REVERSE_SIMULATION
 C     TANGENT_SIMULATION
-      INTEGER FORWARD_SIMULATION
-      INTEGER REVERSE_SIMULATION
-      INTEGER TANGENT_SIMULATION
-      PARAMETER ( FORWARD_SIMULATION = 0,
-     &            REVERSE_SIMULATION = 1,
-     &            TANGENT_SIMULATION = 2 )
+      INTEGER, PARAMETER :: FORWARD_SIMULATION = 0
+      INTEGER, PARAMETER :: REVERSE_SIMULATION = 1
+      INTEGER, PARAMETER :: TANGENT_SIMULATION = 2
 
 C--   COMMON /EEPARAMS_L/ Execution environment public logical variables.
 C     eeBootError    :: Flags indicating error during multi-processing

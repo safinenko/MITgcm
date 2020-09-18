@@ -139,16 +139,11 @@ C      MAX_OLY_EXCH - Maximum overlap region allowed in Y
 C      MAX_NR_EXCH  - Maximum number of vertical levels allowed
 C      NUMBER_OF_BUFFER_LEVELS - Number of levels of buffer allowed.
 C      EXCH_SPIN_LIMIT - Error trapping threshold for deadlocked exchange
-       INTEGER MAX_OLX_EXCH
-       PARAMETER ( MAX_OLX_EXCH = MAX_OLX )
-       INTEGER MAX_OLY_EXCH
-       PARAMETER ( MAX_OLY_EXCH = MAX_OLY )
-       INTEGER MAX_NR_EXCH
-       PARAMETER ( MAX_NR_EXCH  = nR + 1 )
-       INTEGER NUMBER_OF_BUFFER_LEVELS
-       PARAMETER ( NUMBER_OF_BUFFER_LEVELS = 1 )
-       INTEGER EXCH_SPIN_LIMIT
-       PARAMETER ( EXCH_SPIN_LIMIT = 100000000 )
+       INTEGER, PARAMETER :: MAX_OLX_EXCH = MAX_OLX
+       INTEGER, PARAMETER :: MAX_OLY_EXCH = MAX_OLY
+       INTEGER, PARAMETER :: MAX_NR_EXCH = nR + 1
+       INTEGER, PARAMETER :: NUMBER_OF_BUFFER_LEVELS = 1
+       INTEGER, PARAMETER :: EXCH_SPIN_LIMIT = 100000000
 
 C
 C      L_BUFFER[XY]  - Maximum size for exchange buffer in
@@ -156,20 +151,14 @@ C      L_WBUFFER    west,
 C      L_EBUFFER    east,
 C      L_SBUFFER   south,
 C      L_NBUFFER   north.
-       INTEGER L_BUFFERX
-       PARAMETER ( L_BUFFERX =
-     &  (sNy+2*MAX_OLY_EXCH)*MAX_OLX_EXCH*MAX_NR_EXCH )
-       INTEGER L_BUFFERY
-       PARAMETER ( L_BUFFERY =
-     &  (sNx+2*MAX_OLX_EXCH)*MAX_OLY_EXCH*MAX_NR_EXCH )
-       INTEGER L_WBUFFER
-       INTEGER L_EBUFFER
-       INTEGER L_SBUFFER
-       INTEGER L_NBUFFER
-       PARAMETER ( L_WBUFFER = L_BUFFERX,
-     &             L_EBUFFER = L_BUFFERX,
-     &             L_SBUFFER = L_BUFFERY,
-     &             L_NBUFFER = L_BUFFERY )
+       INTEGER, PARAMETER :: L_BUFFERX =
+     &  (sNy+2*MAX_OLY_EXCH)*MAX_OLX_EXCH*MAX_NR_EXCH
+       INTEGER, PARAMETER :: L_BUFFERY =
+     &  (sNx+2*MAX_OLX_EXCH)*MAX_OLY_EXCH*MAX_NR_EXCH
+       INTEGER, PARAMETER :: L_WBUFFER = L_BUFFERX
+       INTEGER, PARAMETER :: L_EBUFFER = L_BUFFERX
+       INTEGER, PARAMETER :: L_SBUFFER = L_BUFFERY
+       INTEGER, PARAMETER :: L_NBUFFER = L_BUFFERY
 
 C--    COMMON / EXCH_L / LOGICAL number common arrays for exchanges
 C      exchNeedsMemSync - TRUE if memory sync. required to ensure

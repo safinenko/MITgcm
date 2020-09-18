@@ -15,9 +15,8 @@ CEOP
 
 C     SItoBar  :: conversion factor for pressure, from Pa (SI Unit) to Bar
 C     SItodBar :: conversion factor for pressure, from Pa (SI Unit) to deci Bar
-      _RL SItoBar, SItodBar
-      PARAMETER ( SItoBar  = 1.D-05 )
-      PARAMETER ( SItodBar = 1.D-04 )
+      _RL, PARAMETER :: SItoBar  = 1.D-05
+      _RL, PARAMETER :: SItodBar = 1.D-04
 
 C Shared EOS Parameter
 C     eosRefP0  :: reference atmospheric pressure used in EOS formulation

@@ -23,29 +23,18 @@ c     exf_half   0.5
 c     exf_one    1.0
 c     exf_two    2.0
 
-      _RL exf_half
-      _RL exf_one
-      _RL exf_two
-
-      PARAMETER(
-     &              exf_half =  0.5 _d 0 ,
-     &              exf_one  =  1.0 _d 0 ,
-     &              exf_two  =  2.0 _d 0
-     &         )
-
-c     real       exf_undef
-c     PARAMETER( exf_undef = -9000. )
+      _RL, PARAMETER :: exf_half =  0.5 _d 0
+      _RL, PARAMETER :: exf_one  =  1.0 _d 0
+      _RL, PARAMETER :: exf_two  =  2.0 _d 0
 
 c     2. physical constants
 
 c     stefanBoltzmann :: Stefan-Boltzmann constant [J*K^-4*m^-2*s^-1]
 c                        sigma = (2*pi^5*k^4)/(15*h^3*c^2)
 c     karman          :: von Karman constant
-      _RL    stefanBoltzmann
-      _RL    karman
-      PARAMETER ( stefanBoltzmann = 5.670 _d -8 )
-      PARAMETER ( karman = 0.4 _d 0 )
-
+      _RL, PARAMETER :: stefanBoltzmann = 5.670 _d -8
+      _RL, PARAMETER :: karman = 0.4 _d 0
+      
 c     3. empirical parameters
 
 c     To invert the relationship ustar = ustar(umagn) the following
@@ -64,19 +53,12 @@ c                     quadratic relationship
 c      u11          - u = 11 m/s wind speed
 c      ustofu11     - ustar = 0.3818 m/s, corresponding to u = 11 m/s
 
-      _RL clindrag_1, clindrag_2
-      _RL cquadrag_1, cquadrag_2
-      _RL u11
-      _RL ustofu11
-
-      PARAMETER (
-     &            ustofu11    =         0.381800 _d 0 ,
-     &            u11         =        11.       _d 0 ,
-     &            clindrag_1  =         0.000065 _d 0 ,
-     &            clindrag_2  =         0.000490 _d 0 ,
-     &            cquadrag_1  = clindrag_1/u11/2 ,
-     &            cquadrag_2  = clindrag_1*u11/2 + clindrag_2
-     &          )
+      _RL, PARAMETER :: ustofu11    =  0.381800 _d 0
+      _RL, PARAMETER :: u11         = 11.       _d 0
+      _RL, PARAMETER :: clindrag_1  =  0.000065 _d 0
+      _RL, PARAMETER :: clindrag_2  =  0.000490 _d 0
+      _RL, PARAMETER :: cquadrag_1  = clindrag_1/u11/2
+      _RL, PARAMETER :: cquadrag_2  = clindrag_1*u11/2 + clindrag_2
 
 c     4. control parameters
 
@@ -85,8 +67,7 @@ c                    evaluation of the bulk surface fluxes. The ncom
 c                    model uses 2 hardwired interation steps (loop
 c                    unrolled).
 c
-      INTEGER     niter_bulk
-      PARAMETER ( niter_bulk = 2 )
+      INTEGER, PARAMETER :: niter_bulk = 2
 
 C     5. other constants or parameters
 

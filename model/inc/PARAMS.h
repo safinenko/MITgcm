@@ -14,10 +14,8 @@ CEOP
 
 C--   Contants
 C     Useful physical values
-      Real*8 PI
-      PARAMETER ( PI    = 3.14159265358979323844D0   )
-      Real*8 deg2rad
-      PARAMETER ( deg2rad = 2.D0*PI/360.D0           )
+      Real*8, PARAMETER :: PI    = 3.14159265358979323844D0
+      Real*8, PARAMETER :: deg2rad = 2.D0*PI/360.D0
 
 C--   COMMON /PARM_C/ Character valued parameters used by the model.
 C     buoyancyRelation :: Flag used to indicate which relation to use to

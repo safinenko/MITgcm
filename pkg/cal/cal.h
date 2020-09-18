@@ -45,8 +45,7 @@ C     secondsPerHour   :: number of seconds in a calendars hour.
 C     secondsPerMinute :: number of seconds in a calendars minute.
 C     cal_setStatus    :: status of calendar parms setting (0=none, 3=fully set)
 
-      INTEGER nMonthYear
-      PARAMETER ( nMonthYear = 12 )
+      INTEGER, PARAMETER :: nMonthYear = 12
 
       COMMON /CALENDAR_RL/
      &                modelStart,

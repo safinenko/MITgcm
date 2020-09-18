@@ -16,11 +16,9 @@ C     *==========================================================*
 CEOP
 
 C     ERROR_HEADER        - String which prefixes error messages
-      CHARACTER*(*) ERROR_HEADER
-      PARAMETER ( ERROR_HEADER = ' *** ERROR ***' )
+      CHARACTER*(*), PARAMETER :: ERROR_HEADER = ' *** ERROR ***'
 C     PROCESS_HEADER      - String which prefixes processor number
-      CHARACTER*(*) PROCESS_HEADER
-      PARAMETER ( PROCESS_HEADER = 'PID.TID' )
+      CHARACTER*(*), PARAMETER :: PROCESS_HEADER = 'PID.TID'
 
 C     MAX_NUM_COMM_MODES - Maximum number of communication modes
 C     COMM_NONE       - No edge communication
@@ -31,25 +29,18 @@ C     Note - commName holds an identifying name for each communication
 C            mode. The COMM_ parameters are used to index commName
 C            so the COMM_ parameters need to be in the range
 C            1 : MAX_NUM_COMM_MODES.
-      INTEGER MAX_NUM_COMM_MODES
-      PARAMETER ( MAX_NUM_COMM_MODES = 4 )
-      INTEGER COMM_NONE
-      PARAMETER ( COMM_NONE   =   1 )
-      INTEGER COMM_MSG
-      PARAMETER ( COMM_MSG    =   2 )
-      INTEGER COMM_PUT
-      PARAMETER ( COMM_PUT    =   3 )
-      INTEGER COMM_GET
-      PARAMETER ( COMM_GET    =   4 )
+      INTEGER, PARAMETER :: MAX_NUM_COMM_MODES = 4
+      INTEGER, PARAMETER :: COMM_NONE   =   1
+      INTEGER, PARAMETER :: COMM_MSG    =   2
+      INTEGER, PARAMETER :: COMM_PUT    =   3
+      INTEGER, PARAMETER :: COMM_GET    =   4
       COMMON /EESUPP_COMMNAME/ commName
       CHARACTER*10 commName(MAX_NUM_COMM_MODES)
 
 C     Tile identifiers
 C     Tiles have a number that is unique over the global domain.
 C     A tile that is not there has its number set to NULL_TILE
-      INTEGER NULL_TILE
-      PARAMETER ( NULL_TILE = -1 )
-
+      INTEGER, PARAMETER :: NULL_TILE = -1
 
 C--   COMMON /EESUPP_C/ Execution environment support character variables
 C     myProcessStr - String identifying my process number
