@@ -396,7 +396,7 @@ C--   z,p,r coord input switching.
       WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM01'
       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
      &                    SQUEEZE_RIGHT, myThid )
-      READ(UNIT=iUnit,NML=PARM01) !,IOSTAT=errIO)
+      READ(UNIT=iUnit,NML=PARM01)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: Error reading model parameter file "data"'
@@ -845,7 +845,7 @@ C--   Elliptic solver parameters
       WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM02'
       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
      &                    SQUEEZE_RIGHT, myThid )
-      READ(UNIT=iUnit,NML=PARM02) !,IOSTAT=errIO)
+      READ(UNIT=iUnit,NML=PARM02)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: Error reading model parameter file "data"'
@@ -868,7 +868,7 @@ C--   Time stepping parameters
       WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM03'
       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
      &                    SQUEEZE_RIGHT, myThid )
-      READ(UNIT=iUnit,NML=PARM03) !,IOSTAT=errIO)
+      READ(UNIT=iUnit,NML=PARM03)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: Error reading model parameter file "data"'
@@ -1107,7 +1107,7 @@ C-    pCell-Mix  parameters:
       WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM04'
       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
      &                    SQUEEZE_RIGHT, myThid )
-      READ(UNIT=iUnit,NML=PARM04) !,IOSTAT=errIO)
+      READ(UNIT=iUnit,NML=PARM04)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: Error reading model parameter file "data"'
@@ -1404,7 +1404,7 @@ C--   Input files
       WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM05'
       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
      &                    SQUEEZE_RIGHT, myThid )
-      READ(UNIT=iUnit,NML=PARM05) !,IOSTAT=errIO)
+      READ(UNIT=iUnit,NML=PARM05)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: Error reading model parameter file "data"'

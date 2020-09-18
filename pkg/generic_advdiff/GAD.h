@@ -82,11 +82,6 @@ C  jMinAdvR,jMaxAdvR  :: 2nd  index (Y-dir) loop range for vertical advection
       INTEGER, PARAMETER :: iMinAdvR = 1, iMaxAdvR = sNx
       INTEGER, PARAMETER :: jMinAdvR = 1, jMaxAdvR = sNy
 
-C Differentiate between tracers (needed for KPP - arrgh!!!)
-cph                              and GMRedi arrgh*arrgh!!!)
-cph  indices are used for TAF key computations, so need to
-cph  running from 1, 2, ...
-c
 C GAD_TEMPERATURE :: temperature
       INTEGER, PARAMETER :: GAD_TEMPERATURE = 1
 C GAD_SALINITY :: salinity

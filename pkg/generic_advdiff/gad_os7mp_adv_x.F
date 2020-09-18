@@ -170,9 +170,9 @@ C        TVD limiter
 c        Phi = max(0. _d 0, min( 2./(1-cfl), Phi, 2.*rp1h_cfl ) )
 
 C        MP limiter
-         d2   = Del2 !( ( Qip + Qim ) - 2.*Qi  ) * MskI * MskIm
-         d2p1 = Del2P !( ( Qipp + Qi ) - 2.*Qip ) * MskIp * MskI
-         d2m1 = Del2M !( ( Qi + Qimm ) - 2.*Qim ) * MskIm * MskImm
+         d2   = Del2
+         d2p1 = Del2P
+         d2m1 = Del2M
          A = 4. _d 0*d2 - d2p1
          B = 4. _d 0*d2p1 - d2
          C = d2
