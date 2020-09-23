@@ -142,11 +142,11 @@ C     nTimers      :: Number of active timers
       SAVE    timerStatus
       INTEGER timerNameLen( maxTimers , MAX_NO_THREADS)
       SAVE    timerNameLen
-      CHARACTER*(maxString) timerNames( maxTimers , MAX_NO_THREADS)
+      CHARACTER(LEN=80) timerNames( maxTimers , MAX_NO_THREADS)
       SAVE                  timerNames
       INTEGER nTimers(MAX_NO_THREADS)
-      CHARACTER*(maxString) tmpName
-      CHARACTER*(maxString) tmpAction
+      CHARACTER(LEN=80) tmpName
+      CHARACTER(LEN=80) tmpAction
       INTEGER iTimer
       INTEGER ISTART
       INTEGER IEND

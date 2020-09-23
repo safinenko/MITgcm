@@ -43,8 +43,8 @@ C               Setting lShare[148] to 1 is like making these arrays
 C               one dimensional.
       INTEGER, PARAMETER :: cacheLineSize = 256
       INTEGER, PARAMETER :: lShare1 = cacheLineSize
-      INTEGER, PARAMETER :: lShare4 = cacheLineSize/4 
-      INTEGER, PARAMETER :: lShare8 =  cacheLineSize/8
+      INTEGER, PARAMETER :: lShare4 = 64
+      INTEGER, PARAMETER :: lShare8 = 32
 
 CC    MAX_VGS  :: Maximum buffer size for Global Vector Sum
 

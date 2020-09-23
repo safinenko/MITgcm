@@ -75,8 +75,8 @@ C     gloNyWh :: global sum of sNyWh
 
 C     !LOCAL VARIABLES:
 c     == local variables ==
-      character*(MAX_LEN_FNAM) pfName
-      character*(MAX_LEN_MBUF) msgBuf
+      CHARACTER*(MAX_LEN_FNAM) pfName
+      CHARACTER*(MAX_LEN_MBUF) msgBuf
       integer IL
       integer bx,by
 

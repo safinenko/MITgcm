@@ -66,7 +66,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      character*(MAX_LEN_FNAM) dataFName
+      CHARACTER*(MAX_LEN_FNAM) dataFName
       integer ip,jp,iG,jG,irec,bi,bj,i,j,k,dUnit,IL
       logical exst
       _RL arr(1-oLx:sNx+oLx,1-oLy:sNy+oLy,Nr,nSx,nSy)
@@ -74,7 +74,7 @@ C Local variables
       Real*8 r8seg(sNx)
       logical globalFile,fileIsOpen
       integer length_of_rec
-      character*(max_len_mbuf) msgbuf
+      CHARACTER*(max_len_mbuf) msgbuf
 cph-usesingle(
       integer ii,jj
 c     integer iG_IO,jG_IO,npe
@@ -483,7 +483,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      character*(MAX_LEN_FNAM) dataFName,metaFName
+      CHARACTER*(MAX_LEN_FNAM) dataFName,metaFName
       integer ip,jp,iG,jG,irec,bi,bj,i,j,k,dUnit,IL
       Real*4 r4seg(sNx)
       Real*8 r8seg(sNx)
@@ -493,7 +493,7 @@ C Local variables
       CHARACTER*8 blank8c
       integer length_of_rec
       logical fileIsOpen
-      character*(max_len_mbuf) msgbuf
+      CHARACTER*(max_len_mbuf) msgbuf
 cph-usesingle(
 #ifdef ALLOW_USE_MPI
       integer ii,jj
@@ -849,7 +849,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      character*(MAX_LEN_FNAM) dataFName
+      CHARACTER*(MAX_LEN_FNAM) dataFName
       integer ip,jp,iG,jG,irec,bi,bj,i,j,k,dUnit,IL
       logical exst
       _RL arr(1-oLx:sNx+oLx,1-oLy:sNy+oLy,nLocz,nSx,nSy)
@@ -857,7 +857,7 @@ C Local variables
       Real*8 r8seg(sNx)
       logical globalFile,fileIsOpen
       integer length_of_rec
-      character*(max_len_mbuf) msgbuf
+      CHARACTER*(max_len_mbuf) msgbuf
 cph-usesingle(
       integer ii,jj
 c     integer iG_IO,jG_IO,npe
@@ -1267,7 +1267,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      character*(MAX_LEN_FNAM) dataFName,metaFName
+      CHARACTER*(MAX_LEN_FNAM) dataFName,metaFName
       integer ip,jp,iG,jG,irec,bi,bj,i,j,k,dUnit,IL
       Real*4 r4seg(sNx)
       Real*8 r8seg(sNx)
@@ -1277,7 +1277,7 @@ C Local variables
       CHARACTER*8 blank8c
       integer length_of_rec
       logical fileIsOpen
-      character*(max_len_mbuf) msgbuf
+      CHARACTER*(max_len_mbuf) msgbuf
 cph-usesingle(
 #ifdef ALLOW_USE_MPI
       integer ii,jj

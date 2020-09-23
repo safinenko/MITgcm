@@ -92,7 +92,7 @@ CEOP
 
 C--   COMMON /GAD_PARM_C/ Character parameters for GAD pkg routines
 C      somSfx       :: 1rst & 2nd Order moment suffix
-      CHARACTER*2 somSfx(nSOM)
+      CHARACTER*(2) somSfx(nSOM)
       COMMON /GAD_PARM_C/
      & somSfx
 

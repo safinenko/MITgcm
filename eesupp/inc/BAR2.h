@@ -39,11 +39,11 @@ CEOP
      &  BAR2_level,
      &  BAR2_barrierCount, 
      &  BAR2_spinsCount, BAR2_spinsMax, BAR2_spinsMin
-      INTEGER BAR2_level(cacheLineSize/4,MAX_NO_THREADS)
-      INTEGER BAR2_barrierCount(cacheLineSize/4,MAX_NO_THREADS)
-      INTEGER BAR2_spinsCount(cacheLineSize/4,MAX_NO_THREADS)
-      INTEGER BAR2_spinsMax(cacheLineSize/4,MAX_NO_THREADS)
-      INTEGER BAR2_spinsMin(cacheLineSize/4,MAX_NO_THREADS)
+      INTEGER BAR2_level(lShare4,MAX_NO_THREADS)
+      INTEGER BAR2_barrierCount(lShare4,MAX_NO_THREADS)
+      INTEGER BAR2_spinsCount(lShare4,MAX_NO_THREADS)
+      INTEGER BAR2_spinsMax(lShare4,MAX_NO_THREADS)
+      INTEGER BAR2_spinsMin(lShare4,MAX_NO_THREADS)
 
       COMMON /BAR2_L/ bar2CollectStatistics
       LOGICAL bar2CollectStatistics

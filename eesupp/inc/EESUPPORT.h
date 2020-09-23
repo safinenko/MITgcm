@@ -35,7 +35,7 @@ C            1 : MAX_NUM_COMM_MODES.
       INTEGER, PARAMETER :: COMM_PUT    =   3
       INTEGER, PARAMETER :: COMM_GET    =   4
       COMMON /EESUPP_COMMNAME/ commName
-      CHARACTER*10 commName(MAX_NUM_COMM_MODES)
+      CHARACTER*(10) commName(MAX_NUM_COMM_MODES)
 
 C     Tile identifiers
 C     Tiles have a number that is unique over the global domain.
@@ -45,7 +45,7 @@ C     A tile that is not there has its number set to NULL_TILE
 C--   COMMON /EESUPP_C/ Execution environment support character variables
 C     myProcessStr - String identifying my process number
       COMMON /EESUPP_C/ myProcessStr
-      CHARACTER*128 myProcessStr
+      CHARACTER*(128) myProcessStr
 
 C--   COMMON /EESUPP_L/ Execution environment support logical variables
 C     initMPError - Flag indicating error during multi-processing
