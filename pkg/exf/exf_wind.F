@@ -179,15 +179,15 @@ C     check for zero wStress to please AD tools
             ELSE
              ustar = SQRT(wStress(i,j,bi,bj))*recip_sqrtRhoA
              IF ( ustar .LT. ustofu11 ) THEN
-              tmp1 = -cquadrag_2/cquadrag_1*exf_half
-              tmp2 = SQRT(tmp1*tmp1 + ustar*ustar/cquadrag_1)
+              tmp1 = -cquadrag2/cquadrag1*exf_half
+              tmp2 = SQRT(tmp1*tmp1 + ustar*ustar/cquadrag1)
               wsLoc(i,j) = SQRT(tmp1 + tmp2)
              ELSE
-              tmp1 = clindrag_2/clindrag_1*oneThirdRL
-              tmp2 = ustar*ustar/clindrag_1*exf_half
+              tmp1 = clindrag2/clindrag1*oneThirdRL
+              tmp2 = ustar*ustar/clindrag1*exf_half
      &             - tmp1*tmp1*tmp1
-              tmp3 = SQRT( ustar*ustar/clindrag_1*
-     &             (ustar*ustar/clindrag_1*0.25 _d 0 - tmp1*tmp1*tmp1 )
+              tmp3 = SQRT( ustar*ustar/clindrag1*
+     &             (ustar*ustar/clindrag1*0.25 _d 0 - tmp1*tmp1*tmp1 )
      &                    )
               tmp4 = (tmp2 + tmp3)**oneThirdRL
               wsLoc(i,j) = tmp4 + tmp1*tmp1 / tmp4 - tmp1

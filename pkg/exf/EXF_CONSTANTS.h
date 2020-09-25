@@ -55,10 +55,10 @@ c      ustofu11     - ustar = 0.3818 m/s, corresponding to u = 11 m/s
 
       _RL, PARAMETER :: ustofu11    =  0.381800 _d 0
       _RL, PARAMETER :: u11         = 11.       _d 0
-      _RL, PARAMETER :: clindrag_1  =  0.000065 _d 0
-      _RL, PARAMETER :: clindrag_2  =  0.000490 _d 0
-      _RL, PARAMETER :: cquadrag_1  = clindrag_1/u11/2
-      _RL, PARAMETER :: cquadrag_2  = clindrag_1*u11/2 + clindrag_2
+      _RL, PARAMETER :: clindrag1  =  0.000065 _d 0
+      _RL, PARAMETER :: clindrag2  =  0.000490 _d 0
+      _RL, PARAMETER :: cquadrag1  = clindrag1/u11/2
+      _RL, PARAMETER :: cquadrag2  = clindrag1*u11/2 + clindrag2
 
 c     4. control parameters
 

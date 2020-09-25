@@ -21,14 +21,14 @@ CEOP
 
 C--   Monitor head and tail strings
       CHARACTER*(*), PARAMETER :: mon_head         = '%MON'
-      CHARACTER*(*), PARAMETER :: mon_foot_min     = '_min'
-      CHARACTER*(*), PARAMETER :: mon_foot_max     = '_max'
-      CHARACTER*(*), PARAMETER :: mon_foot_sd      = '_sd'
-      CHARACTER*(*), PARAMETER :: mon_foot_mean    = '_mean'
-      CHARACTER*(*), PARAMETER :: mon_foot_volint  = '_volint'
-      CHARACTER*(*), PARAMETER :: mon_foot_volmean = '_volmean'
-      CHARACTER*(*), PARAMETER :: mon_foot_del2    = '_del2'
-      CHARACTER*(*), PARAMETER :: mon_foot_vol     = '_vol'
+      CHARACTER*(*), PARAMETER :: mon_foot_min     = 'min'
+      CHARACTER*(*), PARAMETER :: mon_foot_max     = 'max'
+      CHARACTER*(*), PARAMETER :: mon_foot_sd      = 'sd'
+      CHARACTER*(*), PARAMETER :: mon_foot_mean    = 'mean'
+      CHARACTER*(*), PARAMETER :: mon_foot_volint  = 'volint'
+      CHARACTER*(*), PARAMETER :: mon_foot_volmean = 'volmean'
+      CHARACTER*(*), PARAMETER :: mon_foot_del2    = 'del2'
+      CHARACTER*(*), PARAMETER :: mon_foot_vol     = 'vol'
       CHARACTER*(*), PARAMETER :: mon_string_none  = 'NONE'
 
 C--   COMMON /MON_I/ Monitor integer variables
