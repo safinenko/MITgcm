@@ -27,7 +27,7 @@ c***********************************************************************
 
       SUBROUTINE KPPMIX (
      I       kmtj, shsq, dvsq, ustar, msk
-     I     , bo, bosol
+     I     , bo, bosol, secchiD
 #ifdef ALLOW_SALT_PLUME
      I     , boplume,SPDepth
 #ifdef SALT_PLUME_SPLIT_BASIN
@@ -114,6 +114,7 @@ c           where hbl(i,j) -> hbl((j-1)*sNx+i)
       _RS msk      (imt   )
       _RL diffusKzS(imt,Nr)
       _RL diffusKzT(imt,Nr)
+      _RL secchiD
 
       integer ikppkey
 
@@ -203,7 +204,7 @@ c-----------------------------------------------------------------------
 
       call bldepth (
      I       kmtj
-     I     , dvsq, dbloc, Ritop, ustar, bo, bosol
+     I     , dvsq, dbloc, Ritop, ustar, bo, bosol, secchiD
 #ifdef ALLOW_SALT_PLUME
      I     , boplume,SPDepth
 #ifdef SALT_PLUME_SPLIT_BASIN
@@ -291,7 +292,7 @@ c*************************************************************************
 
       subroutine bldepth (
      I       kmtj
-     I     , dvsq, dbloc, Ritop, ustar, bo, bosol
+     I     , dvsq, dbloc, Ritop, ustar, bo, bosol, secchiD
 #ifdef ALLOW_SALT_PLUME
      I     , boplume,SPDepth
 #ifdef SALT_PLUME_SPLIT_BASIN
@@ -389,6 +390,7 @@ c sigma     : normalized depth (d/hbl)
       integer kbl(imt)
       _RL Rib    (imt,Nr)
       _RL sigma  (imt)
+      _RL secchiD
 
 #ifdef ALLOW_KPP
 
@@ -461,7 +463,7 @@ c     compute bfsfc = sw fraction at hbf * zgrid
 CADJ store worka = comlev1_kpp_k, key = kkppkey, kind=isbyte
 #endif
          call SWFRAC(
-     I       imt, hbf,
+     I       imt, hbf, secchiD,
      U       worka,
      I       myTime, myIter, myThid )
 #ifdef ALLOW_AUTODIFF_TAMC
@@ -631,7 +633,7 @@ CADJ &   , key=ikppkey, kind=isbyte,
 CADJ &     shape = (/ (sNx+2*OLx)*(sNy+2*OLy) /)
 #endif
       call SWFRAC(
-     I       imt, minusone,
+     I       imt, minusone, secchiD,
      U       worka,
      I       myTime, myIter, myThid )
 #ifdef ALLOW_AUTODIFF_TAMC
@@ -754,7 +756,7 @@ CADJ &   , key=ikppkey, kind=isbyte,
 CADJ &     shape = (/ (sNx+2*OLx)*(sNy+2*OLy) /)
 #endif
       call SWFRAC(
-     I     imt, minusone,
+     I     imt, minusone, secchiD,
      U     worka,
      I     myTime, myIter, myThid )
 #ifdef ALLOW_AUTODIFF_TAMC

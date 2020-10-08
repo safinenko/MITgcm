@@ -780,7 +780,6 @@ C     executable code below.
 # else
 #  ifdef HAVE_ETIME_FCT
       Real*4 etime
-      EXTERNAL etime
       Real*4 actual, tarray(2)
 #  elif (defined HAVE_ETIME_SBR)
       Real*4 actual, tarray(2)

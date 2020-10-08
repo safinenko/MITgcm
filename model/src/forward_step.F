@@ -61,7 +61,7 @@
 CBOP
 C     !ROUTINE: FORWARD_STEP
 C     !INTERFACE:
-      SUBROUTINE FORWARD_STEP( iloop, myTime, myIter, myThid )
+      SUBROUTINE FORWARD_STEP( iloop, myTime, myIter, myThid, secchiD )
 
 C     !DESCRIPTION: \bv
 C     *=================================================================
@@ -381,6 +381,7 @@ C     myIter :: iteration counter for this thread
 C     myThid :: thread number for this instance of the routine.
       INTEGER iloop
       _RL     myTime
+      _RL     secchiD
       INTEGER myIter
       INTEGER myThid
 
@@ -625,7 +626,7 @@ CADJ STORE hFacC = comlev1, key = ikey_dynamics, kind = isbyte
        IF (debugMode) CALL DEBUG_CALL('DO_OCEANIC_PHYS',myThid)
 #endif
        CALL TIMER_START('DO_OCEANIC_PHYS     [FORWARD_STEP]',myThid)
-       CALL DO_OCEANIC_PHYS( myTime, myIter, myThid )
+       CALL DO_OCEANIC_PHYS( myTime, myIter, myThid, secchiD )
        CALL TIMER_STOP ('DO_OCEANIC_PHYS     [FORWARD_STEP]',myThid)
 
 #ifdef ALLOW_STREAMICE
@@ -770,7 +771,7 @@ CADJ STORE wVel = comlev1, key = ikey_dynamics, kind = isbyte
         IF (debugMode) CALL DEBUG_CALL('THERMODYNAMICS',myThid)
 #endif
         CALL TIMER_START('THERMODYNAMICS      [FORWARD_STEP]',myThid)
-        CALL THERMODYNAMICS( myTime, myIter, myThid )
+        CALL THERMODYNAMICS( myTime, myIter, myThid, secchiD)
         CALL TIMER_STOP ('THERMODYNAMICS      [FORWARD_STEP]',myThid)
 C--     if not staggerTimeStep: end
       ENDIF
@@ -1048,7 +1049,7 @@ CADJ STORE wVel = comlev1, key = ikey_dynamics, kind = isbyte
         IF (debugMode) CALL DEBUG_CALL('THERMODYNAMICS',myThid)
 #endif
         CALL TIMER_START('THERMODYNAMICS      [FORWARD_STEP]',myThid)
-        CALL THERMODYNAMICS( myTime, myIter, myThid )
+        CALL THERMODYNAMICS( myTime, myIter, myThid, secchiD )
         CALL TIMER_STOP ('THERMODYNAMICS      [FORWARD_STEP]',myThid)
 
 C--    if staggerTimeStep: end

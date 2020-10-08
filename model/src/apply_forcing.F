@@ -242,6 +242,7 @@ C     myThid    :: my Thread Id number
       INTEGER myIter
       INTEGER myThid
 
+
 C     !LOCAL VARIABLES:
 C     i,j       :: Loop counters
 C     kSurface  :: index of surface level
@@ -393,7 +394,7 @@ C     !ROUTINE: APPLY_FORCING_T
 C     !INTERFACE:
       SUBROUTINE APPLY_FORCING_T(
      U                     gT_arr,
-     I                     iMin,iMax,jMin,jMax, k, bi, bj,
+     I                     iMin,iMax,jMin,jMax, k, bi, bj, secchiD,
      I                     myTime, myIter, myThid )
 C     !DESCRIPTION: \bv
 C     *==========================================================*
@@ -429,6 +430,7 @@ C     myThid    :: my Thread Id number
       INTEGER iMin, iMax, jMin, jMax
       INTEGER k, bi, bj
       _RL     myTime
+      _RL     secchiD
       INTEGER myIter
       INTEGER myThid
 
@@ -672,7 +674,7 @@ c     IF ( usePenetratingSW ) THEN
        swfracb(1)=abs(rF(k))
        swfracb(2)=abs(rF(k+1))
        CALL SWFRAC(
-     I             2, minusOne,
+     I             2, minusOne, secchiD,
      U             swfracb,
      I             myTime, 1, myThid )
        kp1 = k+1

@@ -292,7 +292,7 @@ CBOP
 C     !ROUTINE: EXTERNAL_FORCING_T
 C     !INTERFACE:
       SUBROUTINE EXTERNAL_FORCING_T(
-     I           iMin,iMax, jMin,jMax, bi,bj, kLev,
+     I           iMin,iMax, jMin,jMax, bi,bj, kLev, secchiD,
      I           myTime, myThid )
 C     !DESCRIPTION: \bv
 C     *==========================================================*
@@ -325,6 +325,7 @@ C     myTime    :: Current time in simulation
 C     myThid    :: Thread Id number
       INTEGER iMin, iMax, jMin, jMax, kLev, bi, bj
       _RL myTime
+      _RL secchiD
       INTEGER myThid
 
 #ifdef USE_OLD_EXTERNAL_FORCING
@@ -529,7 +530,7 @@ c     IF ( usePenetratingSW ) THEN
        swfracb(1)=abs(rF(kLev))
        swfracb(2)=abs(rF(kLev+1))
        CALL SWFRAC(
-     I             2, minusOne,
+     I             2, minusOne, secchiD,
      U             swfracb,
      I             myTime, 1, myThid )
        kp1 = kLev+1

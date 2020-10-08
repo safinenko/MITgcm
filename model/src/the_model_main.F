@@ -523,7 +523,7 @@ CBOP
 C     !ROUTINE: THE_MODEL_MAIN
 
 C     !INTERFACE:
-      SUBROUTINE THE_MODEL_MAIN(myThid)
+      SUBROUTINE THE_MODEL_MAIN(myThid, secchiD)
 
 C     !DESCRIPTION: \bv
 C     *==========================================================*
@@ -603,6 +603,7 @@ C     myTime :: Time counter for this thread
 C     myIter :: Iteration counter for this thread
       INTEGER myIter
       _RL     myTime
+      _RL     secchiD
       LOGICAL exst
       LOGICAL lastdiva
 CEOP
@@ -745,7 +746,7 @@ C--   Call time stepping loop of full model
 # endif
 C--   Call time stepping loop of full model
       CALL TIMER_START('THE_MAIN_LOOP          [THE_MODEL_MAIN]',myThid)
-      CALL THE_MAIN_LOOP( myTime, myIter, myThid )
+      CALL THE_MAIN_LOOP( myTime, myIter, myThid, secchiD )
       CALL TIMER_STOP ('THE_MAIN_LOOP          [THE_MODEL_MAIN]',myThid)
 
 #endif /* ALLOW_TANGENTLINEAR_RUN ALLOW_ADJOINT_RUN ALLOW_ADMTLM */

@@ -46,7 +46,7 @@ c#endif
 CBOP
 C     !ROUTINE: MAIN_DO_LOOP
 C     !INTERFACE:
-      SUBROUTINE MAIN_DO_LOOP( iloop, myTime, myIter, myThid )
+      SUBROUTINE MAIN_DO_LOOP( iloop, myTime, myIter, myThid, secchiD )
 
 C     !DESCRIPTION: \bv
 C     *================================================================*
@@ -139,6 +139,7 @@ C     myTime :: time counter for this thread
 C     myIter :: iteration counter for this thread
 C     myThid :: thread number for this instance of the routine.
       _RL     myTime
+      _RL     secchiD
       INTEGER myIter
       INTEGER myThid
 
@@ -176,7 +177,7 @@ C     >>>>>>>>>>>>>>>>>>>>>>>>>>>  STARTS  <<<<<<<<<<<<<<<<<<<<<<<<<<<<
         CALL TIMER_STOP ('FORWARD_STEP_ATM2D  [MAIN_DO_LOOP]',myThid)
 # else
         CALL TIMER_START('FORWARD_STEP        [MAIN_DO_LOOP]',myThid)
-        CALL FORWARD_STEP( iloop, myTime, myIter, myThid )
+        CALL FORWARD_STEP( iloop, myTime, myIter, myThid, secchiD )
         CALL TIMER_STOP ('FORWARD_STEP        [MAIN_DO_LOOP]',myThid)
 # endif
 #else
