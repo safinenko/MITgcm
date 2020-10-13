@@ -523,7 +523,7 @@ CBOP
 C     !ROUTINE: THE_MODEL_MAIN
 
 C     !INTERFACE:
-      SUBROUTINE THE_MODEL_MAIN(myThid, secchiD)
+      SUBROUTINE THE_MODEL_MAIN(myThid)
 
 C     !DESCRIPTION: \bv
 C     *==========================================================*
@@ -592,6 +592,7 @@ C     !INPUT/OUTPUT PARAMETERS:
 C     == Routine arguments ==
 C     myThid :: Thread number for this instance of the routine.
       INTEGER myThid
+      _RL    :: secchiD = 20. _d 0
 
 C     !LOCAL VARIABLES:
 C     == Local variables ==
@@ -603,7 +604,6 @@ C     myTime :: Time counter for this thread
 C     myIter :: Iteration counter for this thread
       INTEGER myIter
       _RL     myTime
-      _RL     secchiD
       LOGICAL exst
       LOGICAL lastdiva
 CEOP

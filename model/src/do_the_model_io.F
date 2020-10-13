@@ -120,9 +120,9 @@ C         Write "text-plots" of certain fields
       ENDIF
 
 C     Write model state to binary file
-      IF ( .NOT.useOffLine ) THEN
-        CALL WRITE_STATE( myTime, myIter, myThid )
-      ENDIF
+C      IF ( .NOT.useOffLine ) THEN
+C        CALL WRITE_STATE( myTime, myIter, myThid )
+C      ENDIF
 
 #ifdef ALLOW_TIMEAVE
 C     Do time averages

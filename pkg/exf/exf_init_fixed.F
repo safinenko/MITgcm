@@ -609,7 +609,7 @@ C--   Summarize the External forcing setup.
 # ifdef ALLOW_DEBUG
       IF (debugMode) CALL DEBUG_CALL('EXF_SUMMARY',myThid)
 # endif
-      CALL EXF_SUMMARY( myThid )
+C      CALL EXF_SUMMARY( myThid )
 
 #ifdef ALLOW_DIAGNOSTICS
       IF ( useDiagnostics ) THEN

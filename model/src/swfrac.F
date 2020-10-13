@@ -5,7 +5,7 @@ CBOP
 C     !ROUTINE: SWFRAC
 C     !INTERFACE:
       SUBROUTINE SWFRAC(
-     I                  imax, fact,
+     I                  imax, fact, secchiD,
      U                  swdk,
      I                  myTime, myIter, myThid )
 C     !DESCRIPTION: \bv
@@ -59,7 +59,7 @@ C     max number of different water types
       _RL facz
       _RL eta,zA,BetaSol
       INTEGER i
-      _RL     fac, attenCoeff
+      _RL     fac, attenCoeff, secchiD
       LOGICAL first, changed
       INTEGER count0, count1
       _RL secchiDepths(12)
@@ -92,7 +92,7 @@ C     max number of different water types
          IF ( facz .LT. -150. _d 0 ) THEN
             swdk(i) = 0. _d 0
          ELSE
-            swdk(i) = exp( attenCoeff * facz / secchi)
+            swdk(i) = exp( attenCoeff * facz / secchiD)
          ENDIF
       ENDDO
 

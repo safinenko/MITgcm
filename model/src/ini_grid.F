@@ -192,16 +192,16 @@ C     & mon_write_mnc (since it is the only thread that uses those flags):
           mon_write_stdout = .FALSE.
         ENDIF
         mon_write_mnc = .FALSE.
-#ifdef ALLOW_MNC
-        IF (useMNC .AND. monitor_mnc) THEN
-          DO i = 1,MAX_LEN_MBUF
-            mon_fname(i:i) = ' '
-          ENDDO
-          mon_fname(1:12) = 'monitor_grid'
-          CALL MNC_CW_SET_UDIM(mon_fname, 1, myThid)
-          mon_write_mnc = .TRUE.
-        ENDIF
-#endif /*  ALLOW_MNC  */
+C#ifdef ALLOW_MNC
+C        IF (useMNC .AND. monitor_mnc) THEN
+C          DO i = 1,MAX_LEN_MBUF
+C            mon_fname(i:i) = ' '
+C          ENDDO
+C          mon_fname(1:12) = 'monitor_grid'
+C          CALL MNC_CW_SET_UDIM(mon_fname, 1, myThid)
+C          mon_write_mnc = .TRUE.
+C        ENDIF
+C#endif /*  ALLOW_MNC  */
 
       ENDIF
 
