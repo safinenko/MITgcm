@@ -74,21 +74,21 @@ C     & mon_write_mnc (since it is the only thread that uses those flags):
             mon_write_stdout = .FALSE.
           ENDIF
           mon_write_mnc = .FALSE.
-#ifdef ALLOW_MNC
-          IF (useMNC .AND. monitor_mnc) THEN
-            DO k = 1,MAX_LEN_MBUF
-              mon_fname(k:k) = ' '
-            ENDDO
-            mon_fname(1:11) = 'monitor_exf'
-            CALL MNC_CW_APPEND_VNAME(
-     &           'T', '-_-_--__-__t', 0,0, myThid)
-            CALL MNC_CW_SET_UDIM(mon_fname, -1, myThid)
-            CALL MNC_CW_RL_W_S(
-     &          'D',mon_fname,1,1,'T', myTime, myThid)
-            CALL MNC_CW_SET_UDIM(mon_fname, 0, myThid)
-            mon_write_mnc = .TRUE.
-          ENDIF
-#endif /* ALLOW_MNC */
+C#ifdef ALLOW_MNC
+C          IF (useMNC .AND. monitor_mnc) THEN
+C            DO k = 1,MAX_LEN_MBUF
+C              mon_fname(k:k) = ' '
+C            ENDDO
+C            mon_fname(1:11) = 'monitor_exf'
+C            CALL MNC_CW_APPEND_VNAME(
+C     &           'T', '-_-_--__-__t', 0,0, myThid)
+C            CALL MNC_CW_SET_UDIM(mon_fname, -1, myThid)
+C            CALL MNC_CW_RL_W_S(
+C     &          'D',mon_fname,1,1,'T', myTime, myThid)
+C            CALL MNC_CW_SET_UDIM(mon_fname, 0, myThid)
+C            mon_write_mnc = .TRUE.
+C          ENDIF
+C#endif /* ALLOW_MNC */
 
           IF ( mon_write_stdout ) THEN
             WRITE(msgBuf,'(2A)') '// ===========================',

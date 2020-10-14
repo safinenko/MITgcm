@@ -368,7 +368,7 @@ C-    write gravity vertical profile factor to binary file:
       ENDIF
       IF ( selectP_inEOS_Zc.GE.1 ) THEN
 C-    write (to binary file) Hyd-Pressure used in EOS:
-        CALL WRITE_GLVEC_RL( 'PRef4EOS',' ',pRef4EOS, Nr, -1, myThid )
+C        CALL WRITE_GLVEC_RL( 'PRef4EOS',' ',pRef4EOS, Nr, -1, myThid )
 c       CALL WRITE_GLVEC_RL( 'PRefLocF',' ',pRefLocF,Nr+1,-1, myThid )
       ENDIF
       IF ( buoyancyRelation.EQ.'ATMOSPHERIC' ) THEN
@@ -388,7 +388,7 @@ c       CALL WRITE_GLVEC_RL( 'PRefLocF',' ',pRefLocF,Nr+1,-1, myThid )
        ENDDO
       ELSE
 C-    Write reference density to binary file :
-        CALL WRITE_GLVEC_RL( 'RhoRef', ' ', rhoRef, Nr, -1, myThid )
+C        CALL WRITE_GLVEC_RL( 'RhoRef', ' ', rhoRef, Nr, -1, myThid )
       ENDIF
       IF ( usingZCoords .AND. rhoRefFile .NE. ' ' ) THEN
 C-    Write Anelastic density factor to binary file :
