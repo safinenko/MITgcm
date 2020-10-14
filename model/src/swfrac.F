@@ -52,12 +52,16 @@ C               (fact*swdk) is negative distance (m) from surface
 C     swdk    :: on output: short wave (radiation) fractional decay
       _RL     swdk(imax)
 
+C     Set total attenuation in the top 'zA' meters to be 'BetaSol' .
+      _RL    :: zA = 1.0
+      _RL    :: BetaSol = 0.4
+      
+
 C     !LOCAL VARIABLES:
 C     === Local variables ===
 C     max number of different water types
       INTEGER secchi
       _RL facz
-      _RL eta,zA,BetaSol
       INTEGER i
       _RL     fac, attenCoeff, secchiD
       LOGICAL first, changed
@@ -89,10 +93,12 @@ C     max number of different water types
 
       DO i = 1,imax
          facz = fact*swdk(i)
-         IF ( facz .LT. -150. _d 0 ) THEN
+         IF ( facz .GT. -1. _d 0 ) THEN
+            swdk(i) = (1. _d 0 - BetaSol * facz / zA)
+         ELSE IF ( facz .LT. -100. _d 0 ) THEN
             swdk(i) = 0. _d 0
          ELSE
-            swdk(i) = exp( attenCoeff * facz / secchiD)
+            swdk(i) = (1. _d 0 - BetaSol) * exp(attenCoeff*facz/secchiD)
          ENDIF
       ENDDO
 

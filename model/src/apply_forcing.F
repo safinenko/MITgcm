@@ -242,7 +242,6 @@ C     myThid    :: my Thread Id number
       INTEGER myIter
       INTEGER myThid
 
-
 C     !LOCAL VARIABLES:
 C     i,j       :: Loop counters
 C     kSurface  :: index of surface level
