@@ -161,123 +161,123 @@ C--   Initialise exchange mechanism
       ENDDO
 
 C--   Print mapping of threads to grid points.
-      WRITE(msgBuf,'(A)')
-     &'// ======================================================'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &  SQUEEZE_RIGHT , 1)
-      WRITE(msgBuf,'(A)') '// Mapping of tiles to threads'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &  SQUEEZE_RIGHT , 1)
+C      WRITE(msgBuf,'(A)')
+C     &'// ======================================================'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &  SQUEEZE_RIGHT , 1)
+C      WRITE(msgBuf,'(A)') '// Mapping of tiles to threads'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &  SQUEEZE_RIGHT , 1)
 C     o Write list of tiles each thread is responsible for
-      WRITE(msgBuf,'(A)')
-     &'// ======================================================'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &  SQUEEZE_RIGHT , 1)
-      DO I=1,nThreads
-       WRITE(msgBuf,'(A,I4,A,4(I4,A1))')
-     & '// -o- Thread',I,', tiles (',
-     & myBxLo(I),':',myBxHi(I),',',myByLo(I),':',myByHi(I),')'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,SQUEEZE_BOTH , 1)
-      ENDDO
-      WRITE(msgBuf,'(A)')  ' '
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,SQUEEZE_RIGHT , 1)
+C      WRITE(msgBuf,'(A)')
+C     &'// ======================================================'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &  SQUEEZE_RIGHT , 1)
+C      DO I=1,nThreads
+C       WRITE(msgBuf,'(A,I4,A,4(I4,A1))')
+C     & '// -o- Thread',I,', tiles (',
+C     & myBxLo(I),':',myBxHi(I),',',myByLo(I),':',myByHi(I),')'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,SQUEEZE_BOTH , 1)
+C      ENDDO
+C      WRITE(msgBuf,'(A)')  ' '
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,SQUEEZE_RIGHT , 1)
 
-#ifndef ALLOW_EXCH2
+C#ifndef ALLOW_EXCH2
 C     o For each tile print its communication method(s)
-      WRITE(msgBuf,'(A)')
-     &'// ======================================================'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &  SQUEEZE_RIGHT , 1)
-      WRITE(msgBuf,'(A)') '// Tile <-> Tile connectvity table'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &  SQUEEZE_RIGHT , 1)
-      WRITE(msgBuf,'(A)')
-     &'// ======================================================'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &  SQUEEZE_RIGHT , 1)
-      DO J=1,nSy
-       DO I=1,nSx
-        WRITE(msgBuf,'(A,A,I6.6,A,I6.6,A)')
-     &   '//',' Tile number: ',tileNo(I,J),
-     &   ' (process no. = ',myPid,')'
-        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT , 1)
+C      WRITE(msgBuf,'(A)')
+C     &'// ======================================================'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &  SQUEEZE_RIGHT , 1)
+C      WRITE(msgBuf,'(A)') '// Tile <-> Tile connectvity table'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &  SQUEEZE_RIGHT , 1)
+C      WRITE(msgBuf,'(A)')
+C     &'// ======================================================'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &  SQUEEZE_RIGHT , 1)
+C      DO J=1,nSy
+C       DO I=1,nSx
+C        WRITE(msgBuf,'(A,A,I6.6,A,I6.6,A)')
+C     &   '//',' Tile number: ',tileNo(I,J),
+C     &   ' (process no. = ',myPid,')'
+C        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT , 1)
 C       o West communication details
-        IF ( tileNoW(I,J).NE. NULL_TILE ) THEN
-         WRITE(msgBuf,'(A,A,I6.6,A,I6.6,A,A)')
-     &   '//        WEST: ',
-     &   'Tile = ',tileNoW(I,J),
-     &   ', Process = ',tilePidW(I,J),
-     &   ', Comm = ',commName(tileCommModeW(I,J))
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-         WRITE(msgBuf,'(A,A,I6.6,A,I6.6)')
-     &   '//              ',
-     &   '  bi = ',tileBiW(I,J),
-     &   ', bj = ',tileBjW(I,J)
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-        ELSE
-         WRITE(msgBuf,'(A)')
-     &   '//         WEST: no neighbor'
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-        ENDIF
+C        IF ( tileNoW(I,J).NE. NULL_TILE ) THEN
+C         WRITE(msgBuf,'(A,A,I6.6,A,I6.6,A,A)')
+C     &   '//        WEST: ',
+C     &   'Tile = ',tileNoW(I,J),
+C     &   ', Process = ',tilePidW(I,J),
+C     &   ', Comm = ',commName(tileCommModeW(I,J))
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C         WRITE(msgBuf,'(A,A,I6.6,A,I6.6)')
+C     &   '//              ',
+C     &   '  bi = ',tileBiW(I,J),
+C     &   ', bj = ',tileBjW(I,J)
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C        ELSE
+C         WRITE(msgBuf,'(A)')
+C     &   '//         WEST: no neighbor'
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C        ENDIF
 C       o East communication details
-        IF ( tileNoE(I,J).NE. NULL_TILE ) THEN
-         WRITE(msgBuf,'(A,A,I6.6,A,I6.6,A,A)')
-     &   '//        EAST: ',
-     &   'Tile = ',tileNoE(I,J),
-     &   ', Process = ',tilePidE(I,J),
-     &   ', Comm = ',commName(tileCommModeE(I,J))
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-         WRITE(msgBuf,'(A,A,I6.6,A,I6.6)')
-     &   '//              ',
-     &   '  bi = ',tileBiE(I,J),
-     &   ', bj = ',tileBjE(I,J)
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-        ELSE
-         WRITE(msgBuf,'(A)')
-     &   '//         EAST: no neighbor'
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-        ENDIF
+C        IF ( tileNoE(I,J).NE. NULL_TILE ) THEN
+C         WRITE(msgBuf,'(A,A,I6.6,A,I6.6,A,A)')
+C     &   '//        EAST: ',
+C     &   'Tile = ',tileNoE(I,J),
+C     &   ', Process = ',tilePidE(I,J),
+C     &   ', Comm = ',commName(tileCommModeE(I,J))
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C         WRITE(msgBuf,'(A,A,I6.6,A,I6.6)')
+C     &   '//              ',
+C     &   '  bi = ',tileBiE(I,J),
+C     &   ', bj = ',tileBjE(I,J)
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C        ELSE
+C         WRITE(msgBuf,'(A)')
+C     &   '//         EAST: no neighbor'
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C        ENDIF
 C       o South communication method
-        IF ( tileNoS(I,J).NE. NULL_TILE ) THEN
-         WRITE(msgBuf,'(A,A,I6.6,A,I6.6,A,A)')
-     &   '//       SOUTH: ',
-     &   'Tile = ',tileNoS(I,J),
-     &   ', Process = ',tilePidS(I,J),
-     &   ', Comm = ',commName(tileCommModeS(I,J))
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-         WRITE(msgBuf,'(A,A,I6.6,A,I6.6)')
-     &   '//              ',
-     &   '  bi = ',tileBiS(I,J),
-     &   ', bj = ',tileBjS(I,J)
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-        ELSE
-         WRITE(msgBuf,'(A)')
-     &   '//        SOUTH: no neighbor'
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-        ENDIF
+C        IF ( tileNoS(I,J).NE. NULL_TILE ) THEN
+C         WRITE(msgBuf,'(A,A,I6.6,A,I6.6,A,A)')
+C     &   '//       SOUTH: ',
+C     &   'Tile = ',tileNoS(I,J),
+C     &   ', Process = ',tilePidS(I,J),
+C     &   ', Comm = ',commName(tileCommModeS(I,J))
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C         WRITE(msgBuf,'(A,A,I6.6,A,I6.6)')
+C     &   '//              ',
+C     &   '  bi = ',tileBiS(I,J),
+C     &   ', bj = ',tileBjS(I,J)
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C        ELSE
+C         WRITE(msgBuf,'(A)')
+C     &   '//        SOUTH: no neighbor'
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C        ENDIF
 C       o North communication method
-        IF ( tileNoN(I,J).NE. NULL_TILE ) THEN
-         WRITE(msgBuf,'(A,A,I6.6,A,I6.6,A,A)')
-     &   '//       NORTH: ',
-     &   'Tile = ',tileNoN(I,J),
-     &   ', Process = ',tilePidN(I,J),
-     &   ', Comm = ',commName(tileCommModeN(I,J))
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-         WRITE(msgBuf,'(A,A,I6.6,A,I6.6)')
-     &   '//              ',
-     &   '  bi = ',tileBiN(I,J),
-     &   ', bj = ',tileBjN(I,J)
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-        ELSE
-         WRITE(msgBuf,'(A)')
-     &   '//        NORTH: no neighbor'
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-        ENDIF
-       ENDDO
-      ENDDO
-      WRITE(msgBuf,'(A)')  ' '
-      CALL PRINT_MESSAGE( msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
-#endif /* ndef ALLOW_EXCH2 */
+C        IF ( tileNoN(I,J).NE. NULL_TILE ) THEN
+C         WRITE(msgBuf,'(A,A,I6.6,A,I6.6,A,A)')
+C     &   '//       NORTH: ',
+C     &   'Tile = ',tileNoN(I,J),
+C     &   ', Process = ',tilePidN(I,J),
+C     &   ', Comm = ',commName(tileCommModeN(I,J))
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C         WRITE(msgBuf,'(A,A,I6.6,A,I6.6)')
+C     &   '//              ',
+C     &   '  bi = ',tileBiN(I,J),
+C     &   ', bj = ',tileBjN(I,J)
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C        ELSE
+C         WRITE(msgBuf,'(A)')
+C     &   '//        NORTH: no neighbor'
+C         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C        ENDIF
+C       ENDDO
+C      ENDDO
+C      WRITE(msgBuf,'(A)')  ' '
+C      CALL PRINT_MESSAGE( msgBuf,standardMessageUnit,SQUEEZE_RIGHT, 1)
+C#endif /* ndef ALLOW_EXCH2 */
 
 C--   Check EXCH-1 options
 #ifndef ALLOW_EXCH2

@@ -198,27 +198,27 @@ c       STOP 'ABNORMAL END: S/R EESET_PARMS'
 C--   Report contents of parameter file
       iUnit = scrUnit2
       IF ( doReport ) THEN
-       WRITE(msgBuf,'(A)')
-     & '// ======================================================='
-       CALL PRINT_MESSAGE(msgBuf, standardMessageUnit, SQUEEZE_RIGHT, 1)
-       WRITE(msgBuf,'(A)')
-     & '// Execution Environment parameter file "eedata"'
-       CALL PRINT_MESSAGE(msgBuf, standardMessageUnit, SQUEEZE_RIGHT, 1)
-       WRITE(msgBuf,'(A)')
-     & '// ======================================================='
-       CALL PRINT_MESSAGE(msgBuf, standardMessageUnit, SQUEEZE_RIGHT, 1)
+C       WRITE(msgBuf,'(A)')
+C     & '// ======================================================='
+C       CALL PRINT_MESSAGE(msgBuf, standardMessageUnit, SQUEEZE_RIGHT, 1)
+C       WRITE(msgBuf,'(A)')
+C     & '// Execution Environment parameter file "eedata"'
+C       CALL PRINT_MESSAGE(msgBuf, standardMessageUnit, SQUEEZE_RIGHT, 1)
+C       WRITE(msgBuf,'(A)')
+C     & '// ======================================================='
+C       CALL PRINT_MESSAGE(msgBuf, standardMessageUnit, SQUEEZE_RIGHT, 1)
 
        REWIND(iUnit)
  2000  CONTINUE
         READ(UNIT=iUnit,FMT='(A)',END=2001) RECORD
         IL = MAX(ILNBLNK(RECORD),1)
-        WRITE(msgBuf,'(A,A)') '>',RECORD(:IL)
-        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit, SQUEEZE_RIGHT, 1)
+C        WRITE(msgBuf,'(A,A)') '>',RECORD(:IL)
+C        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit, SQUEEZE_RIGHT, 1)
         GOTO 2000
  2001  CONTINUE
 
-       WRITE(msgBuf,'(A)') ' '
-       CALL PRINT_MESSAGE(msgBuf,standardMessageUnit, SQUEEZE_RIGHT, 1)
+C       WRITE(msgBuf,'(A)') ' '
+C       CALL PRINT_MESSAGE(msgBuf,standardMessageUnit, SQUEEZE_RIGHT, 1)
       ENDIF
       CLOSE(iUnit,STATUS='DELETE')
 

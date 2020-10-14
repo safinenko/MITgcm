@@ -124,7 +124,7 @@ C jmc: This needs to be sorted-out in a cleaner way.
       IF ( eeBootError ) GOTO 999
 
 C--   Now we can write a startup message
-      CALL EEINTRO_MSG
+C      CALL EEINTRO_MSG
 
 C--   Initialise parameters associated with execution environment.
       doReport = .TRUE.
@@ -132,7 +132,7 @@ C--   Initialise parameters associated with execution environment.
       IF ( eeBootError ) GOTO 999
 
 C--   Write summary of execution environment configuration for this run
-      CALL EEWRITE_EEENV
+C      CALL EEWRITE_EEENV
 
 C--   Now do the rest of the multi-process startup.
 C     o Here we map processes to the model grid.
