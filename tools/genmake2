@@ -2080,7 +2080,7 @@ $FC $FFLAGS -o genmake_tcomp_1 genmake_tcomp_1.$FS > genmake_tcomp.log 2>&1
 RETVAL=$?
 if test "x$RETVAL" = x0 ; then
     HAVE_ETIME='Fct'
-    DEFINES="$DEFINES -DHAVE_ETIME_FCT"
+    #DEFINES="$DEFINES -DHAVE_ETIME_FCT"
     echo " yes (${HAVE_ETIME})"
 else
   cat > genmake_tcomp_2.$FS <<EOF
@@ -2108,7 +2108,7 @@ EOF
   fi
   if test "x$RETVAL" = x0 ; then
     HAVE_ETIME='SbR'
-    DEFINES="$DEFINES -DHAVE_ETIME_SBR"
+    #DEFINES="$DEFINES -DHAVE_ETIME_SBR"
     echo " yes (${HAVE_ETIME})"
   else
     HAVE_ETIME=
