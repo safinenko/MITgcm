@@ -42,13 +42,14 @@ CEOP
 C     == Local variables ==
 C     msgBuf :: Informational/error meesage buffer
       CHARACTER*(MAX_LEN_MBUF) msgBuf
-      LOGICAL, PARAMETER :: upwindVort3 = .FALSE.
+      LOGICAL upwindVort3
       INTEGER i, j
       _RL     vBarXY, vBarXm, vBarXp
       _RL     vort3u
       _RL     vort3mj, vort3ij, vort3mp, vort3ip
       _RL     oneThird, tmpFac
       _RS     epsil
+      PARAMETER( upwindVort3 = .FALSE. )
 
       epsil = 1. _d -9
       tmpFac = 1. _d 0

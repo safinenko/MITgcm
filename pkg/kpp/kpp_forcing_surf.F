@@ -120,7 +120,8 @@ C                            at grid levels for bldepth             (m^2/s^2)
 
 C !LOCAL VARIABLES: ====================================================
 C Local constants
-      _RL, PARAMETER :: p0 = 0.0, p5 = 0.5, p125=0.125
+      _RL        p0    , p5    , p125
+      PARAMETER( p0=0.0, p5=0.5, p125=0.125 )
       INTEGER i, j, k, im1, ip1, jm1, jp1
       _RL tempvar2
       _RL recip_Cp

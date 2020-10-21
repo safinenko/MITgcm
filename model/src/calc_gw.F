@@ -96,7 +96,7 @@ C     del2w         :: laplacian of wVel
 C     wFld          :: local copy of wVel
 C     i,j,k         :: Loop counters
       LOGICAL biharmonicVisc
-
+      INTEGER iMin,iMax,jMin,jMax
       _RS    xA    (1-OLx:sNx+OLx,1-OLy:sNy+OLy)
       _RS    yA    (1-OLx:sNx+OLx,1-OLy:sNy+OLy)
       _RL    rThickC_W    (1-OLx:sNx+OLx,1-OLy:sNy+OLy)
@@ -118,7 +118,8 @@ C     i,j,k         :: Loop counters
       _RL  tmp_WbarZ
       _RL  uTrans, vTrans, rTrans
       _RL  viscLoc
-      INTEGER, PARAMETER :: iMin = 1, iMax = sNx, jMin = 1, jMax = sNy
+      PARAMETER( iMin = 1 , iMax = sNx )
+      PARAMETER( jMin = 1 , jMax = sNy )
 CEOP
 #ifdef ALLOW_DIAGNOSTICS
       LOGICAL diagDiss, diagAdvec, diag_AB

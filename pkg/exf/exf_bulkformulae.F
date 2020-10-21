@@ -176,20 +176,20 @@ C     ssq      :: saturation specific humidity [kg/kg] in eq. with Sea-Surface w
       INTEGER i,j,bi,bj
 
       _RL czol
-      _RL Tsf                   
-      _RL wsm                   
-      _RL t0                    
+      _RL Tsf                   ! surface temperature [K]
+      _RL wsm                   ! limited wind speed [m/s] (> umin)
+      _RL t0                    ! virtual temperature [K]
 C     these need to be 2D-arrays for vectorizing code
-      _RL tstar (1:sNx,1:sNy)   
-      _RL qstar (1:sNx,1:sNy)   
-      _RL ustar (1:sNx,1:sNy)   
-      _RL tau   (1:sNx,1:sNy)   
-      _RL rdn   (1:sNx,1:sNy)   
-      _RL rd    (1:sNx,1:sNy)   
-      _RL delq  (1:sNx,1:sNy)   
+      _RL tstar (1:sNx,1:sNy)   ! turbulent temperature scale [K]
+      _RL qstar (1:sNx,1:sNy)   ! turbulent humidity scale  [kg/kg]
+      _RL ustar (1:sNx,1:sNy)   ! friction velocity [m/s]
+      _RL tau   (1:sNx,1:sNy)   ! surface stress coef = rhoA * Ws * sqrt(Cd)
+      _RL rdn   (1:sNx,1:sNy)   ! neutral, zref (=10m) values of rd
+      _RL rd    (1:sNx,1:sNy)   ! = sqrt(Cd)          [-]
+      _RL delq  (1:sNx,1:sNy)   ! specific humidity difference [kg/kg]
       _RL deltap(1:sNx,1:sNy)
 #ifdef EXF_CALC_ATMRHO
-      _RL atmrho_loc(1:sNx,1:sNy) 
+      _RL atmrho_loc(1:sNx,1:sNy) ! local atmospheric density [kg/m^3]
 #endif
 
 #ifdef ALLOW_BULK_LARGEYEAGER04
@@ -197,27 +197,27 @@ C     these need to be 2D-arrays for vectorizing code
 #endif
       _RL SSTtmp
       _RL ssq
-      _RL re                    
-      _RL rh                    
-      _RL ren, rhn              
+      _RL re                    ! = Ce / sqrt(Cd)     [-]
+      _RL rh                    ! = Ch / sqrt(Cd)     [-]
+      _RL ren, rhn              ! neutral, zref (=10m) values of re, rh
       _RL usn, usm
-      _RL stable                
-      _RL huol                  
-      _RL htol                  
+      _RL stable                ! = 1 if stable ; = 0 if unstable
+      _RL huol                  ! stability parameter at zwd [-] (=z/Monin-Obuklov length)
+      _RL htol                  ! stability parameter at zth [-]
       _RL hqol
-      _RL x                     
-      _RL xsq                   
-      _RL psimh                 
-      _RL psixh                 
-      _RL zwln                  
-      _RL ztln                  
+      _RL x                     ! stability function  [-]
+      _RL xsq                   ! = x^2               [-]
+      _RL psimh                 ! momentum stability function
+      _RL psixh                 ! latent & sensib. stability function
+      _RL zwln                  ! = log(zwd/zref)
+      _RL ztln                  ! = log(zth/zref)
       _RL tmpbulk
       _RL recip_rhoConstFresh
       INTEGER ksrf, ksrfp1
       INTEGER iter
 C     solve4Stress :: if F, by-pass momentum turb. flux (wind-stress) calculation
       LOGICAL solve4Stress
-      _RL windStress            
+      _RL windStress            ! surface wind-stress (@ grid cell center)
 
 #ifdef ALLOW_AUTODIFF_TAMC
       INTEGER ikey_1

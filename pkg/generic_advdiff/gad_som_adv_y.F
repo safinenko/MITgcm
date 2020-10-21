@@ -81,7 +81,8 @@ C  vLoc          :: volume transported (per time step)
 C [iMin,iMax]Upd :: loop range to update tracer field
 C [jMin,jMax]Upd :: loop range to update tracer field
 C  nbStrips      :: number of strips (if region to update is splitted)
-      _RL, PARAMETER :: three = 3. _d 0
+      _RL three
+      PARAMETER( three = 3. _d 0 )
       INTEGER i,j
       INTEGER ns, nbStrips
       INTEGER iMinUpd(2), iMaxUpd(2), jMinUpd(2), jMaxUpd(2)

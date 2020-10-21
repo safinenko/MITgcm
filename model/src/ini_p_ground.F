@@ -61,7 +61,8 @@ C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
       _RL hRef(2*Nr+1), rHalf(2*Nr+1)
       LOGICAL findPoSurf
 
-      INTEGER, PARAMETER :: nLevHvR = 60
+      INTEGER nLevHvR
+      PARAMETER ( nLevHvR = 60 )
       _RL plowHvR, dpHvR, pLevHvR(nLevHvR+1), pMidHvR(nLevHvR)
       _RL thetaHvR(nLevHvR), PiHvR(nLevHvR+1), dPiHvR(nLevHvR)
       _RL recip_kappa, PiLoc, zLoc, dzLoc, yLatLoc, phiLoc

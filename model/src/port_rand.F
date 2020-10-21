@@ -30,17 +30,18 @@ C     !INPUT PARAMETERS:
 CEOP
 
 C     !LOCAL VARIABLES:
-      INTEGER, PARAMETER :: nff = 55, idum = -2
-
+      INTEGER nff,idum
+      PARAMETER(nff=55)
+      PARAMETER(idum=-2)
+      real*8 fac
 #ifdef _USE_INTEGERS
-      INTEGER mseed
-      INTEGER, PARAMETER :: mbig = 1000000000, mz = 0
-      real*8, PARAMETER :: fac = 1.d0/mbig
+      INTEGER mbig,mseed,mZ
+      PARAMETER (mbig=1000000000,mz=0,fac=1.d0/mbig)
       INTEGER mj,mk,ma(nff)
       DATA mseed/161803398/
 #else
-      real*8 mseed
-      real*8, PARAMETER :: mbig = 4000000., mz = 0., fac = 1.d0/mbig
+      real*8 mbig,mseed,mz
+      PARAMETER (mbig=4000000.,mz=0.,fac=1.d0/mbig)
       real*8 mj,mk,ma(nff)
       DATA mseed/1618033./
 #endif

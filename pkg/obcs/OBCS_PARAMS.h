@@ -18,8 +18,10 @@ CEOP
 
 C tidalComponents  :: number of tidal components to be applied
 C OBCS_maxConnect  :: maximum number of connected parts
-      INTEGER, PARAMETER :: tidalComponents = 10
-      INTEGER, PARAMETER :: OBCS_maxConnect = sNx+sNy
+      INTEGER tidalComponents
+      INTEGER OBCS_maxConnect
+      PARAMETER ( tidalComponents = 10 )
+      PARAMETER ( OBCS_maxConnect = sNx+sNy )
 
 C--   COMMON /OBC_PARM_I/ OBCS integer-type parameter
 C OBCS_u1_adv_T    :: >0: use 1rst O. upwind adv-scheme @ OB (=1: only if outflow)

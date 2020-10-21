@@ -18,10 +18,11 @@ C     | - global-sum SingleCpu
 C     *==========================================================*
 CEOP
 
+      INTEGER xyBuffer_size
 #ifdef ALLOW_EXCH2
-      INTEGER, PARAMETER :: xyBuffer_size = W2_ioBufferSize
+      PARAMETER ( xyBuffer_size = W2_ioBufferSize )
 #else  /* ALLOW_EXCH2 */
-      INTEGER, PARAMETER :: xyBuffer_size = Nx*Ny
+      PARAMETER ( xyBuffer_size = Nx*Ny )
 #endif /* ALLOW_EXCH2 */
 
 C--   COMMON /EE_BUFFERS_GLOBAL/  2-D Global Buffers

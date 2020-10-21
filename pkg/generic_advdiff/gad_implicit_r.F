@@ -71,7 +71,9 @@ C localTr   :: local copy of tracer (for Non-Lin Adv.Scheme)
 C diagonalNumber :: number of non-zero diagonals in the matrix
 C errCode   :: > 0 if singular matrix
 C msgBuf    :: Informational/error message buffer
-      INTEGER, PARAMETER :: iMin = 1, iMax = sNx, jMin = 1, jMax = sNy
+      INTEGER iMin,iMax,jMin,jMax
+      PARAMETER( iMin = 1, iMax = sNx )
+      PARAMETER( jMin = 1, jMax = sNy )
       INTEGER i,j,k
       INTEGER diagonalNumber, errCode
       _RL a5d(1-OLx:sNx+OLx,1-OLy:sNy+OLy,Nr)

@@ -5,7 +5,8 @@ C     write portions to/from NetCDF files.  The sizes of all reads and
 C     writes are checked and MNC will terminate with a sensible error
 C     message if the buffer is not large enough for all reads/writes.
 
-      INTEGER, PARAMETER :: MNC_MAX_BUFF = 15000 + sNx + 2*OLx + sNy + 2*OLy
+      INTEGER     MNC_MAX_BUFF
+      PARAMETER ( MNC_MAX_BUFF = 15000 + sNx + 2*OLx + sNy + 2*OLy )
 
 CEH3 ;;; Local Variables: ***
 CEH3 ;;; mode:fortran ***

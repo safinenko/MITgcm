@@ -67,8 +67,8 @@ C     msgBuf      :: Informational/error message buffer
       LOGICAL  glf
       _RL      timList(1)
       CHARACTER*(MAX_LEN_FNAM) fn
-      INTEGER nWrFlds, n3D
-      INTEGER, PARAMETER :: listDim = 20
+      INTEGER listDim, nWrFlds, n3D
+      PARAMETER( listDim = 20 )
       CHARACTER*(8) wrFldList(listDim)
 #ifdef ALLOW_ADAMSBASHFORTH_3
       INTEGER m1, m2
@@ -76,10 +76,14 @@ C     msgBuf      :: Informational/error message buffer
       INTEGER j, nj
       CHARACTER*(MAX_LEN_MBUF) msgBuf
 #ifndef ALLOW_GENERIC_ADVDIFF
-      LOGICAL, PARAMETER :: AdamsBashforthGt = .FALSE.
-      LOGICAL, PARAMETER :: AdamsBashforthGs = .FALSE.
-      LOGICAL, PARAMETER :: AdamsBashforth_T = .FALSE.
-      LOGICAL, PARAMETER :: AdamsBashforth_S = .FALSE.
+      LOGICAL AdamsBashforthGt
+      LOGICAL AdamsBashforthGs
+      LOGICAL AdamsBashforth_T
+      LOGICAL AdamsBashforth_S
+      PARAMETER ( AdamsBashforthGt = .FALSE. ,
+     &            AdamsBashforthGs = .FALSE. ,
+     &            AdamsBashforth_T = .FALSE. ,
+     &            AdamsBashforth_S = .FALSE. )
 #endif
 
 C-    Initialise:

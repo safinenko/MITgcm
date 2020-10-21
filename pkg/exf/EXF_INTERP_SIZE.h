@@ -18,23 +18,33 @@ CEOP
 
 C     INTEGER MAX_LAT_INC :: maximum length of latitude grid-spacing vector
 C                            used for exf-interpolation input-grid
-      INTEGER, PARAMETER :: MAX_LAT_INC = 1279
+      INTEGER MAX_LAT_INC
+      PARAMETER( MAX_LAT_INC = 1279 )
 
 #ifndef EXF_INTERP_USE_DYNALLOC
 C-  To read input data without dynamical allocation (INTERP_USE_DYNALLOC undef):
 C     exf_max_nLon :: maximum size of original grid (longitudinal direction)
 C     exf_max_nLat :: maximum size of original grid (latitudinal direction)
 C     exf_interp_bufferSize :: buffer maximum size
-      INTEGER, PARAMETER :: exf_max_nLon = 520, exf_max_nLat = 260
-      INTEGER, PARAMETER :: exf_interp_bufferSize = 140000
+      INTEGER    exf_max_nLon, exf_max_nLat
+      INTEGER    exf_interp_bufferSize
+      PARAMETER( exf_max_nLon = 520 )
+      PARAMETER( exf_max_nLat = 260 )
+
+C   Buffer size was set to 65000 (allowing to read-in a 1x1 global data set);
+C   increased to 140000 to accommodate for ECMWF-INTERIM (512 x 256)
+      PARAMETER( exf_interp_bufferSize = 140000 )
 #endif /* ndef EXF_INTERP_USE_DYNALLOC */
 
 #else /* USE_EXF_INTERPOLATION */
 
 C-- Set dummy dimension
-      INTEGER, PARAMETER :: MAX_LAT_INC = 1
-      INTEGER, PARAMETER :: exf_max_nLon = 1
-      INTEGER, PARAMETER :: exf_max_nLat = 1
-      INTEGER, PARAMETER :: exf_interp_bufferSize = 1
+      INTEGER    MAX_LAT_INC
+      INTEGER    exf_max_nLon, exf_max_nLat
+      INTEGER    exf_interp_bufferSize
+      PARAMETER( MAX_LAT_INC = 1 )
+      PARAMETER( exf_max_nLon = 1 )
+      PARAMETER( exf_max_nLat = 1 )
+      PARAMETER( exf_interp_bufferSize = 1 )
 
 #endif /* USE_EXF_INTERPOLATION */

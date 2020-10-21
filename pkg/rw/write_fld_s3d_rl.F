@@ -44,7 +44,8 @@ C     !FUNCTIONS:
 
 C     !LOCAL VARIABLES:
 C     msgBuf     :: Informational/error message buffer
-      INTEGER, PARAMETER :: kSiz = Nr
+      INTEGER kSiz
+      PARAMETER ( kSiz = Nr )
       _RL locVar(1-OLx:sNx+OLx,1-OLy:sNy+OLy,kSiz,nSx,nSy)
 
       CHARACTER*(MAX_LEN_MBUF) msgBuf

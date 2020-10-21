@@ -31,6 +31,12 @@ C     == Local variables ==
       LOGICAL  rAdvAreaWeight
 c     _RL vmask_Kp1,vmask_K,vmask_Km1
 c     LOGICAL freeslipK,noslipK
+c     PARAMETER(freeslipK=.TRUE.)
+c     PARAMETER(noslipK=.NOT.freeslipK)
+c     LOGICAL freeslip1,noslip1
+c     PARAMETER(freeslip1=.TRUE.)
+c     PARAMETER(noslip1=.NOT.freeslip1)
+c1    _RL wBarYZ,vZbarZ
 
       rAdvAreaWeight =.TRUE.
 C-    Area-weighted average either in KE or in vert. advection:
