@@ -258,7 +258,7 @@ C--   Finally summarise the model configuration
 #ifdef ALLOW_DEBUG
       IF (debugMode) CALL DEBUG_CALL('CONFIG_SUMMARY',myThid)
 #endif
-C      CALL CONFIG_SUMMARY( myThid )
+      CALL CONFIG_SUMMARY( myThid )
 
 C--   Check packages configuration (& print summary)
 #ifdef ALLOW_DEBUG

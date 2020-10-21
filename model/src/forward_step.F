@@ -1188,9 +1188,9 @@ C--   State-variables time-averaging
 #ifdef ALLOW_MONITOR
       IF ( monitorFreq.GT.0. .OR. adjMonitorFreq.GT.0. ) THEN
 C--   Check status of solution (statistics, cfl, etc...)
-C        CALL TIMER_START('MONITOR             [FORWARD_STEP]',myThid)
-C        CALL MONITOR( myTime, myIter, myThid )
-C        CALL TIMER_STOP ('MONITOR             [FORWARD_STEP]',myThid)
+        CALL TIMER_START('MONITOR             [FORWARD_STEP]',myThid)
+        CALL MONITOR( myTime, myIter, myThid )
+        CALL TIMER_STOP ('MONITOR             [FORWARD_STEP]',myThid)
       ENDIF
 #endif /* ALLOW_MONITOR */
 

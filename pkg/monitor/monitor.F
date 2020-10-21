@@ -74,17 +74,17 @@ C     & mon_write_mnc (since it is the only thread that uses those flags):
 #endif /* ALLOW_MNC */
 
 C       Dynamics field monitor start
-          IF ( mon_write_stdout ) THEN
-            WRITE(msgBuf,'(2A)') '// ==========================',
-     &             '============================='
-            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
-            WRITE(msgBuf,'(A)')
-     &             '// Begin MONITOR dynamic field statistics'
-            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
-            WRITE(msgBuf,'(2A)') '// ==========================',
-     &             '============================='
-            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
-          ENDIF
+C          IF ( mon_write_stdout ) THEN
+C            WRITE(msgBuf,'(2A)') '// ==========================',
+C     &             '============================='
+C            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
+C            WRITE(msgBuf,'(A)')
+C     &             '// Begin MONITOR dynamic field statistics'
+C            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
+C            WRITE(msgBuf,'(2A)') '// ==========================',
+C     &             '============================='
+C            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
+C          ENDIF
 
 C--   endif master cpu io
         ENDIF
@@ -179,17 +179,17 @@ C       Dynamics field monitor finish
 C--   only the master thread is allowed to switch On/Off mon_write_stdout
 C     & mon_write_mnc (since it is the only thread that uses those flags):
 
-          IF ( mon_write_stdout ) THEN
-            WRITE(msgBuf,'(2A)') '// ==========================',
-     &             '============================='
-            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
-            WRITE(msgBuf,'(A)')
-     &             '// End MONITOR dynamic field statistics'
-            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
-            WRITE(msgBuf,'(2A)') '// ==========================',
-     &             '============================='
-            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
-          ENDIF
+C          IF ( mon_write_stdout ) THEN
+C            WRITE(msgBuf,'(2A)') '// ==========================',
+C     &             '============================='
+C            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
+C            WRITE(msgBuf,'(A)')
+C     &             '// End MONITOR dynamic field statistics'
+C            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
+C            WRITE(msgBuf,'(2A)') '// ==========================',
+C     &             '============================='
+C            CALL PRINT_MESSAGE( msgBuf, mon_ioUnit, SQUEEZE_RIGHT , 1)
+C          ENDIF
 
           mon_write_stdout = .FALSE.
           mon_write_mnc    = .FALSE.

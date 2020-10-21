@@ -175,9 +175,9 @@ C 2b) stay at A grid velocity points (i.e. at the C grid cell center)
             endif
           enddo
           enddo
-        endif
+        endif!if ( switchGrid ) then
 
-        endif
+        endif!if (xy2en) then
 
         enddo
        enddo
@@ -295,7 +295,7 @@ C 1b) stay at A grid velocity points (i.e. at the C grid cell center)
             endif
           enddo
           enddo
-        endif
+        endif!if ( switchGrid ) then
 
 C 2) rotation
           do j = 1-oly,sny+oly
@@ -309,7 +309,7 @@ C 2) rotation
           enddo
           enddo
 
-      else
+      else!if (xy2en) then
 c go from uFldE/vFldN to uFldX/vFldY
 
 C 1) rotation
@@ -356,9 +356,9 @@ C 2b) stay at A grid velocity points (i.e. at the C grid cell center)
             endif
           enddo
           enddo
-        endif
+        endif!if ( switchGrid ) then
 
-        endif
+        endif!if (xy2en) then
 
         enddo
        enddo

@@ -5,7 +5,6 @@
 # module load cray-hdf5-parallel/1.10.0.1
 # module load cray-netcdf-hdf5parallel/4.4.1.1
 
-
 CC='cc'
 FC='ftn'
 F90C='ftn'
@@ -25,7 +24,7 @@ NOOPTFILES=''
 if test "x$IEEE" = x ; then   #- with optimisation:
 #   FOPTIM='-O2 -hfp3 -Oipa5' for less agressive optimization 
 #   Be aware not all experiments pass the restart test with optimization 
-    FOPTIM='-O3 -hfp0 -g'
+    FOPTIM='-O3 -hfp3 -Oipa5'
 else
     if test "x$DEVEL" = x ; then  #- no optimisation + IEEE :
       FOPTIM='-O0 -hfp0'

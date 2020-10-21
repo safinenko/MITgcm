@@ -291,7 +291,7 @@ C--   Finally summarise the model state
       IF (debugMode) CALL DEBUG_CALL('MONITOR',myThid)
 #endif
 C--   Check status of initial state (statistics, cfl, etc...)
-C      CALL MONITOR( startTime, nIter0, myThid )
+      CALL MONITOR( startTime, nIter0, myThid )
 #endif /* ALLOW_MONITOR */
 
 #ifdef ALLOW_TIMEAVE
