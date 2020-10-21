@@ -9,11 +9,15 @@ CC='cc'
 FC='ftn'
 F90C='ftn'
 
-DEFINES='-DWORDLENGTH=4 -D_BYTESWAPIO -DHAVE_LAPACK'
+DEFINES='-DWORDLENGTH=4'
 CPP='cpp -traditional -P'
 EXTENDED_SRC_FLAG='-Mextend'
 GET_FC_VERSION="-V"
-CHECK_FOR_LAPACK=t
+CHECK_FOR_LAPACK=f
+
+
+CFLAGS="$CFLAGS -shared -fPIC"
+FFLAGS="$FFLAGS -shared -fPIC"
 
 INCLUDES='-I/opt/cray/pe/mpt/default/gni/mpich-cray/9.0/include/ -I/opt/cray/pe/netcdf/default/crayclang/9.0/include/'
 LIBS='-L/opt/cray/pe/netcdf/default/crayclang/9.0/lib/'
