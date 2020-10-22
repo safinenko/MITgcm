@@ -180,40 +180,40 @@ C    with 2 polar faces + 4 equatorials:
         CALL EXCH_Z_3D_RS( fCoriG, 1, myThid )
       ENDIF
 
-#ifdef ALLOW_MONITOR
-      IF ( MASTER_CPU_IO(myThid) ) THEN
+C#ifdef ALLOW_MONITOR
+C      IF ( MASTER_CPU_IO(myThid) ) THEN
 C--   only the master thread is allowed to switch On/Off mon_write_stdout
 C     & mon_write_mnc (since it is the only thread that uses those flags):
-
-        IF (monitor_stdio) THEN
-          mon_write_stdout = .TRUE.
-        ELSE
-          mon_write_stdout = .FALSE.
-        ENDIF
-        mon_write_mnc = .FALSE.
-#ifdef ALLOW_MNC
-        IF (useMNC .AND. monitor_mnc) THEN
-          DO i = 1,MAX_LEN_MBUF
-            mon_fname(i:i) = ' '
-          ENDDO
-          mon_fname(1:12) = 'monitor_grid'
-          CALL MNC_CW_SET_UDIM(mon_fname, 1, myThid)
-          mon_write_mnc = .TRUE.
-        ENDIF
-#endif /*  ALLOW_MNC  */
-
-      ENDIF
-
-      CALL MON_SET_PREF( mon_string_none, myThid )
-      CALL MON_PRINTSTATS_RS(1,fCori,'fCori',myThid)
-      CALL MON_PRINTSTATS_RS(1,fCoriG,'fCoriG',myThid)
-      CALL MON_PRINTSTATS_RS(1,fCoriCos,'fCoriCos',myThid)
-
-      IF ( MASTER_CPU_IO(myThid) ) THEN
-        mon_write_stdout = .FALSE.
-        mon_write_mnc    = .FALSE.
-      ENDIF
-#endif /* ALLOW_MONITOR */
+C
+C        IF (monitor_stdio) THEN
+C          mon_write_stdout = .TRUE.
+C        ELSE
+C          mon_write_stdout = .FALSE.
+C        ENDIF
+C        mon_write_mnc = .FALSE.
+C#ifdef ALLOW_MNC
+C        IF (useMNC .AND. monitor_mnc) THEN
+C          DO i = 1,MAX_LEN_MBUF
+C            mon_fname(i:i) = ' '
+C          ENDDO
+C          mon_fname(1:12) = 'monitor_grid'
+C          CALL MNC_CW_SET_UDIM(mon_fname, 1, myThid)
+C          mon_write_mnc = .TRUE.
+C        ENDIF
+C#endif /*  ALLOW_MNC  */
+C
+C      ENDIF
+C
+C      CALL MON_SET_PREF( mon_string_none, myThid )
+C      CALL MON_PRINTSTATS_RS(1,fCori,'fCori',myThid)
+C      CALL MON_PRINTSTATS_RS(1,fCoriG,'fCoriG',myThid)
+C      CALL MON_PRINTSTATS_RS(1,fCoriCos,'fCoriCos',myThid)
+C
+C      IF ( MASTER_CPU_IO(myThid) ) THEN
+C        mon_write_stdout = .FALSE.
+C        mon_write_mnc    = .FALSE.
+C      ENDIF
+C#endif /* ALLOW_MONITOR */
 
       RETURN
       END
