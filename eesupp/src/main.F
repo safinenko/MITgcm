@@ -14,12 +14,12 @@ C     !LOCAL VARIABLES:
 C     msgBuf       :: I/O message buffer
 C     I            :: loop counter
 C     myThid       :: thread Id number
-      INTEGER myThid
-      INTEGER dummyComm
-      dummyComm = -1
-      myThid = 1
+      INTEGER :: myThid = 1
+      INTEGER :: dummyComm = -1
+      _RL     :: secchiD = 20. _d 0
+
       CALL EEBOOT( dummyComm )
-      CALL THE_MODEL_MAIN(myThid)
+      CALL THE_MODEL_MAIN(myThid, secchiD)
 
       END
 

@@ -2,7 +2,7 @@
 #include "PACKAGES_CONFIG.h"
 #include "CPP_OPTIONS.h"
 
-      SUBROUTINE THE_MODEL_MAIN(myThid)
+      SUBROUTINE THE_MODEL_MAIN(myThid, secchiD)
       IMPLICIT NONE
 
 C     == Global variables ===
@@ -11,9 +11,8 @@ C     == Global variables ===
 #include "PARAMS.h"
 
       INTEGER myThid
-      _RL    :: secchiD = 20. _d 0
-
       INTEGER myIter
+      _RL     secchiD
       _RL     myTime
 
       CALL INITIALISE_FIXED( myThid )
@@ -25,3 +24,4 @@ C     == Global variables ===
 
       RETURN
       END
+  
