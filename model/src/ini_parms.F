@@ -355,10 +355,10 @@ C--   Initialise retired parameters to unlikely value
       dQdTFile        = ' '
 
 C--   Open the parameter file
-      WRITE(msgBuf,'(A)')
-     &     ' INI_PARMS: opening model parameter file "data"'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)')
+C     &     ' INI_PARMS: opening model parameter file "data"'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
       CALL OPEN_COPY_DATA_FILE( 'data', 'INI_PARMS',
      O                          iUnit, myThid )
@@ -393,9 +393,9 @@ C--   Set default "physical" parameters
       saltVertAdvScheme = 0
       plotLevel         = UNSET_I
 C--   z,p,r coord input switching.
-      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM01'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM01'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       READ(UNIT=iUnit,NML=PARM01) !,IOSTAT=errIO)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
@@ -404,10 +404,10 @@ C--   z,p,r coord input switching.
        WRITE(msgBuf,'(A)') 'S/R INI_PARMS: Problem in namelist PARM01'
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ELSE
-       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM01 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C      ELSE
+C       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM01 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 
 C-    set the type of vertical coordinate and type of fluid
@@ -1104,9 +1104,9 @@ C-    pCell-Mix  parameters:
         pCellMix_diffKr(k) = diffKrNrT(k)
       ENDDO
 
-      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM04'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM04'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       READ(UNIT=iUnit,NML=PARM04) !,IOSTAT=errIO)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
@@ -1115,10 +1115,10 @@ C-    pCell-Mix  parameters:
        WRITE(msgBuf,'(A)') 'S/R INI_PARMS: Problem in namelist PARM04'
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ELSE
-       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM04 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C      ELSE
+C       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM04 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 
 C     Check for retired parameters still being used
