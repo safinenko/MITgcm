@@ -291,9 +291,9 @@ C     several places, test for last iteration with time==endTime :
 #endif /* ALLOW_LONGSTEP */
 
 C--  After this point, main model parameters are not supposed to be modified.
-       WRITE(msgBuf,'(A,A)') 'SET_PARMS: done'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                      SQUEEZE_RIGHT , 1)
+C       WRITE(msgBuf,'(A,A)') 'SET_PARMS: done'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                      SQUEEZE_RIGHT , 1)
 
       _END_MASTER(myThid)
 

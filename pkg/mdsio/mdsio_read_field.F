@@ -230,12 +230,12 @@ C Check first for global file with simple name (ie. fName)
         dataFName = fName
         INQUIRE( file=dataFName, exist=exst )
         IF (exst) THEN
-          IF ( debugLevel .GE. debLevB ) THEN
-            WRITE(msgBuf,'(A,A)')
-     &      ' MDS_READ_FIELD: opening global file: ',dataFName(1:IL)
-            CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                          SQUEEZE_RIGHT, myThid)
-          ENDIF
+C          IF ( debugLevel .GE. debLevB ) THEN
+C            WRITE(msgBuf,'(A,A)')
+C     &      ' MDS_READ_FIELD: opening global file: ',dataFName(1:IL)
+C            CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                          SQUEEZE_RIGHT, myThid)
+C          ENDIF
           globalFile = .TRUE.
         ENDIF
 

@@ -39,11 +39,11 @@ CEOP
 
       _BEGIN_MASTER(myThid)
 
-      WRITE(msgBuf,'(A,2(A,L5))') 'Enter INI_VERTICAL_GRID:',
-     &                            ' setInterFDr=', setInterFDr,
-     &                          ' ; setCenterDr=', setCenterDr
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A,2(A,L5))') 'Enter INI_VERTICAL_GRID:',
+C     &                            ' setInterFDr=', setInterFDr,
+C     &                          ' ; setCenterDr=', setCenterDr
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
 C--   Set factors required for mixing pressure and meters as vertical coordinate.
 C     rkSign is a "sign" parameter which is used where the orientation of the vertical

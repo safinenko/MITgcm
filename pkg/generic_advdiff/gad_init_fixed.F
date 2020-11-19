@@ -179,9 +179,9 @@ C-- Set Overlap minimum size according to Temp & Salt advection
 C-    multi-dim-advection on CS-grid requires to double the size of OLx,OLy
         GAD_OlMinSize(3) = MAX( GAD_OlMinSize(3), 2 )
       ENDIF
-      WRITE(msgBuf,'(A,9I3)')
-     &      'GAD_INIT_FIXED: GAD_OlMinSize=', GAD_OlMinSize
-      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C      WRITE(msgBuf,'(A,9I3)')
+C     &      'GAD_INIT_FIXED: GAD_OlMinSize=', GAD_OlMinSize
+C      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
 
       _END_MASTER(myThid)
 
@@ -199,71 +199,71 @@ C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 C-- Print out GAD parameters :
       _BEGIN_MASTER(myThid)
 
-      WRITE(msgBuf,'(A)') ' '
-      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
-      WRITE(msgBuf,'(A)') '// ==================================='
-      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
-      WRITE(msgBuf,'(A)')'// GAD parameters :'
-      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
-      WRITE(msgBuf,'(A)') '// ==================================='
-      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
-
-      CALL WRITE_0D_I( tempAdvScheme, INDEX_NONE,
-     & 'tempAdvScheme =',
-     & '   /* Temp. Horiz.Advection scheme selector */')
-      CALL WRITE_0D_I( tempVertAdvScheme, INDEX_NONE,
-     & 'tempVertAdvScheme =',
-     & '   /* Temp. Vert. Advection scheme selector */')
-      CALL WRITE_0D_L( tempMultiDimAdvec, INDEX_NONE,
-     & 'tempMultiDimAdvec =',
-     & '   /* use Muti-Dim Advec method for Temp */')
-      CALL WRITE_0D_L( tempSOM_Advection, INDEX_NONE,
-     & 'tempSOM_Advection =',
-     & ' /* use 2nd Order Moment Advection for Temp */')
-      CALL WRITE_0D_L( AdamsBashforthGt, INDEX_NONE,
-     & 'AdamsBashforthGt =',
-     & ' /* apply Adams-Bashforth extrapolation on Gt */')
-      CALL WRITE_0D_L( AdamsBashforth_T, INDEX_NONE,
-     & 'AdamsBashforth_T =',
-     & ' /* apply Adams-Bashforth extrapolation on Temp */')
-#ifdef GAD_SMOLARKIEWICZ_HACK
-      CALL WRITE_0D_L( temp_stayPositive, INDEX_NONE,
-     & 'temp_stayPositive =',
-     & ' /* use Smolarkiewicz Hack for Temperature */')
-#endif
-
-      CALL WRITE_0D_I( saltAdvScheme, INDEX_NONE,
-     & 'saltAdvScheme =',
-     & '   /* Salt. Horiz.advection scheme selector */')
-      CALL WRITE_0D_I( saltVertAdvScheme, INDEX_NONE,
-     & 'saltVertAdvScheme =',
-     & '   /* Salt. Vert. Advection scheme selector */')
-      CALL WRITE_0D_L( saltMultiDimAdvec, INDEX_NONE,
-     & 'saltMultiDimAdvec =',
-     & '   /* use Muti-Dim Advec method for Salt */')
-      CALL WRITE_0D_L( saltSOM_Advection, INDEX_NONE,
-     & 'saltSOM_Advection =',
-     & ' /* use 2nd Order Moment Advection for Salt */')
-      CALL WRITE_0D_L( AdamsBashforthGs, INDEX_NONE,
-     & 'AdamsBashforthGs =',
-     & ' /* apply Adams-Bashforth extrapolation on Gs */')
-      CALL WRITE_0D_L( AdamsBashforth_S, INDEX_NONE,
-     & 'AdamsBashforth_S =',
-     & ' /* apply Adams-Bashforth extrapolation on Salt */')
-#ifdef GAD_SMOLARKIEWICZ_HACK
-      CALL WRITE_0D_L( salt_stayPositive, INDEX_NONE,
-     & 'salt_stayPositive =',
-     & ' /* use Smolarkiewicz Hack for Salinity */')
-#endif
-
-#ifdef GAD_SMOLARKIEWICZ_HACK
-      CALL WRITE_0D_RL( SmolarkiewiczMaxFrac, INDEX_NONE,
-     & 'SmolarkiewiczMaxFrac =',
-     & ' /* maximal fraction of tracer to flow out of a cell */')
-#endif
-      WRITE(msgBuf,'(A)') '// ==================================='
-      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
-
+C      WRITE(msgBuf,'(A)') ' '
+C      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C      WRITE(msgBuf,'(A)') '// ==================================='
+C      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C      WRITE(msgBuf,'(A)')'// GAD parameters :'
+C      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C      WRITE(msgBuf,'(A)') '// ==================================='
+C      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C
+C      CALL WRITE_0D_I( tempAdvScheme, INDEX_NONE,
+C     & 'tempAdvScheme =',
+C     & '   /* Temp. Horiz.Advection scheme selector */')
+C      CALL WRITE_0D_I( tempVertAdvScheme, INDEX_NONE,
+C     & 'tempVertAdvScheme =',
+C     & '   /* Temp. Vert. Advection scheme selector */')
+C      CALL WRITE_0D_L( tempMultiDimAdvec, INDEX_NONE,
+C     & 'tempMultiDimAdvec =',
+C     & '   /* use Muti-Dim Advec method for Temp */')
+C      CALL WRITE_0D_L( tempSOM_Advection, INDEX_NONE,
+C     & 'tempSOM_Advection =',
+C     & ' /* use 2nd Order Moment Advection for Temp */')
+C      CALL WRITE_0D_L( AdamsBashforthGt, INDEX_NONE,
+C     & 'AdamsBashforthGt =',
+C     & ' /* apply Adams-Bashforth extrapolation on Gt */')
+C      CALL WRITE_0D_L( AdamsBashforth_T, INDEX_NONE,
+C     & 'AdamsBashforth_T =',
+C     & ' /* apply Adams-Bashforth extrapolation on Temp */')
+C#ifdef GAD_SMOLARKIEWICZ_HACK
+C      CALL WRITE_0D_L( temp_stayPositive, INDEX_NONE,
+C     & 'temp_stayPositive =',
+C     & ' /* use Smolarkiewicz Hack for Temperature */')
+C#endif
+C
+C      CALL WRITE_0D_I( saltAdvScheme, INDEX_NONE,
+C     & 'saltAdvScheme =',
+C     & '   /* Salt. Horiz.advection scheme selector */')
+C      CALL WRITE_0D_I( saltVertAdvScheme, INDEX_NONE,
+C     & 'saltVertAdvScheme =',
+C     & '   /* Salt. Vert. Advection scheme selector */')
+C      CALL WRITE_0D_L( saltMultiDimAdvec, INDEX_NONE,
+C     & 'saltMultiDimAdvec =',
+C     & '   /* use Muti-Dim Advec method for Salt */')
+C      CALL WRITE_0D_L( saltSOM_Advection, INDEX_NONE,
+C     & 'saltSOM_Advection =',
+C     & ' /* use 2nd Order Moment Advection for Salt */')
+C      CALL WRITE_0D_L( AdamsBashforthGs, INDEX_NONE,
+C     & 'AdamsBashforthGs =',
+C     & ' /* apply Adams-Bashforth extrapolation on Gs */')
+C      CALL WRITE_0D_L( AdamsBashforth_S, INDEX_NONE,
+C     & 'AdamsBashforth_S =',
+C     & ' /* apply Adams-Bashforth extrapolation on Salt */')
+C#ifdef GAD_SMOLARKIEWICZ_HACK
+C      CALL WRITE_0D_L( salt_stayPositive, INDEX_NONE,
+C     & 'salt_stayPositive =',
+C     & ' /* use Smolarkiewicz Hack for Salinity */')
+C#endif
+C
+C#ifdef GAD_SMOLARKIEWICZ_HACK
+C      CALL WRITE_0D_RL( SmolarkiewiczMaxFrac, INDEX_NONE,
+C     & 'SmolarkiewiczMaxFrac =',
+C     & ' /* maximal fraction of tracer to flow out of a cell */')
+C#endif
+C      WRITE(msgBuf,'(A)') '// ==================================='
+C      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 
       _END_MASTER(myThid)

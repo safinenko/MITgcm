@@ -27,9 +27,9 @@ C     msgBuf :: Informational/error message buffer
 
       _BEGIN_MASTER(myThid)
 
-      WRITE(msgBuf,'(A)') 'KPP_CHECK: #define ALLOW_KPP'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') 'KPP_CHECK: #define ALLOW_KPP'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
 C--   Print out KPP parameters:
 C      CALL WRITE_0D_RL( kpp_freq, INDEX_NONE, ' kpp_freq =',
@@ -183,9 +183,9 @@ C     Hence overlap region needs to be set OLx=4, OLy=4.
       ENDIF
 #endif /* EXCLUDE_KPP_DOUBLEDIFF */
 
-      WRITE(msgBuf,'(A)') ' '
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' '
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
       _END_MASTER(myThid)
 

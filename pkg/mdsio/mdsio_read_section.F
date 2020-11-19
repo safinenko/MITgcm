@@ -126,12 +126,12 @@ C Check first for global file with simple name (ie. fName)
       dataFName = fName
       INQUIRE( file=dataFName, exist=exst )
       IF (exst) THEN
-       IF ( debugLevel .GE. debLevB ) THEN
-        WRITE(msgBuf,'(A,A)')
-     &   ' MDS_READ_SEC_XZ: opening global file: ',dataFName(1:IL)
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-       ENDIF
+C       IF ( debugLevel .GE. debLevB ) THEN
+C        WRITE(msgBuf,'(A,A)')
+C     &   ' MDS_READ_SEC_XZ: opening global file: ',dataFName(1:IL)
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                      SQUEEZE_RIGHT, myThid )
+C       ENDIF
        globalFile = .TRUE.
       ENDIF
 
@@ -140,12 +140,12 @@ C If negative check for global file with MDS name (ie. fName.data)
        WRITE(dataFName,'(2A)') fName(1:IL),'.data'
        INQUIRE( file=dataFName, exist=exst )
        IF (exst) THEN
-        IF ( debugLevel .GE. debLevB ) THEN
-         WRITE(msgBuf,'(A,A)')
-     &    ' MDS_READ_SEC_XZ: opening global file: ',dataFName(1:IL+5)
-         CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                       SQUEEZE_RIGHT, myThid )
-        ENDIF
+C        IF ( debugLevel .GE. debLevB ) THEN
+C         WRITE(msgBuf,'(A,A)')
+C     &    ' MDS_READ_SEC_XZ: opening global file: ',dataFName(1:IL+5)
+C         CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                       SQUEEZE_RIGHT, myThid )
+C        ENDIF
         globalFile = .TRUE.
        ENDIF
       ENDIF
@@ -171,12 +171,12 @@ C If we are reading from a tiled MDS file then we open each one here
 C Of course, we only open the file IF the tile is "active"
 C (This is a place-holder for the active/passive mechanism
          IF (exst) THEN
-          IF ( debugLevel .GE. debLevB ) THEN
-           WRITE(msgBuf,'(A,A)')
-     &      ' MDS_READ_SEC_XZ: opening file: ',dataFName(1:pIL+13)
-           CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                         SQUEEZE_RIGHT, myThid )
-          ENDIF
+C          IF ( debugLevel .GE. debLevB ) THEN
+C           WRITE(msgBuf,'(A,A)')
+C     &      ' MDS_READ_SEC_XZ: opening file: ',dataFName(1:pIL+13)
+C           CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                         SQUEEZE_RIGHT, myThid )
+C          ENDIF
           length_of_rec = MDS_RECLEN( filePrec, sNx, myThid )
           OPEN( dUnit, file=dataFName, status='old',
      &          access='direct', recl=length_of_rec )
@@ -404,12 +404,12 @@ C Check first for global file with simple name (ie. fName)
       dataFName = fName
       INQUIRE( file=dataFName, exist=exst )
       IF (exst) THEN
-       IF ( debugLevel .GE. debLevB ) THEN
-        WRITE(msgBuf,'(A,A)')
-     &   ' MDS_READ_SEC_YZ: opening global file: ',dataFName(1:IL)
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-       ENDIF
+C       IF ( debugLevel .GE. debLevB ) THEN
+C        WRITE(msgBuf,'(A,A)')
+C     &   ' MDS_READ_SEC_YZ: opening global file: ',dataFName(1:IL)
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                      SQUEEZE_RIGHT, myThid )
+C       ENDIF
        globalFile = .TRUE.
       ENDIF
 
@@ -418,12 +418,12 @@ C If negative check for global file with MDS name (ie. fName.data)
        WRITE(dataFName,'(2A)') fName(1:IL),'.data'
        INQUIRE( file=dataFName, exist=exst )
        IF (exst) THEN
-        IF ( debugLevel .GE. debLevB ) THEN
-         WRITE(msgBuf,'(A,A)')
-     &    ' MDS_READ_SEC_YZ: opening global file: ',dataFName(1:IL+5)
-         CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                       SQUEEZE_RIGHT, myThid )
-        ENDIF
+C        IF ( debugLevel .GE. debLevB ) THEN
+C         WRITE(msgBuf,'(A,A)')
+C     &    ' MDS_READ_SEC_YZ: opening global file: ',dataFName(1:IL+5)
+C         CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                       SQUEEZE_RIGHT, myThid )
+C        ENDIF
         globalFile = .TRUE.
        ENDIF
       ENDIF

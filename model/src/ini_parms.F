@@ -842,9 +842,9 @@ C     Check for retired parameters still being used
       ENDIF
 
 C--   Elliptic solver parameters
-      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM02'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM02'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       READ(UNIT=iUnit,NML=PARM02) !,IOSTAT=errIO)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
@@ -854,9 +854,9 @@ C--   Elliptic solver parameters
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
       ELSE
-       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM02 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM02 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 
 C--   Time stepping parameters
@@ -865,9 +865,9 @@ C--   Time stepping parameters
       latBandClimRelax  = UNSET_RL
       deltaTtracer      = 0. _d 0
       forcing_In_AB     = .TRUE.
-      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM03'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM03'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       READ(UNIT=iUnit,NML=PARM03) !,IOSTAT=errIO)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
@@ -876,10 +876,10 @@ C--   Time stepping parameters
        WRITE(msgBuf,'(A)') 'S/R INI_PARMS: Problem in namelist PARM03'
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ELSE
-       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM03 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C      ELSE
+C       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM03 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 C     Check for retired parameters still being used
       IF ( tauThetaClimRelax3Dim .NE. UNSET_RL ) THEN
@@ -1401,9 +1401,9 @@ C-    Check for double definition (file & namelist)
       ENDIF
 
 C--   Input files
-      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM05'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM05'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       READ(UNIT=iUnit,NML=PARM05) !,IOSTAT=errIO)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
@@ -1413,9 +1413,9 @@ C--   Input files
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
       ELSE
-       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM05 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM05 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 C     Check for retired parameters still being used
       IF ( shelfIceFile .NE. ' ' ) THEN
@@ -1512,9 +1512,9 @@ C--   Close the open data file
       CLOSE(iUnit,STATUS='DELETE')
 #endif /* SINGLE_DISK_IO */
 
-      WRITE(msgBuf,'(A)') ' INI_PARMS: finished reading file "data"'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT , myThid )
+C      WRITE(msgBuf,'(A)') ' INI_PARMS: finished reading file "data"'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT , myThid )
 
 C--   Check whether any retired parameters were found.
       IF ( nRetired .GT. 0 ) THEN

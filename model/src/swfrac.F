@@ -52,53 +52,21 @@ C               (fact*swdk) is negative distance (m) from surface
 C     swdk    :: on output: short wave (radiation) fractional decay
       _RL     swdk(imax)
 
-C     Set total attenuation in the top 'zA' meters to be 'BetaSol' .
-      _RL    :: zA = 1.0
-      _RL    :: BetaSol = 0.4
-      
-
 C     !LOCAL VARIABLES:
 C     === Local variables ===
 C     max number of different water types
       INTEGER secchi
-      _RL facz
+      _RL     facz
       INTEGER i
-      _RL     fac, attenCoeff, secchiD
-      LOGICAL first, changed
-      INTEGER count0, count1
-      _RL secchiDepths(12)
-      DATA secchiDepths / 13.8 _d 0,
-     &                    15.5 _d 0,
-     &                    9.3  _d 0,
-     &                    7.0  _d 0,
-     &                    5.15 _d 0,
-     &                    8.8  _d 0,
-     &                    8.15 _d 0,
-     &                    3.7  _d 0,
-     &                    6.6  _d 0,
-     &                    8.55 _d 0,
-     &                    8.1  _d 0,
-     &                    10.5 _d 0 /
-
-      attenCoeff = 1.7 _d 0
-
-#ifdef ALLOW_CAL
-      CALL  cal_GetMonthsRec(
-     O     fac, first, changed, count0, count1,
-     I     myTime, myIter, myThid )
-           secchi=secchiDepths(count1)
-#else /* ALLOW_CAL undef */
-      secchi=10.0 _d 0
-#endif /* ALLOW_CAL */
+      _RL  :: attenCoeff = 1.7 _d 0
+      _RL     secchiD
 
       DO i = 1,imax
          facz = fact*swdk(i)
-         IF ( facz .GT. -1. _d 0 ) THEN
-            swdk(i) = (1. _d 0 - BetaSol * facz / zA)
-         ELSE IF ( facz .LT. -100. _d 0 ) THEN
+         IF ( facz .LT. -150. _d 0 ) THEN
             swdk(i) = 0. _d 0
          ELSE
-            swdk(i) = (1. _d 0 - BetaSol) * exp(attenCoeff*facz/secchiD)
+            swdk(i) = exp( attenCoeff * facz / secchiD)
          ENDIF
       ENDDO
 

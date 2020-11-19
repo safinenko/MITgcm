@@ -169,16 +169,16 @@ C-  convert Target-Residual (in W unit) to cg2d-solver residual unit [m^2/s^2]
 
 CcnhDebugStarts
       _BEGIN_MASTER( myThid )
-       WRITE(msgBuf,'(2A,1PE23.16)') 'INI_CG2D: ',
-     &      'CG2D normalisation factor = ', cg2dNorm
-       CALL PRINT_MESSAGE( msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C       WRITE(msgBuf,'(2A,1PE23.16)') 'INI_CG2D: ',
+C     &      'CG2D normalisation factor = ', cg2dNorm
+C       CALL PRINT_MESSAGE( msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
        IF (.NOT.cg2dNormaliseRHS) THEN
         WRITE(msgBuf,'(2A,1PE22.15,A,1PE16.10,A)') 'INI_CG2D: ',
      &      'cg2dTolerance =', cg2dTolerance, ' (Area=',globalArea,')'
         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
        ENDIF
-       WRITE(msgBuf,*) ' '
-       CALL PRINT_MESSAGE( msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C       WRITE(msgBuf,*) ' '
+C       CALL PRINT_MESSAGE( msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
       _END_MASTER( myThid )
 CcnhDebugEnds
 

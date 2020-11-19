@@ -36,7 +36,7 @@ C     parameters.
      I              nIter0, nEndIter, nTimeSteps,
      I              myThid )
 
-      CALL CAL_SUMMARY( myThid )
+C      CALL CAL_SUMMARY( myThid )
 
 #ifdef ALLOW_DEBUG
       IF (debugMode) CALL DEBUG_LEAVE('CAL_INIT_FIXED',myThid)

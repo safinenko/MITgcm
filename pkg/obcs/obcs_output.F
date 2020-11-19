@@ -159,7 +159,7 @@ C     Write Western OB arrays
       ENDIF
 
 C--   Compute and print statistics of dynamic fields at OB:
-      CALL OBCS_MONITOR( myTime, myIter, myThid )
+C      CALL OBCS_MONITOR( myTime, myIter, myThid )
 
 #endif /* ALLOW_OBCS */
 

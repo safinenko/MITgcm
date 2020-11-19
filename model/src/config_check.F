@@ -38,16 +38,16 @@ C     msgBuf :: Informational/error message buffer
       INTEGER errCount
 CEOP
 
-      _BEGIN_MASTER(myThid)
-      WRITE(msgBuf,'(A)')
-     &'// ======================================================='
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      WRITE(msgBuf,'(A)') '// Check Model config. (CONFIG_CHECK):'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      _END_MASTER(myThid)
-
+C      _BEGIN_MASTER(myThid)
+C      WRITE(msgBuf,'(A)')
+C     &'// ======================================================='
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') '// Check Model config. (CONFIG_CHECK):'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      _END_MASTER(myThid)
+C
 C--   MPI + multi-threads: seems to be OK to let master-thread check & stop
 C      (as long as all procs finish cleanly by calling ALL_PROC_DIE)
       _BEGIN_MASTER(myThid)
@@ -1028,18 +1028,18 @@ C--   Packages conflict
 
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 
-      _BEGIN_MASTER(myThid)
-      WRITE(msgBuf,'(A)') '// CONFIG_CHECK : Normal End'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      WRITE(msgBuf,'(A)')
-     &'// ======================================================='
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      WRITE(msgBuf,'(A)') ' '
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      _END_MASTER(myThid)
-
+C      _BEGIN_MASTER(myThid)
+C      WRITE(msgBuf,'(A)') '// CONFIG_CHECK : Normal End'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)')
+C     &'// ======================================================='
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' '
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      _END_MASTER(myThid)
+C
       RETURN
       END

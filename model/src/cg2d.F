@@ -202,8 +202,8 @@ C--   Initial residual calculation
       IF ( debugLevel .GE. debLevZero ) THEN
         _BEGIN_MASTER( myThid )
         printResidual = printResidualFreq.GE.1
-        WRITE(standardmessageunit,'(A,1P2E22.14)')
-     &  ' cg2d: Sum(rhs),rhsMax = ', sumRHS,rhsMax
+C        WRITE(standardmessageunit,'(A,1P2E22.14)')
+C     &  ' cg2d: Sum(rhs),rhsMax = ', sumRHS,rhsMax
         _END_MASTER( myThid )
       ENDIF
 

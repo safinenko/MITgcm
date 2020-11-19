@@ -62,20 +62,20 @@ CEOP
 
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 
-      WRITE(msgBuf,'(A)') ' '
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      WRITE(msgBuf,'(2A,I5,A)') 'FIND_HYD_PRESS_1D: ',
-     &  'Start to iterate (MaxIter=', maxIterNb,
-     &   ' ) until P(rho(P))'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      WRITE(msgBuf,'(2A,I3,A,1PE13.6)') 'FIND_HYD_PRESS_1D: ',
-     &   ' converges ; critera (x', belowCritNb,
-     &   ') on Rho diff=', maxResid
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-
+C      WRITE(msgBuf,'(A)') ' '
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(2A,I5,A)') 'FIND_HYD_PRESS_1D: ',
+C     &  'Start to iterate (MaxIter=', maxIterNb,
+C     &   ' ) until P(rho(P))'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(2A,I3,A,1PE13.6)') 'FIND_HYD_PRESS_1D: ',
+C     &   ' converges ; critera (x', belowCritNb,
+C     &   ') on Rho diff=', maxResid
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C
       pInt(1)  = top_Pres
       searchForP = .TRUE.
       nUnderCrit = 0
@@ -131,12 +131,12 @@ C      criteria for at least "belowCritNb" iterations
         searchForP = ( nUnderCrit.LT.belowCritNb )
      &         .AND. ( diffMax.NE.zeroRL )
 
-        IF ( debugLevel.GE.debLevB ) THEN
-         WRITE(msgBuf,'(A,I5,2(A,1PE20.12))')
-     &    ' iter', nIter,', RMS-diff=', diffRMS,', Max-diff=', diffMax
-         CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                       SQUEEZE_RIGHT, myThid )
-        ENDIF
+C        IF ( debugLevel.GE.debLevB ) THEN
+C         WRITE(msgBuf,'(A,I5,2(A,1PE20.12))')
+C     &    ' iter', nIter,', RMS-diff=', diffRMS,', Max-diff=', diffMax
+C         CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                       SQUEEZE_RIGHT, myThid )
+C        ENDIF
 
         IF ( searchForP .AND. nIter.LT.maxIterNb ) THEN
 C--   Update rhoCen for new iteration
@@ -155,12 +155,12 @@ C--   Update rhoCen for new iteration
         CALL PRINT_ERROR( msgBuf, myThid )
         STOP 'ABNORMAL END: S/R FIND_HYD_PRESS_1D'
       ELSE
-        WRITE(msgBuf,'(2A,I5,A,I3,A)') 'FIND_HYD_PRESS_1D: ',
-     &    'converged after', nIter,
-     &    ' iters (nUnderCrit=', nUnderCrit, ' )'
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-C--   Update rhoCen with new solution
+C        WRITE(msgBuf,'(2A,I5,A,I3,A)') 'FIND_HYD_PRESS_1D: ',
+C     &    'converged after', nIter,
+C     &    ' iters (nUnderCrit=', nUnderCrit, ' )'
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                      SQUEEZE_RIGHT, myThid )
+CC--   Update rhoCen with new solution
         DO k=1,Nr
           rhoCen(k) = rhoLoc(k)
         ENDDO

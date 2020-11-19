@@ -120,10 +120,10 @@ C     Set the file name
       WRITE(data_file,'(a)') 'data.mnc'
       nl = ILNBLNK(data_file)
 
-      WRITE(msgbuf,'(3a)') ' MNC_READPARMS: opening file ''',
-     &       data_file(1:nl), ''''
-      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,
-     &     SQUEEZE_RIGHT,myThid)
+C      WRITE(msgbuf,'(3a)') ' MNC_READPARMS: opening file ''',
+C     &       data_file(1:nl), ''''
+C      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,
+C     &     SQUEEZE_RIGHT,myThid)
 
       CALL OPEN_COPY_DATA_FILE(data_file(1:nl),'MNC_READPARMS',
      &     ku, myThid )
@@ -134,9 +134,9 @@ C     Set the file name
       CLOSE(ku,STATUS='DELETE')
 #endif /* SINGLE_DISK_IO */
 
-      WRITE(msgBuf,'(a)') ' MNC_READPARMS: finished reading data.mnc'
-      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,
-     &     SQUEEZE_RIGHT,myThid)
+C      WRITE(msgBuf,'(a)') ' MNC_READPARMS: finished reading data.mnc'
+C      CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,
+C     &     SQUEEZE_RIGHT,myThid)
 
 C     Pickups must always be read in an EXCLUSIVE fashion
       IF (pickup_read_mnc)  pickup_read_mdsio = .FALSE.

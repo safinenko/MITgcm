@@ -281,10 +281,10 @@ c     ENDIF
 #endif
 
 C--   Finally summarise the model state
-#ifdef ALLOW_DEBUG
-      IF (debugMode) CALL DEBUG_CALL('STATE_SUMMARY',myThid)
-#endif
-      CALL STATE_SUMMARY( myThid )
+C#ifdef ALLOW_DEBUG
+C      IF (debugMode) CALL DEBUG_CALL('STATE_SUMMARY',myThid)
+C#endif
+C      CALL STATE_SUMMARY( myThid )
 
 #ifdef ALLOW_MONITOR
 #ifdef ALLOW_DEBUG

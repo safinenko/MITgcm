@@ -911,19 +911,19 @@ C     Output scaling factors.
 #endif /* USE_EXF_INTERPOLATION */
 
 C--   Next, read pkg/exf parameter file.
-      WRITE(msgBuf,'(A)') 'EXF_READPARMS: opening data.exf'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') 'EXF_READPARMS: opening data.exf'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
       CALL OPEN_COPY_DATA_FILE(
      I                          'data.exf', 'EXF_READPARMS',
      O                          iUnit,
      I                          myThid )
 
-      WRITE(msgBuf,'(A)')
-     &     'EXF_READPARMS: reading EXF_NML_01'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)')
+C     &     'EXF_READPARMS: reading EXF_NML_01'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       READ(  iUnit, nml = EXF_NML_01 )
 C-    Set default fldRepeatCycle to repeatPeriod
       hfluxRepCycle      = repeatPeriod
@@ -963,30 +963,30 @@ C-
       siobErepCycle      = UNSET_RL
       siobWrepCycle      = UNSET_RL
 
-      WRITE(msgBuf,'(A)')
-     &     'EXF_READPARMS: reading EXF_NML_02'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)')
+C     &     'EXF_READPARMS: reading EXF_NML_02'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       READ(  iUnit, nml = EXF_NML_02 )
-      WRITE(msgBuf,'(A)')
-     &     'EXF_READPARMS: reading EXF_NML_03'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)')
+C     &     'EXF_READPARMS: reading EXF_NML_03'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       READ(  iUnit, nml = EXF_NML_03 )
-#ifdef USE_EXF_INTERPOLATION
-      WRITE(msgBuf,'(A)')
-     &     'EXF_READPARMS: reading EXF_NML_04'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      READ(  iUnit, nml = EXF_NML_04 )
-#endif /* USE_EXF_INTERPOLATION */
+C#ifdef USE_EXF_INTERPOLATION
+C      WRITE(msgBuf,'(A)')
+C     &     'EXF_READPARMS: reading EXF_NML_04'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      READ(  iUnit, nml = EXF_NML_04 )
+C#endif /* USE_EXF_INTERPOLATION */
 
 #ifdef ALLOW_OBCS
       IF ( useOBCS ) THEN
-       WRITE(msgBuf,'(A)')
-     &      'EXF_READPARMS: reading EXF_NML_OBCS'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C       WRITE(msgBuf,'(A)')
+C     &      'EXF_READPARMS: reading EXF_NML_OBCS'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
        READ(  iUnit, nml = EXF_NML_OBCS )
       ENDIF
        IF(siobNstartdate1.EQ.UNSET_I ) siobNstartdate1=obcsNstartdate1
@@ -1009,10 +1009,10 @@ C-
        IF(exf_iprec_obcs .EQ. UNSET_I) exf_iprec_obcs =exf_iprec
 #endif /* ALLOW_OBCS */
 
-      WRITE(msgBuf,'(A)')
-     &     'EXF_READPARMS: finished reading data.exf'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)')
+C     &     'EXF_READPARMS: finished reading data.exf'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
 #ifdef SINGLE_DISK_IO
       CLOSE(iUnit)
