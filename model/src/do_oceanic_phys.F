@@ -37,7 +37,7 @@
 CBOP
 C     !ROUTINE: DO_OCEANIC_PHYS
 C     !INTERFACE:
-      SUBROUTINE DO_OCEANIC_PHYS(myTime, myIter, myThid)
+      SUBROUTINE DO_OCEANIC_PHYS(myTime, myIter, myThid, secchiD)
 C     !DESCRIPTION: \bv
 C     *==========================================================*
 C     | SUBROUTINE DO_OCEANIC_PHYS
@@ -197,6 +197,7 @@ C     myThid :: Thread number for this instance of the routine.
       _RL myTime
       INTEGER myIter
       INTEGER myThid
+      _RL secchiD
 
 C     !LOCAL VARIABLES:
 C     == Local variables
@@ -939,7 +940,7 @@ C--     Compute KPP mixing coefficients
 #endif
           CALL TIMER_START('KPP_CALC [DO_OCEANIC_PHYS]', myThid)
           CALL KPP_CALC(
-     I                  bi, bj, myTime, myIter, myThid )
+     I                  bi, bj, myTime, myIter, myThid, secchiD )
           CALL TIMER_STOP ('KPP_CALC [DO_OCEANIC_PHYS]', myThid)
 #if (defined ALLOW_AUTODIFF) && !(defined ALLOW_OFFLINE)
         ELSE

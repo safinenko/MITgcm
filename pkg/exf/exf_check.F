@@ -45,9 +45,9 @@ CEOP
       _BEGIN_MASTER(myThid)
       errCount = 0
 
-      WRITE(msgBuf,'(A)') 'EXF_CHECK: #define ALLOW_EXF'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') 'EXF_CHECK: #define ALLOW_EXF'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 C--   Check for consistency, main parameters

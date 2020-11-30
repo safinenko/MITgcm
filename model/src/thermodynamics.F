@@ -19,7 +19,7 @@
 CBOP
 C     !ROUTINE: THERMODYNAMICS
 C     !INTERFACE:
-      SUBROUTINE THERMODYNAMICS(myTime, myIter, myThid)
+      SUBROUTINE THERMODYNAMICS(myTime, myIter, myThid, secchiD)
 C     !DESCRIPTION: \bv
 C     *==========================================================*
 C     | SUBROUTINE THERMODYNAMICS
@@ -72,6 +72,7 @@ C     myTime :: Current time in simulation
 C     myIter :: Current iteration number in simulation
 C     myThid :: Thread number for this instance of the routine.
       _RL myTime
+      _RL secchiD
       INTEGER myIter
       INTEGER myThid
 
@@ -317,7 +318,7 @@ C       conv.adjustment) are applied later in TRACERS_CORRECTION_STEP.
      I         bi, bj, recip_hFacNew,
      I         uFld, vFld, wFld,
      U         kappaRk,
-     I         myTime, myIter, myThid )
+     I         myTime, myIter, myThid, secchiD )
         ENDIF
 
         IF ( saltStepping ) THEN

@@ -290,7 +290,7 @@ C     Diagnostics output
       CALL EXF_DIAGNOSTICS_FILL( myTime, myIter, myThid )
 
 C     Monitor output
-      CALL EXF_MONITOR( myTime, myIter, myThid )
+C      CALL EXF_MONITOR( myTime, myIter, myThid )
 
 C     Map the forcing fields onto the corresponding model fields.
       CALL EXF_MAPFIELDS( myTime, myIter, myThid )

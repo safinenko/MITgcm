@@ -67,9 +67,9 @@ C     print a (weak) warning if data.kpp is found
 
       _BEGIN_MASTER(myThid)
 
-      WRITE(msgBuf,'(A)') ' KPP_READPARMS: opening data.kpp'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' KPP_READPARMS: opening data.kpp'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       errIO = 0
       CALL OPEN_COPY_DATA_FILE(
      I                          'data.kpp', 'KPP_READPARMS',
@@ -155,9 +155,9 @@ C-    Retired parameters: initialised to unlikely value:
 C-----------------------------------------------------------------------
 
 C--   Read settings from model parameter file "data.kpp".
-      WRITE(msgBuf,'(A)') ' KPP_READPARMS ; starts to read KPP_PARM01'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' KPP_READPARMS ; starts to read KPP_PARM01'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       READ( UNIT=iUnit, NML=KPP_PARM01 )
 c     READ( UNIT=iUnit, NML=KPP_PARM01, IOSTAT=errIO )
 c     WRITE(msgBuf,'(A,I6,A)')
@@ -172,10 +172,10 @@ c    &                    SQUEEZE_RIGHT, myThid )
      &  'S/R KPP_READPARMS: Problem in namelist KPP_PARM01'
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R KPP_READPARMS'
-      ELSE
-       WRITE(msgBuf,'(A)') ' KPP_READPARMS ; read KPP_PARM01 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C      ELSE
+C       WRITE(msgBuf,'(A)') ' KPP_READPARMS ; read KPP_PARM01 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 
 #ifdef SINGLE_DISK_IO
@@ -184,9 +184,9 @@ c    &                    SQUEEZE_RIGHT, myThid )
       CLOSE(iUnit,STATUS='DELETE')
 #endif /* SINGLE_DISK_IO */
 
-      WRITE(msgBuf,'(A)') ' KPP_READPARMS: finished reading data.kpp'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' KPP_READPARMS: finished reading data.kpp'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
 C--   Print message and stop when retired parameters were found in namelist
       IF ( KPPmixingMaps ) THEN

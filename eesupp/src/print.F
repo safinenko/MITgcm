@@ -797,10 +797,12 @@ C               Bstr - Block stride
 C               Min  - Start index within block
 C               Max  - End index within block
 C               Str  - stride within block
-      INTEGER, PARAMETER :: MAX_LEN_PLOTBUF = MAX_LEN_MBUF-20
+      INTEGER MAX_LEN_PLOTBUF
+      PARAMETER ( MAX_LEN_PLOTBUF = MAX_LEN_MBUF-20 )
       CHARACTER*(MAX_LEN_PLOTBUF) plotBuf
       CHARACTER*(MAX_LEN_MBUF) msgBuf
-      INTEGER, PARAMETER :: lChList = 28
+      INTEGER lChList
+      PARAMETER ( lChList = 28 )
       CHARACTER*(lChList) chList
       _RL  fMin
       _RL  fMax
@@ -1228,10 +1230,12 @@ C               Bstr - Block stride
 C               Min  - Start index within block
 C               Max  - End index within block
 C               Str  - stride within block
-      INTEGER, PARAMETER :: MAX_LEN_PLOTBUF = MAX_LEN_MBUF-20
+      INTEGER MAX_LEN_PLOTBUF
+      PARAMETER ( MAX_LEN_PLOTBUF = MAX_LEN_MBUF-20 )
       CHARACTER*(MAX_LEN_PLOTBUF) plotBuf
       CHARACTER*(MAX_LEN_MBUF) msgBuf
-      INTEGER, PARAMETER :: lChList = 28
+      INTEGER lChList
+      PARAMETER ( lChList = 28 )
       CHARACTER*(lChList) chList
       _RL  fMin
       _RL  fMax

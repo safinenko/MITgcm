@@ -357,9 +357,9 @@ C-    retired parameters
       useOBCSYearlyFields = .FALSE.
 
 C     Open and read the data.obcs file
-      WRITE(msgBuf,'(A)') ' OBCS_READPARMS: opening data.obcs'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT , myThid )
+C      WRITE(msgBuf,'(A)') ' OBCS_READPARMS: opening data.obcs'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT , myThid )
       CALL OPEN_COPY_DATA_FILE(
      I                          'data.obcs', 'OBCS_READPARMS',
      O                          iUnit,
@@ -433,9 +433,9 @@ C     seaice sponge layer is turned off by default
       IF (useSeaiceSponge) READ(UNIT=iUnit,NML=OBCS_PARM05)
 #endif
 
-      WRITE(msgBuf,'(A)') ' OBCS_READPARMS: finished reading data.obcs'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT , myThid )
+C      WRITE(msgBuf,'(A)') ' OBCS_READPARMS: finished reading data.obcs'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT , myThid )
 
 C--   Close the open data file
 #ifdef SINGLE_DISK_IO
@@ -531,37 +531,37 @@ C-    Account for periodicity if negative indices were supplied
      &      OB_Jnorth(i).LT.0 ) OB_Jnorth(i)=OB_Jnorth(i)+OBNS_Ny+1
       ENDDO
 
-      IF ( debugLevel.GE.debLevA ) THEN
-        CALL WRITE_0D_I( OB_indexUnset, INDEX_NONE,' OB_indexUnset =',
-     &                   ' /* unset OB index value (i.e. no OB) */')
+C      IF ( debugLevel.GE.debLevA ) THEN
+C        CALL WRITE_0D_I( OB_indexUnset, INDEX_NONE,' OB_indexUnset =',
+C     &                   ' /* unset OB index value (i.e. no OB) */')
 c       write(*,*) 'OB Jn =',OB_Jnorth
 c       write(*,*) 'OB Js =',OB_Jsouth
 c       write(*,*) 'OB Ie =',OB_Ieast
 c       write(*,*) 'OB Iw =',OB_Iwest
-        WRITE(msgBuf,'(A)') ' Northern OB global indices : OB_Jnorth ='
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-        CALL PRINT_LIST_I( OB_Jnorth, 1, OBNS_Nx, INDEX_I,
-     &                    .FALSE., .TRUE., standardMessageUnit )
-        WRITE(msgBuf,'(A)') ' Southern OB global indices : OB_Jsouth ='
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-        CALL PRINT_LIST_I( OB_Jsouth, 1, OBNS_Nx, INDEX_I,
-     &                    .FALSE., .TRUE., standardMessageUnit )
-        WRITE(msgBuf,'(A)') ' Eastern  OB global indices : OB_Ieast ='
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-        CALL PRINT_LIST_I( OB_Ieast, 1, OBEW_Ny, INDEX_J,
-     &                    .FALSE., .TRUE., standardMessageUnit )
-        WRITE(msgBuf,'(A)') ' Western  OB global indices : OB_Iwest ='
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-        CALL PRINT_LIST_I( OB_Iwest, 1, OBEW_Ny, INDEX_J,
-     &                    .FALSE., .TRUE., standardMessageUnit )
-        WRITE(msgBuf,'(A)') ' '
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                      SQUEEZE_RIGHT, myThid )
-      ENDIF
+C        WRITE(msgBuf,'(A)') ' Northern OB global indices : OB_Jnorth ='
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                      SQUEEZE_RIGHT, myThid )
+C        CALL PRINT_LIST_I( OB_Jnorth, 1, OBNS_Nx, INDEX_I,
+C     &                    .FALSE., .TRUE., standardMessageUnit )
+C        WRITE(msgBuf,'(A)') ' Southern OB global indices : OB_Jsouth ='
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                      SQUEEZE_RIGHT, myThid )
+C        CALL PRINT_LIST_I( OB_Jsouth, 1, OBNS_Nx, INDEX_I,
+C     &                    .FALSE., .TRUE., standardMessageUnit )
+C        WRITE(msgBuf,'(A)') ' Eastern  OB global indices : OB_Ieast ='
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                      SQUEEZE_RIGHT, myThid )
+C        CALL PRINT_LIST_I( OB_Ieast, 1, OBEW_Ny, INDEX_J,
+C     &                    .FALSE., .TRUE., standardMessageUnit )
+C        WRITE(msgBuf,'(A)') ' Western  OB global indices : OB_Iwest ='
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                      SQUEEZE_RIGHT, myThid )
+C        CALL PRINT_LIST_I( OB_Iwest, 1, OBEW_Ny, INDEX_J,
+C     &                    .FALSE., .TRUE., standardMessageUnit )
+C        WRITE(msgBuf,'(A)') ' '
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                      SQUEEZE_RIGHT, myThid )
+C      ENDIF
       OBCSbalanceSurf = OBCSbalanceSurf .AND. useOBCSbalance
 
 C--   Continue master-thread only since global OB indices (+ OB_indexUnset)

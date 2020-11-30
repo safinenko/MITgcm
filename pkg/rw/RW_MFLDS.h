@@ -13,7 +13,8 @@ C     *==========================================================*
 C     \ev
 
 C     sizFldList :: dimension of field-list arrays
-      INTEGER, PARAMETER :: sizFldList = 100
+      INTEGER  sizFldList
+      PARAMETER( sizFldList = 100 )
 
 C--   COMMON / RW_MFLDS_I / Integer valued MFLDS variables.
 C     thirdDim  :: 3rd dimension of fields in current MFLDS file

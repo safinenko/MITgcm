@@ -51,7 +51,8 @@ C  sm_xy,xz,yz  ::  2nd order moment of tracer distr., in cross direction xy,xz,
 
 C !LOCAL VARIABLES: ====================================================
 C  i,j,k        :: loop indices
-      _RL, PARAMETER :: three = 3. _d 0
+      _RL  three
+      PARAMETER( three = 3. _d 0 )
       INTEGER i,j,k
       _RL  slpmax, s1max, s1new, s2new
 CEOP

@@ -57,7 +57,8 @@ C  i,j            :: loop indices
       _RL  aBndV(1-OLx:sNx+OLx,1-OLy:sNy+OLy)
       _RL  aBndW(1-OLx:sNx+OLx,1-OLy:sNy+OLy)
       _RL tmpVar
-      LOGICAL, PARAMETER :: useMomBndConserve = .TRUE.
+      LOGICAL useMomBndConserve
+      PARAMETER ( useMomBndConserve = .TRUE. )
 CEOP
 
 C     Initialise output array

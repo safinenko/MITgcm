@@ -100,7 +100,8 @@ C     !LOCAL VARIABLES:
 C-    do change dir. (using mdsioLocalDir):
       LOGICAL  useCurrentDir
 C-    output of MDS_READ_META :
-      INTEGER, PARAMETER :: nSizD = 5, nSizT = 20
+      INTEGER  nSizD, nSizT
+      PARAMETER( nSizD = 5 , nSizT = 20 )
       CHARACTER*(MAX_LEN_PREC/2) simulName
       CHARACTER*(MAX_LEN_MBUF/2) titleLine
       INTEGER nDims, nTimRec

@@ -49,7 +49,7 @@
 CBOP
 C     !ROUTINE: THE_MAIN_LOOP
 C     !INTERFACE:
-      SUBROUTINE THE_MAIN_LOOP( myTime, myIter, myThid )
+      SUBROUTINE THE_MAIN_LOOP( myTime, myIter, myThid, secchiD )
 
 C     !DESCRIPTION: \bv
 C     *================================================================*
@@ -224,6 +224,7 @@ C     myTime :: time counter for this thread
 C     myIter :: iteration counter for this thread
 C     myThid :: thread number for this instance of the routine.
       _RL     myTime
+      _RL     secchiD
       INTEGER myIter
       INTEGER myThid
 
@@ -621,7 +622,7 @@ C--   Reset the model iteration counter and the model time.
 #endif
 
       CALL TIMER_START('MAIN_DO_LOOP        [THE_MAIN_LOOP]', myThid)
-      CALL MAIN_DO_LOOP( iloop, myTime, myIter, myThid )
+      CALL MAIN_DO_LOOP( iloop, myTime, myIter, myThid, secchiD )
       CALL TIMER_STOP ('MAIN_DO_LOOP        [THE_MAIN_LOOP]', myThid)
 
 #ifdef USE_PDAF

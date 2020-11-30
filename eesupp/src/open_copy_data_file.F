@@ -61,10 +61,10 @@ CEOP
 C--   Open the parameter file
       INQUIRE( FILE=data_file, EXIST=exst )
       IF (exst) THEN
-       WRITE(msgBuf,'(A,A)')
-     &   ' OPEN_COPY_DATA_FILE: opening file ',data_file
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C       WRITE(msgBuf,'(A,A)')
+C     &   ' OPEN_COPY_DATA_FILE: opening file ',data_file
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ELSE
        WRITE(msgBuf,'(A,A,A)')
      &  'File ',data_file,' does not exist!'
@@ -126,31 +126,31 @@ c        CALL NML_SET_TERMINATOR( RECORD )
       CLOSE(modelDataUnit)
 
 C--   Report contents of model parameter file
-      WRITE(msgBuf,'(A)')
-     &'// ======================================================='
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      WRITE(msgBuf,'(A,A,A)') '// Parameter file "',data_file,'"'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      WRITE(msgBuf,'(A)')
-     &'// ======================================================='
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)')
+C     &'// ======================================================='
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A,A,A)') '// Parameter file "',data_file,'"'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)')
+C     &'// ======================================================='
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       iUnit = scrUnit2
       REWIND(iUnit)
       DO WHILE ( .TRUE. )
        READ(UNIT=iUnit,FMT='(A)',END=2001) RECORD
        IL = MAX(ILNBLNK(RECORD),1)
-       WRITE(msgBuf,'(A,A)') '>',RECORD(:IL)
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C       WRITE(msgBuf,'(A,A)') '>',RECORD(:IL)
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDDO
  2001 CONTINUE
       CLOSE(iUnit,STATUS='DELETE')
-      WRITE(msgBuf,'(A)') ' '
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' '
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
 #ifdef SINGLE_DISK_IO
       CALL FLUSH(scrUnit1)

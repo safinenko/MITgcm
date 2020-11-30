@@ -14,7 +14,7 @@ C     !INTERFACE:
      I           bi, bj, recip_hFac,
      I           uFld, vFld, wFld,
      U           KappaRk,
-     I           myTime, myIter, myThid )
+     I           myTime, myIter, myThid, secchiD)
 C     !DESCRIPTION: \bv
 C     *==========================================================*
 C     | SUBROUTINE TEMP_INTEGRATE
@@ -84,6 +84,7 @@ C     myThid     :: my Thread Id. number
       _RL wFld      (1-OLx:sNx+OLx,1-OLy:sNy+OLy,Nr)
       _RL KappaRk   (1-OLx:sNx+OLx,1-OLy:sNy+OLy,Nr)
       _RL     myTime
+      _RL     secchiD
       INTEGER myIter
       INTEGER myThid
 CEOP
@@ -331,7 +332,7 @@ C--   Collect forcing term in local array gtForc:
         IF ( tempForcing ) THEN
           CALL APPLY_FORCING_T(
      U                        gtForc,
-     I                        iMin,iMax,jMin,jMax, k, bi,bj,
+     I                        iMin,iMax,jMin,jMax, k, bi,bj, secchiD,
      I                        myTime, myIter, myThid )
 #ifdef ALLOW_DIAGNOSTICS
           IF ( diagForcing ) THEN

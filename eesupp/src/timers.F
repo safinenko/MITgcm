@@ -108,8 +108,10 @@ C
 C     !LOCAL VARIABLES:
 C     maxTimers :: Total numer of timer allowed
 C     maxString :: Max length of a timer name
-      INTEGER, PARAMETER :: maxTimers = 50
-      INTEGER, PARAMETER :: maxString = 80
+      INTEGER maxTimers
+      INTEGER maxString
+      PARAMETER ( maxTimers = 50 )
+      PARAMETER ( maxString = 80 )
 C     timerStarts :: Timer counters for each timer and each thread
 C     timerStops
 C     timerUser
@@ -142,24 +144,32 @@ C     nTimers      :: Number of active timers
       SAVE    timerStatus
       INTEGER timerNameLen( maxTimers , MAX_NO_THREADS)
       SAVE    timerNameLen
-      CHARACTER(LEN=80) timerNames( maxTimers , MAX_NO_THREADS)
+      CHARACTER*(maxString) timerNames( maxTimers , MAX_NO_THREADS)
       SAVE                  timerNames
       INTEGER nTimers(MAX_NO_THREADS)
-      CHARACTER(LEN=80) tmpName
-      CHARACTER(LEN=80) tmpAction
+      CHARACTER*(maxString) tmpName
+      CHARACTER*(maxString) tmpAction
       INTEGER iTimer
       INTEGER ISTART
       INTEGER IEND
-      INTEGER, PARAMETER :: STOPPED = 0
-      INTEGER, PARAMETER :: RUNNING = 1
-      CHARACTER*(*), PARAMETER :: STOP = 'STOP'
-      CHARACTER*(*), PARAMETER :: START = 'START'
-      CHARACTER*(*), PARAMETER :: PRINT = 'PRINT'
-      CHARACTER*(*), PARAMETER :: PRINTALL = 'PRINTALL'
+      INTEGER STOPPED
+      PARAMETER ( STOPPED = 0 )
+      INTEGER RUNNING
+      PARAMETER ( RUNNING = 1 )
+      CHARACTER*(*) STOP
+      PARAMETER ( STOP = 'STOP' )
+      CHARACTER*(*) START
+      PARAMETER ( START = 'START' )
+      CHARACTER*(*) PRINT
+      PARAMETER ( PRINT = 'PRINT' )
+      CHARACTER*(*) PRINTALL
+      PARAMETER ( PRINTALL = 'PRINTALL' )
 #if defined(USE_PAPI) || defined(USE_PCL_FLOPS_SFP) || defined(USE_PCL_FLOPS) || defined (USE_PCL)
-      CHARACTER*(*), PARAMETER :: INIT = 'INIT'
+      CHARACTER*(*) INIT
+      PARAMETER ( INIT = 'INIT' )
 #ifdef USE_PAPI
-      INTEGER, PARAMETER :: nmaxevents = 18
+      INTEGER nmaxevents
+      PARAMETER (nmaxevents = 18)
       INTEGER neventsmax, nevents
       SAVE neventsmax, nevents
       INTEGER*8 values(nmaxevents, maxTimers , MAX_NO_THREADS),
@@ -176,7 +186,8 @@ C     nTimers      :: Number of active timers
 #else
 #if defined(USE_PCL_FLOPS_SFP) || defined(USE_PCL_FLOPS) || defined(USE_PCL)
 #include <pclh.f>
-      INTEGER, PARAMETER :: nmaxevents = 61
+      INTEGER nmaxevents
+      PARAMETER (nmaxevents = 61)
       INTEGER flags, res, nevents
       INTEGER*8 descr
       CHARACTER*22 pcl_counter_name(0:nmaxevents-1)
@@ -780,7 +791,6 @@ C     executable code below.
 # else
 #  ifdef HAVE_ETIME_FCT
       Real*4 etime
-      EXTERNAL etime
       Real*4 actual, tarray(2)
 #  elif (defined HAVE_ETIME_SBR)
       Real*4 actual, tarray(2)
@@ -917,9 +927,12 @@ C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 CCE107 Initialization of common block for PAPI timers
       BLOCK DATA setpapivalues
 #include "EEPARAMS.h"
-      INTEGER, PARAMETER :: maxTimers = 50
-      INTEGER, PARAMETER :: nmaxevents = 18
-      INTEGER, PARAMETER :: size = 3*nmaxevents*maxTimers*MAX_NO_THREADS
+      INTEGER maxTimers
+      PARAMETER (maxTimers = 50)
+      INTEGER nmaxevents
+      PARAMETER (nmaxevents = 18)
+      INTEGER size
+      PARAMETER (size = 3*nmaxevents*maxTimers*MAX_NO_THREADS)
       INTEGER*8 values(nmaxevents, maxTimers , MAX_NO_THREADS),
      $     values1(nmaxevents, maxTimers, MAX_NO_THREADS),
      $     values2(nmaxevents, maxTimers, MAX_NO_THREADS)
@@ -930,7 +943,8 @@ CCE107 Initialization of common block for PAPI timers
 #if defined(USE_PCL_FLOPS_SFP) || defined(USE_PCL_FLOPS) || defined(USE_PCL)
 CCE107 Initialization of common block for PCL event names
       BLOCK DATA setpclnames
-      INTEGER, PARAMETER :: nmaxevents = 61
+      INTEGER nmaxevents
+      PARAMETER (nmaxevents = 61)
       CHARACTER*22 pcl_counter_name(0:nmaxevents-1)
       COMMON /pclnames/ pcl_counter_name
       DATA pcl_counter_name(0) /'PCL_L1CACHE_READ'/
@@ -1000,10 +1014,14 @@ CCE107 Initialization of common block for PCL event names
 CCE107 Initialization of common block for PCL summary performance
       BLOCK DATA setpcls
 #include "EEPARAMS.h"
-      INTEGER, PARAMETER :: maxTimers = 50
-      INTEGER, PARAMETER :: nmaxevents = 61
-      INTEGER, PARAMETER :: size = nmaxevents*maxTimers*MAX_NO_THREADS
-      INTEGER, PARAMETER :: PCL_CYCLES = 36, PCL_MODE_USER_SYSTEM = 3
+      INTEGER maxTimers
+      PARAMETER (maxTimers = 50)
+      INTEGER nmaxevents
+      PARAMETER (nmaxevents = 61)
+      INTEGER size
+      PARAMETER (size = nmaxevents*maxTimers*MAX_NO_THREADS)
+      INTEGER PCL_CYCLES, PCL_MODE_USER_SYSTEM
+      PARAMETER (PCL_CYCLES=36, PCL_MODE_USER_SYSTEM=3)
       INTEGER pcl_counter_list(nmaxevents)
       INTEGER flags, nevents
       INTEGER*8 i_result(nmaxevents, maxTimers, MAX_NO_THREADS)
@@ -1025,10 +1043,12 @@ CCE107 Initialization of common block for PCL summary performance
 #else
 CCE107 Initialization of common block for PCL summary performance
       BLOCK DATA setpcls
-      INTEGER, PARAMETER :: PCL_MFLOPS = 56, PCL_IPC = 57
-      INTEGER, PARAMETER :: PCL_L1DCACHE_MISSRATE = 58
-      INTEGER, PARAMETER :: PCL_L2DCACHE_MISSRATE = 59, PCL_MEM_FP_RATIO = 60
-      INTEGER, PARAMETER :: PCL_MODE_USER_SYSTEM = 3
+      INTEGER PCL_MFLOPS, PCL_IPC, PCL_L1DCACHE_MISSRATE,
+     $     PCL_L2DCACHE_MISSRATE, PCL_MEM_FP_RATIO
+      PARAMETER (PCL_MFLOPS=56, PCL_IPC=57, PCL_L1DCACHE_MISSRATE=58,
+     $     PCL_L2DCACHE_MISSRATE=59, PCL_MEM_FP_RATIO=60)
+      INTEGER PCL_MODE_USER_SYSTEM
+      PARAMETER (PCL_MODE_USER_SYSTEM=3)
       INTEGER pcl_counter_list(5), flags, nevents
       INTEGER*8 i_result(5), descr
       REAL*8 fp_result(5)

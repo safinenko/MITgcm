@@ -56,9 +56,11 @@ C     msgBuf :: Informational/error meesage buffer
 #ifdef ALLOW_EXCH2
       INTEGER myTile
 #endif /* ALLOW_EXCH2 */
-      _RL, PARAMETER :: oneSixth = 1.D0/6.D0, oneTwelve = 1.D0/12.D0
-      LOGICAL, PARAMETER :: fourthVort3 = .TRUE.
+      _RL oneSixth, oneTwelve
+      LOGICAL fourthVort3
 C jmc: not sure about these 1/6 & 1/12 factors (should use the same)
+      PARAMETER(oneSixth=1.D0/6.D0 , oneTwelve=1.D0/12.D0)
+      PARAMETER(fourthVort3=.TRUE. )
 
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 

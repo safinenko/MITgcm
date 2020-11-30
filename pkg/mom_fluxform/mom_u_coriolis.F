@@ -39,7 +39,8 @@ C  uCoriolisTerm        :: Coriolis term
 C !LOCAL VARIABLES: ====================================================
 C  i,j                  :: loop indices
       INTEGER i,j
-      _RS, PARAMETER :: one = 1. _d 0
+      _RS one
+      PARAMETER( one = 1. _d 0 )
 CEOP
 
       IF ( selectCoriScheme.GE.2 ) THEN

@@ -103,17 +103,17 @@ c     putPmEinXvector = useRealFreshWaterFlux.AND.fluidIsWater
       IF ( myIter.EQ.1+nIter0 .AND. debugLevel .GE. debLevA ) THEN
         _BEGIN_MASTER( myThid )
         ioUnit = standardMessageUnit
-        WRITE(msgBuf,'(2A,L5)') 'SOLVE_FOR_PRESSURE:',
-     &       ' putPmEinXvector =', putPmEinXvector
-        CALL PRINT_MESSAGE( msgBuf, ioUnit, SQUEEZE_RIGHT, myThid )
-#ifdef ALLOW_NONHYDROSTATIC
-        WRITE(msgBuf,'(A,2(A,L5))') 'SOLVE_FOR_PRESSURE:',
-     &       ' zeroPsNH=', zeroPsNH, ' , zeroMeanPnh=', zeroMeanPnh
-        CALL PRINT_MESSAGE( msgBuf, ioUnit, SQUEEZE_RIGHT, myThid )
-        WRITE(msgBuf,'(2A,L5)') 'SOLVE_FOR_PRESSURE:',
-     &       ' oldFreeSurfTerm =', oldFreeSurfTerm
-        CALL PRINT_MESSAGE( msgBuf, ioUnit, SQUEEZE_RIGHT, myThid )
-#endif
+C        WRITE(msgBuf,'(2A,L5)') 'SOLVE_FOR_PRESSURE:',
+C     &       ' putPmEinXvector =', putPmEinXvector
+C        CALL PRINT_MESSAGE( msgBuf, ioUnit, SQUEEZE_RIGHT, myThid )
+C#ifdef ALLOW_NONHYDROSTATIC
+C        WRITE(msgBuf,'(A,2(A,L5))') 'SOLVE_FOR_PRESSURE:',
+C     &       ' zeroPsNH=', zeroPsNH, ' , zeroMeanPnh=', zeroMeanPnh
+C        CALL PRINT_MESSAGE( msgBuf, ioUnit, SQUEEZE_RIGHT, myThid )
+C        WRITE(msgBuf,'(2A,L5)') 'SOLVE_FOR_PRESSURE:',
+C     &       ' oldFreeSurfTerm =', oldFreeSurfTerm
+C        CALL PRINT_MESSAGE( msgBuf, ioUnit, SQUEEZE_RIGHT, myThid )
+C#endif
         _END_MASTER( myThid )
       ENDIF
 
@@ -251,12 +251,12 @@ C-    end bi,bj loops
        ENDDO
       ENDDO
 
-#ifdef ALLOW_DEBUG
-      IF ( debugLevel .GE. debLevD ) THEN
-       CALL DEBUG_STATS_RL(1,cg2d_b,'cg2d_b (SOLVE_FOR_PRESSURE)',
-     &                        myThid)
-      ENDIF
-#endif
+C#ifdef ALLOW_DEBUG
+C      IF ( debugLevel .GE. debLevD ) THEN
+C       CALL DEBUG_STATS_RL(1,cg2d_b,'cg2d_b (SOLVE_FOR_PRESSURE)',
+C     &                        myThid)
+C      ENDIF
+C#endif
       IF ( DIFFERENT_MULTIPLE(diagFreq, myTime, deltaTClock) ) THEN
        CALL WRITE_FLD_XY_RL( 'cg2d_b', 'I10', cg2d_b, myIter, myThid )
       ENDIF
@@ -309,30 +309,30 @@ C--   Call the default CG solver
       _EXCH_XY_RL( cg2d_x, myThid )
 c     CALL TIMER_STOP ('CG2D   [SOLVE_FOR_PRESSURE]',myThid)
 
-#ifdef ALLOW_DEBUG
-      IF ( debugLevel .GE. debLevD ) THEN
-       CALL DEBUG_STATS_RL(1,cg2d_x,'cg2d_x (SOLVE_FOR_PRESSURE)',
-     &                        myThid)
-      ENDIF
-#endif
+C#ifdef ALLOW_DEBUG
+C      IF ( debugLevel .GE. debLevD ) THEN
+C       CALL DEBUG_STATS_RL(1,cg2d_x,'cg2d_x (SOLVE_FOR_PRESSURE)',
+C     &                        myThid)
+C      ENDIF
+C#endif
 
 C- dump CG2D output at monitorFreq (to reduce size of STD-OUTPUT files) :
       IF ( DIFFERENT_MULTIPLE(monitorFreq,myTime,deltaTClock)
      &   ) THEN
        IF ( debugLevel .GE. debLevA ) THEN
         _BEGIN_MASTER( myThid )
-        WRITE(msgBuf,'(A20,1PE23.14)') 'cg2d_init_res =',firstResidual
-        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
-        WRITE(msgBuf,'(A27,2I8)')
-     &       'cg2d_iters(min,last) =', nIterMin, numIters
-        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C        WRITE(msgBuf,'(A20,1PE23.14)') 'cg2d_init_res =',firstResidual
+C        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C        WRITE(msgBuf,'(A27,2I8)')
+C     &       'cg2d_iters(min,last) =', nIterMin, numIters
+C        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
         IF ( minResidualSq.GE.0. ) THEN
          minResidualSq = SQRT(minResidualSq)
-         WRITE(msgBuf,'(A20,1PE23.14)') 'cg2d_min_res  =',minResidualSq
-         CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C C        WRITE(msgBuf,'(A20,1PE23.14)') 'cg2d_min_res  =',minResidualSq
+C C        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
         ENDIF
-        WRITE(msgBuf,'(A20,1PE23.14)') 'cg2d_last_res =',lastResidual
-        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
+C        WRITE(msgBuf,'(A20,1PE23.14)') 'cg2d_last_res =',lastResidual
+C        CALL PRINT_MESSAGE(msgBuf,standardMessageUnit,SQUEEZE_RIGHT,1)
         _END_MASTER( myThid )
        ENDIF
       ENDIF

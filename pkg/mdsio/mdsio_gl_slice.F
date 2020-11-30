@@ -65,7 +65,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      CHARACTER*(MAX_LEN_FNAM) dataFName
+      character*(MAX_LEN_FNAM) dataFName
       integer ip,jp,iG,jG,irec,bi,bj,ii,k,dUnit,IL
       logical exst
       _RL arr(1-oLx:sNx+oLx,Nr,nSx,nSy)
@@ -73,7 +73,7 @@ C Local variables
       Real*8 r8seg(sNx)
       logical globalFile,fileIsOpen
       integer length_of_rec
-      CHARACTER*(max_len_mbuf) msgbuf
+      character*(max_len_mbuf) msgbuf
 C     ------------------------------------------------------------------
 
 C Only do I/O if I am the master thread
@@ -306,7 +306,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      CHARACTER*(MAX_LEN_FNAM) dataFName
+      character*(MAX_LEN_FNAM) dataFName
       integer ip,jp,iG,jG,irec,bi,bj,jj,k,dUnit,IL
       logical exst
       _RL arr(1-oLy:sNy+oLy,Nr,nSx,nSy)
@@ -314,7 +314,7 @@ C Local variables
       Real*8 r8seg(sNy)
       logical globalFile,fileIsOpen
       integer length_of_rec
-      CHARACTER*(max_len_mbuf) msgbuf
+      character*(max_len_mbuf) msgbuf
 C     ------------------------------------------------------------------
 
 C Only do I/O if I am the master thread
@@ -560,7 +560,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      CHARACTER*(MAX_LEN_FNAM) dataFName,metaFName
+      character*(MAX_LEN_FNAM) dataFName,metaFName
       integer ip,jp,iG,jG,irec,bi,bj,ii,k,dUnit,IL
       Real*4 r4seg(sNx)
       Real*8 r8seg(sNx)
@@ -570,7 +570,7 @@ C Local variables
       CHARACTER*8 blank8c
       integer length_of_rec
       logical fileIsOpen
-      CHARACTER*(max_len_mbuf) msgbuf
+      character*(max_len_mbuf) msgbuf
 C     ------------------------------------------------------------------
 
       DATA dummyRL(1) / 0. _d 0 /
@@ -801,7 +801,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      CHARACTER*(MAX_LEN_FNAM) dataFName,metaFName
+      character*(MAX_LEN_FNAM) dataFName,metaFName
       integer ip,jp,iG,jG,irec,bi,bj,jj,k,dUnit,IL
       Real*4 r4seg(sNy)
       Real*8 r8seg(sNy)
@@ -811,7 +811,7 @@ C Local variables
       CHARACTER*8 blank8c
       integer length_of_rec
       logical fileIsOpen
-      CHARACTER*(max_len_mbuf) msgbuf
+      character*(max_len_mbuf) msgbuf
 C     ------------------------------------------------------------------
 
       DATA dummyRL(1) / 0. _d 0 /

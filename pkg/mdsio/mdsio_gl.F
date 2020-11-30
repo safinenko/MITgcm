@@ -66,7 +66,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      CHARACTER*(MAX_LEN_FNAM) dataFName
+      character*(MAX_LEN_FNAM) dataFName
       integer ip,jp,iG,jG,irec,bi,bj,i,j,k,dUnit,IL
       logical exst
       _RL arr(1-oLx:sNx+oLx,1-oLy:sNy+oLy,Nr,nSx,nSy)
@@ -74,11 +74,13 @@ C Local variables
       Real*8 r8seg(sNx)
       logical globalFile,fileIsOpen
       integer length_of_rec
-      CHARACTER*(max_len_mbuf) msgbuf
+      character*(max_len_mbuf) msgbuf
 cph-usesingle(
       integer ii,jj
 c     integer iG_IO,jG_IO,npe
-      INTEGER, PARAMETER :: x_size = Nx, y_size = Ny
+      integer x_size,y_size
+      PARAMETER ( x_size = Nx )
+      PARAMETER ( y_size = Ny )
       Real*4 xy_buffer_r4(x_size,y_size)
       Real*8 xy_buffer_r8(x_size,y_size)
       Real*8 global(Nx,Ny)
@@ -483,7 +485,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      CHARACTER*(MAX_LEN_FNAM) dataFName,metaFName
+      character*(MAX_LEN_FNAM) dataFName,metaFName
       integer ip,jp,iG,jG,irec,bi,bj,i,j,k,dUnit,IL
       Real*4 r4seg(sNx)
       Real*8 r8seg(sNx)
@@ -493,12 +495,14 @@ C Local variables
       CHARACTER*8 blank8c
       integer length_of_rec
       logical fileIsOpen
-      CHARACTER*(max_len_mbuf) msgbuf
+      character*(max_len_mbuf) msgbuf
 cph-usesingle(
 #ifdef ALLOW_USE_MPI
       integer ii,jj
 c     integer iG_IO,jG_IO,npe
-      INTEGER, PARAMETER :: x_size = Nx, y_size = Ny
+      integer x_size,y_size
+      PARAMETER ( x_size = Nx )
+      PARAMETER ( y_size = Ny )
       Real*4 xy_buffer_r4(x_size,y_size)
       Real*8 xy_buffer_r8(x_size,y_size)
       Real*8 global(Nx,Ny)
@@ -837,8 +841,8 @@ C Routine arguments
       character*(*) fName
       integer filePrec
       character*(2) arrType
-      integer nNz
-      INTEGER, PARAMETER :: nLocz = 1
+      integer nNz, nLocz
+      parameter (nLocz = 1)
       _RL arr_gl(sNx,nSx,nPx,sNy,nSy,nPy,nLocz)
       integer irecord
       integer myThid
@@ -849,7 +853,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      CHARACTER*(MAX_LEN_FNAM) dataFName
+      character*(MAX_LEN_FNAM) dataFName
       integer ip,jp,iG,jG,irec,bi,bj,i,j,k,dUnit,IL
       logical exst
       _RL arr(1-oLx:sNx+oLx,1-oLy:sNy+oLy,nLocz,nSx,nSy)
@@ -857,11 +861,13 @@ C Local variables
       Real*8 r8seg(sNx)
       logical globalFile,fileIsOpen
       integer length_of_rec
-      CHARACTER*(max_len_mbuf) msgbuf
+      character*(max_len_mbuf) msgbuf
 cph-usesingle(
       integer ii,jj
 c     integer iG_IO,jG_IO,npe
-      INTEGER, PARAMETER :: x_size = Nx, y_size = Ny
+      integer x_size,y_size
+      PARAMETER ( x_size = Nx )
+      PARAMETER ( y_size = Ny )
       Real*4 xy_buffer_r4(x_size,y_size)
       Real*8 xy_buffer_r8(x_size,y_size)
       Real*8 global(Nx,Ny)
@@ -1251,8 +1257,8 @@ C Routine arguments
       character*(*) fName
       integer filePrec
       character*(2) arrType
-      integer nNz
-      INTEGER, PARAMETER :: nLocz = 1
+      integer nNz, nLocz
+      parameter (nLocz = 1)
 cph(
 cph      Real arr(*)
       _RL arr_gl(sNx,nSx,nPx,sNy,nSy,nPy,nLocz)
@@ -1267,7 +1273,7 @@ C Functions
       integer ILNBLNK
       integer MDS_RECLEN
 C Local variables
-      CHARACTER*(MAX_LEN_FNAM) dataFName,metaFName
+      character*(MAX_LEN_FNAM) dataFName,metaFName
       integer ip,jp,iG,jG,irec,bi,bj,i,j,k,dUnit,IL
       Real*4 r4seg(sNx)
       Real*8 r8seg(sNx)
@@ -1277,12 +1283,14 @@ C Local variables
       CHARACTER*8 blank8c
       integer length_of_rec
       logical fileIsOpen
-      CHARACTER*(max_len_mbuf) msgbuf
+      character*(max_len_mbuf) msgbuf
 cph-usesingle(
 #ifdef ALLOW_USE_MPI
       integer ii,jj
 c     integer iG_IO,jG_IO,npe
-      INTEGER, PARAMETER :: x_size = Nx, y_size = Ny
+      integer x_size,y_size
+      PARAMETER ( x_size = Nx )
+      PARAMETER ( y_size = Ny )
       Real*4 xy_buffer_r4(x_size,y_size)
       Real*8 xy_buffer_r8(x_size,y_size)
       Real*8 global(Nx,Ny)

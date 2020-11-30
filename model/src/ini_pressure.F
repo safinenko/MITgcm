@@ -56,12 +56,12 @@ CEOP
       jMin = 1-OLy
       jMax = sNy+OLy
 
-      _BEGIN_MASTER( myThid )
-      WRITE(msgBuf,'(a)')
-     &     'Start initial hydrostatic pressure computation'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      _END_MASTER( myThid )
+C      _BEGIN_MASTER( myThid )
+C      WRITE(msgBuf,'(a)')
+C     &     'Start initial hydrostatic pressure computation'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      _END_MASTER( myThid )
 
       DO bj = myByLo(myThid), myByHi(myThid)
        DO bi = myBxLo(myThid), myBxHi(myThid)
@@ -138,12 +138,12 @@ Cml        CALL WRITE_FLD_XYZ_RL( 'PINI.',msgBuf,pressure,npiter,myThid)
          ELSE
            rmspp = SQRT(rmspp/count)
          ENDIF
-         _BEGIN_MASTER( myThid )
-         WRITE(msgBuf,'(A,I4,A,1PE20.12)')
-     &        'Iteration', npiter, ', RMS-difference =', rmspp
-         CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                       SQUEEZE_RIGHT, myThid )
-         _END_MASTER( myThid )
+C         _BEGIN_MASTER( myThid )
+C         WRITE(msgBuf,'(A,I4,A,1PE20.12)')
+C     &        'Iteration', npiter, ', RMS-difference =', rmspp
+C         CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                       SQUEEZE_RIGHT, myThid )
+C         _END_MASTER( myThid )
 
         ENDIF
 C --   end npiter loop
@@ -173,10 +173,10 @@ C     print some diagnostics
          STOP 'ABNORMAL END: S/R INI_PRESSURE'
         ENDIF
        ENDIF
-       WRITE(msgBuf,'(A)')
-     &     'Initial hydrostatic pressure converged.'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C       WRITE(msgBuf,'(A)')
+C     &     'Initial hydrostatic pressure converged.'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+CC    &                     SQUEEZE_RIGHT, myThid )
        _END_MASTER( myThid )
 
 #endif /* ALLOW_AUTODIFF */
@@ -194,11 +194,11 @@ C     print a message and DO nothing
 
       ENDIF
 
-      _BEGIN_MASTER( myThid )
-      WRITE(msgBuf,'(A)') ' '
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      _END_MASTER( myThid )
+C      _BEGIN_MASTER( myThid )
+C      WRITE(msgBuf,'(A)') ' '
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      _END_MASTER( myThid )
 
       RETURN
       END

@@ -393,7 +393,7 @@ C     !ROUTINE: APPLY_FORCING_T
 C     !INTERFACE:
       SUBROUTINE APPLY_FORCING_T(
      U                     gT_arr,
-     I                     iMin,iMax,jMin,jMax, k, bi, bj,
+     I                     iMin,iMax,jMin,jMax, k, bi, bj, secchiD,
      I                     myTime, myIter, myThid )
 C     !DESCRIPTION: \bv
 C     *==========================================================*
@@ -429,6 +429,7 @@ C     myThid    :: my Thread Id number
       INTEGER iMin, iMax, jMin, jMax
       INTEGER k, bi, bj
       _RL     myTime
+      _RL     secchiD
       INTEGER myIter
       INTEGER myThid
 
@@ -443,7 +444,8 @@ C     kSurface  :: index of surface level
       _RL tmpFac, delPI
       _RL recip_Cp
 #ifdef SHORTWAVE_HEATING
-      _RL, PARAMETER :: minusone = -1.
+      _RL minusone
+      PARAMETER (minusOne=-1.)
       _RL swfracb(2)
       INTEGER kp1
 #endif
@@ -672,7 +674,7 @@ c     IF ( usePenetratingSW ) THEN
        swfracb(1)=abs(rF(k))
        swfracb(2)=abs(rF(k+1))
        CALL SWFRAC(
-     I             2, minusOne,
+     I             2, minusOne, secchiD,
      U             swfracb,
      I             myTime, 1, myThid )
        kp1 = k+1

@@ -355,10 +355,10 @@ C--   Initialise retired parameters to unlikely value
       dQdTFile        = ' '
 
 C--   Open the parameter file
-      WRITE(msgBuf,'(A)')
-     &     ' INI_PARMS: opening model parameter file "data"'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)')
+C     &     ' INI_PARMS: opening model parameter file "data"'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
       CALL OPEN_COPY_DATA_FILE( 'data', 'INI_PARMS',
      O                          iUnit, myThid )
@@ -393,10 +393,10 @@ C--   Set default "physical" parameters
       saltVertAdvScheme = 0
       plotLevel         = UNSET_I
 C--   z,p,r coord input switching.
-      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM01'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      READ(UNIT=iUnit,NML=PARM01)
+C      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM01'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+      READ(UNIT=iUnit,NML=PARM01) !,IOSTAT=errIO)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: Error reading model parameter file "data"'
@@ -404,10 +404,10 @@ C--   z,p,r coord input switching.
        WRITE(msgBuf,'(A)') 'S/R INI_PARMS: Problem in namelist PARM01'
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ELSE
-       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM01 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C      ELSE
+C       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM01 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 
 C-    set the type of vertical coordinate and type of fluid
@@ -842,10 +842,10 @@ C     Check for retired parameters still being used
       ENDIF
 
 C--   Elliptic solver parameters
-      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM02'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      READ(UNIT=iUnit,NML=PARM02)
+C      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM02'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+      READ(UNIT=iUnit,NML=PARM02) !,IOSTAT=errIO)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: Error reading model parameter file "data"'
@@ -854,9 +854,9 @@ C--   Elliptic solver parameters
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
       ELSE
-       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM02 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM02 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 
 C--   Time stepping parameters
@@ -865,10 +865,10 @@ C--   Time stepping parameters
       latBandClimRelax  = UNSET_RL
       deltaTtracer      = 0. _d 0
       forcing_In_AB     = .TRUE.
-      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM03'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      READ(UNIT=iUnit,NML=PARM03)
+C      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM03'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+      READ(UNIT=iUnit,NML=PARM03) !,IOSTAT=errIO)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: Error reading model parameter file "data"'
@@ -876,10 +876,10 @@ C--   Time stepping parameters
        WRITE(msgBuf,'(A)') 'S/R INI_PARMS: Problem in namelist PARM03'
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ELSE
-       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM03 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C      ELSE
+C       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM03 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 C     Check for retired parameters still being used
       IF ( tauThetaClimRelax3Dim .NE. UNSET_RL ) THEN
@@ -1104,10 +1104,10 @@ C-    pCell-Mix  parameters:
         pCellMix_diffKr(k) = diffKrNrT(k)
       ENDDO
 
-      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM04'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      READ(UNIT=iUnit,NML=PARM04)
+C      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM04'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+      READ(UNIT=iUnit,NML=PARM04) !,IOSTAT=errIO)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: Error reading model parameter file "data"'
@@ -1115,10 +1115,10 @@ C-    pCell-Mix  parameters:
        WRITE(msgBuf,'(A)') 'S/R INI_PARMS: Problem in namelist PARM04'
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ELSE
-       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM04 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C      ELSE
+C       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM04 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 
 C     Check for retired parameters still being used
@@ -1401,10 +1401,10 @@ C-    Check for double definition (file & namelist)
       ENDIF
 
 C--   Input files
-      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM05'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      READ(UNIT=iUnit,NML=PARM05)
+C      WRITE(msgBuf,'(A)') ' INI_PARMS ; starts to read PARM05'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+      READ(UNIT=iUnit,NML=PARM05) !,IOSTAT=errIO)
       IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: Error reading model parameter file "data"'
@@ -1413,9 +1413,9 @@ C--   Input files
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
       ELSE
-       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM05 : OK'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT, myThid )
+C       WRITE(msgBuf,'(A)') ' INI_PARMS ; read PARM05 : OK'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT, myThid )
       ENDIF
 C     Check for retired parameters still being used
       IF ( shelfIceFile .NE. ' ' ) THEN
@@ -1512,9 +1512,9 @@ C--   Close the open data file
       CLOSE(iUnit,STATUS='DELETE')
 #endif /* SINGLE_DISK_IO */
 
-      WRITE(msgBuf,'(A)') ' INI_PARMS: finished reading file "data"'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT , myThid )
+C      WRITE(msgBuf,'(A)') ' INI_PARMS: finished reading file "data"'
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT , myThid )
 
 C--   Check whether any retired parameters were found.
       IF ( nRetired .GT. 0 ) THEN

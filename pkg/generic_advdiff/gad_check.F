@@ -39,9 +39,9 @@ CEOP
       _BEGIN_MASTER(myThid)
       errCount = 0
 
-       WRITE(msgBuf,'(A)') 'GAD_CHECK: #define ALLOW_GENERIC_ADVDIFF'
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                     SQUEEZE_RIGHT , myThid )
+C       WRITE(msgBuf,'(A)') 'GAD_CHECK: #define ALLOW_GENERIC_ADVDIFF'
+C       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                     SQUEEZE_RIGHT , myThid )
 
 C--  Print out some kee parameters :
 C    (better chance to know why it is stopping if print first & check after)

@@ -11,7 +11,7 @@ C !ROUTINE: KPP_CALC
 
 C !INTERFACE: ==========================================================
       SUBROUTINE KPP_CALC(
-     I     bi, bj, myTime, myIter, myThid )
+     I     bi, bj, myTime, myIter, myThid, secchiD )
 
 C !DESCRIPTION: \bv
 C     *==========================================================*
@@ -131,7 +131,7 @@ c     myIter :: Current iteration number in simulation
 c     myThid :: My Thread Id. number
 
       INTEGER bi, bj
-      _RL     myTime
+      _RL     myTime, secchiD
       INTEGER myIter
       INTEGER myThid
 
@@ -544,7 +544,7 @@ C     and salt are not passed to kppmix and are thus not available there.
       CALL KPPMIX (
      I       work1, shsq, dVsq, ustar
      I     , maskC(1-OLx,1-OLy,1,bi,bj)
-     I     , bo, bosol
+     I     , bo, bosol, secchiD
 #ifdef ALLOW_SALT_PLUME
      I     , boplume, SaltPlumeDepth(1-OLx,1-OLy,bi,bj)
 #ifdef SALT_PLUME_SPLIT_BASIN
@@ -627,7 +627,7 @@ C     the bottom of the mixing layer.
          ENDDO
       ENDDO
       CALL SWFRAC(
-     I     (sNx+2*OLx)*(sNy+2*OLy), minusone,
+     I     (sNx+2*OLx)*(sNy+2*OLy), minusone, secchiD,
      U     worka,
      I     myTime, myIter, myThid )
       DO j=1-OLy,sNy+OLy

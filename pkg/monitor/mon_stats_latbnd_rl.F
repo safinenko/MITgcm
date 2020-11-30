@@ -49,7 +49,8 @@ C     msgBuf :: Informational/error meesage buffer
       INTEGER km, k1, k2
       _RL tmpVal
       _RL tmpVol
-      INTEGER, PARAMETER :: nSepDim = 200
+      INTEGER nSepDim
+      PARAMETER ( nSepDim = 200 )
       _RL tileVol (nSx,nSy,nSepDim)
       _RL tileMean(nSx,nSy,nSepDim)
       _RL tileVar (nSx,nSy,nSepDim)

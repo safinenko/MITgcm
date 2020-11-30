@@ -110,13 +110,13 @@ C     msgBuf :: Informational/error message buffer
 CEOP
 
       _BEGIN_MASTER(myThid)
-      WRITE(msgBuf,'(A)')
-     &'== Packages configuration : Check & print summary =='
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
-      WRITE(msgBuf,'(A)') ' '
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)')
+C     &'== Packages configuration : Check & print summary =='
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
+C      WRITE(msgBuf,'(A)') ' '
+C      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
       _END_MASTER(myThid)
 
 C---  Start with non-standard packages (without or with non standard flag)

@@ -86,19 +86,19 @@ C       Initialise the calendar parameters
         calendarDumps = .FALSE.
 
 C       Next, read the calendar data file.
-        WRITE(msgBuf,'(A)') 'CAL_READPARMS: opening data.cal'
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT , 1)
+C        WRITE(msgBuf,'(A)') 'CAL_READPARMS: opening data.cal'
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT , 1)
 
         CALL OPEN_COPY_DATA_FILE(
      I                          'data.cal', 'CAL_READPARMS',
      O                          iUnit,
      I                          myThid )
         READ(unit = iUnit, nml = cal_nml)
-        WRITE(msgBuf,'(A)')
-     &     'CAL_READPARMS: finished reading data.cal'
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                SQUEEZE_RIGHT , 1)
+C        WRITE(msgBuf,'(A)')
+C     &     'CAL_READPARMS: finished reading data.cal'
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                SQUEEZE_RIGHT , 1)
 #ifdef SINGLE_DISK_IO
         CLOSE(iUnit)
 #else

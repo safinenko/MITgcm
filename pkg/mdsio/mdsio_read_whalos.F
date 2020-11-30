@@ -68,13 +68,17 @@ C     sNxWh :: x tile size with halo included
 C     sNyWh :: y tile size with halo included
 C     pocNyWh :: processor sum of sNyWh
 C     gloNyWh :: global sum of sNyWh
-      INTEGER, PARAMETER :: sNxWh = sNx+2*Olx
-      INTEGER, PARAMETER :: sNyWh = sNy+2*Oly
-      INTEGER, PARAMETER :: procNyWh = sNyWh*nSy*nSx
-      INTEGER, PARAMETER :: gloNyWh = procNyWh*nPy*nPx
+      INTEGER sNxWh
+      INTEGER sNyWh
+      INTEGER procNyWh
+      INTEGER gloNyWh
+      PARAMETER ( sNxWh = sNx+2*Olx )
+      PARAMETER ( sNyWh = sNy+2*Oly )
+      PARAMETER ( procNyWh = sNyWh*nSy*nSx )
+      PARAMETER ( gloNyWh = procNyWh*nPy*nPx )
 
-      CHARACTER*(MAX_LEN_FNAM) pfName
-      CHARACTER*(MAX_LEN_MBUF) msgBuf
+      character*(MAX_LEN_FNAM) pfName
+      character*(MAX_LEN_MBUF) msgBuf
       integer IL
       integer bx,by
 

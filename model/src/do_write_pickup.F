@@ -99,10 +99,10 @@ C-    Write main model pickup
         _BEGIN_MASTER(myThid)
 C-    Write information to stdout so there is a record that
 C     writing the pickup was completed
-        WRITE(msgBuf,'(A11,I10,1X,A10)')
-     &     "%CHECKPOINT ", myIter, suffix
-        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
-     &                    SQUEEZE_RIGHT, myThid )
+C        WRITE(msgBuf,'(A11,I10,1X,A10)')
+C     &     "%CHECKPOINT ", myIter, suffix
+C        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
+C     &                    SQUEEZE_RIGHT, myThid )
 
 C-    Update pickup level for the next time we write pickup
         IF ( .NOT. permPickup ) THEN

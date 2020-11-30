@@ -138,7 +138,7 @@ c       ENDDO
 
 C--     Calculate [dxC], zonal length between cell centers
         DO j=1-OLy,sNy+OLy
-         DO i=1-OLx+1,sNx+OLx
+         DO i=1-OLx+1,sNx+OLx ! NOTE range
 C         by averaging
           dxC(i,j,bi,bj) = 0.5 _d 0*(dxF(i,j,bi,bj)+dxF(i-1,j,bi,bj))
 C         by formula
@@ -153,7 +153,7 @@ c         dxC(i,j,bi,bj) = rSphere*COS(deg2rad*lat)*dlon*deg2rad
         ENDDO
 
 C--     Calculate [dyC], meridional length between cell centers
-        DO j=1-OLy+1,sNy+OLy
+        DO j=1-OLy+1,sNy+OLy ! NOTE range
          DO i=1-OLx,sNx+OLx
 C         by averaging
           dyC(i,j,bi,bj) = 0.5 _d 0*(dyF(i,j,bi,bj)+dyF(i,j-1,bi,bj))
@@ -167,8 +167,8 @@ c         dyC(i,j,bi,bj) = rSphere*dlat*deg2rad
         ENDDO
 
 C--     Calculate [dxV,dyU], length between velocity points (through corners)
-        DO j=1-OLy+1,sNy+OLy
-         DO i=1-OLx+1,sNx+OLx
+        DO j=1-OLy+1,sNy+OLy ! NOTE range
+         DO i=1-OLx+1,sNx+OLx ! NOTE range
 C         by averaging (method I)
           dxV(i,j,bi,bj) = 0.5 _d 0*(dxG(i,j,bi,bj)+dxG(i-1,j,bi,bj))
           dyU(i,j,bi,bj) = 0.5 _d 0*(dyG(i,j,bi,bj)+dyG(i,j-1,bi,bj))
@@ -197,7 +197,7 @@ C--     Calculate vertical face area (tracer cells)
 
 C--     Calculate vertical face area (u cells)
         DO j=1-OLy,sNy+OLy
-         DO i=1-OLx+1,sNx+OLx
+         DO i=1-OLx+1,sNx+OLx ! NOTE range
 C         by averaging
           rAw(i,j,bi,bj) = 0.5 _d 0*(rA(i,j,bi,bj)+rA(i-1,j,bi,bj))
 C         by formula
