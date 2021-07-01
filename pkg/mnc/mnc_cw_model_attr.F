@@ -56,11 +56,6 @@ C     Global attributes
      &     THISUSER ,
      &     myThid )
 #endif
-#ifdef THISHOST
-      CALL MNC_FILE_ADD_ATTR_STR(fname, 'build_host',
-     &     THISHOST ,
-     &     myThid )
-#endif
 #ifdef THISDATE
       CALL MNC_FILE_ADD_ATTR_STR(fname, 'build_date',
      &     THISDATE ,
